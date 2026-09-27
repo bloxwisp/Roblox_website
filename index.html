@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Goodblox — actually good Roblox games to play. A hand-picked list of quality games, not generic clones or brainrot.">
+<meta name="description" content="Actually good Roblox games to play — a hand-picked list of quality games, not generic clones or brainrot.">
 <meta name="keywords" content="Goodblox, Roblox games, good games, hand-picked, curated, gaming">
 <meta name="author" content="Goodblox">
 <link rel="icon" href="favicon.ico" sizes="48x48 96x96">
@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://guyhugi.github.io/Roblox_website/">
 <meta property="og:site_name" content="Goodblox">
 <meta property="og:locale" content="en">
-<meta property="og:title" content="Goodblox — Actually Good Roblox Games to Play">
+<meta property="og:title" content="Actually Good Roblox Games to Play — Goodblox">
 <meta property="og:description" content="Skip the slop. Play something good. Hand-picked Roblox games, not trending garbage.">
 <meta property="og:image" content="https://guyhugi.github.io/Roblox_website/images/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,10 +22,10 @@
 <meta property="og:url" content="https://guyhugi.github.io/Roblox_website/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Goodblox — Actually Good Roblox Games">
+<meta name="twitter:title" content="Actually Good Roblox Games to Play — Goodblox">
 <meta name="twitter:description" content="Hand-curated Roblox games that actually deserve your time. Skip the garbage, play something good.">
 <meta name="twitter:image" content="https://guyhugi.github.io/Roblox_website/images/og-image.png">
-<title>Goodblox — Actually Good Roblox Games to Play</title>
+<title>Actually Good Roblox Games to Play — Goodblox</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -707,7 +707,7 @@
 
 <section class="hero">
   <div class="eyebrow"><span class="pip"></span><span data-i18n="eyebrow">human curated // not the algorithm</span></div>
-  <h1 data-i18n-html="hero"></h1>
+  <h1 data-i18n-html="hero">Skip the <span class="accent">slop.</span><br>Play good Roblox games.</h1>
   <p class="sub" data-i18n="sub">Every game here was picked by hand, not because it's trending, but because it's actually worth your time. No generic simulators, no clones, no brainrot.</p>
   <div class="stats" id="stats"></div>
 </section>
@@ -1235,12 +1235,12 @@ async function loadVisibleGameImages(){
 /* ---------- I18N ---------- */
 const I18N = {
   en:{ eyebrow:"human curated // not the algorithm",
-    heroHtml:'Skip the <span class="accent">slop.</span><br>Play something good.',
+    heroHtml:'Skip the <span class="accent">slop.</span><br>Play good Roblox games.',
     sub:"Every game here was picked by hand, not because it's trending, but because it's actually worth your time. No generic simulators, no clones, no brainrot.",
     statGames:"curated picks", statCats:"categories", statBrainrot:"brainrot",
     all:"All", games:"games", playNow:"Play now →",
     topRated:"Your Top Rated", topRatedEmpty:"Rate a few games (tap the stars) to build your own top list.",
-    logoTag:"good roblox games to play", documentTitle:"Goodblox — Actually Good Roblox Games to Play", modalHint:"Open {game} directly in Roblox.", playOnRoblox:"Play on Roblox →",
+    logoTag:"good roblox games to play", documentTitle:"Actually Good Roblox Games to Play — Goodblox", modalHint:"Open {game} directly in Roblox.", playOnRoblox:"Play on Roblox →",
     footerCredit:"A hand-picked list, updated over time — every game here earns its spot on quality, not hashtags.",
     footerMade:"BUILT BY ONE DEVELOPER, AGAINST THE NOISE.",
     ratingsNote:"Ratings are saved on your device only.",
@@ -2764,6 +2764,46 @@ function applyMetaTags(t){
   TWITTER_TITLE.content = t.documentTitle;
   OG_LOCALE.content = CURRENT_LANG === 'he' ? 'he_IL' : CURRENT_LANG;
 }
+
+/* ---------- STRUCTURED DATA (ItemList of every curated game) ---------- */
+const SITE_URL = 'https://guyhugi.github.io/Roblox_website/';
+
+function robloxSearchUrl(gameName){
+  return `https://www.roblox.com/discover?Keyword=${encodeURIComponent(gameName)}`;
+}
+
+function buildGameListSchema(){
+  const games = DATA.flatMap(section => section.games);
+  return {
+    "@context": "https://schema.org",
+    "@type": "ItemList",
+    "@id": `${SITE_URL}#gamelist`,
+    name: "Actually good Roblox games, hand-picked",
+    description: "A hand-curated list of Roblox games worth playing — picked by a human, not the algorithm.",
+    url: SITE_URL,
+    numberOfItems: games.length,
+    itemListOrder: "https://schema.org/ItemListUnordered",
+    itemListElement: games.map((game, index) => ({
+      "@type": "ListItem",
+      position: index + 1,
+      item: {
+        "@type": "VideoGame",
+        name: game.name,
+        description: game.desc,
+        url: robloxSearchUrl(game.name),
+        applicationCategory: "Game",
+        gamePlatform: "Roblox"
+      }
+    }))
+  };
+}
+
+function renderStructuredData(){
+  const script = document.createElement('script');
+  script.type = 'application/ld+json';
+  script.textContent = JSON.stringify(buildGameListSchema());
+  document.head.appendChild(script);
+}
 function applyAccessibilityLabels(t){
   if(fullScreenBtn){
     fullScreenBtn.setAttribute('aria-label', t.a11yFullScreen);
@@ -2879,6 +2919,7 @@ if (fullScreenBtn) {
   syncFullscreenButton();
 }
 
+renderStructuredData();
 updateLanguageButton('en');
 applyLang('en');
 </script>
