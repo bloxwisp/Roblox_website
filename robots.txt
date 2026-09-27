@@ -11,6 +11,7 @@ Disallow: /logo-smiley.html
 Disallow: /contact-sheet.html
 Disallow: /test-google-search.html
 Disallow: /google-seo-fix.html
+Disallow: /preview-uipro.html
 Disallow: /generate-icons.ps1
 
 Sitemap: https://guyhugi.github.io/Roblox_website/sitemap.xml
