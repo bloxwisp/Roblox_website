@@ -333,7 +333,6 @@
   .card-thumb{
     width:100%; aspect-ratio:500/280; overflow:hidden; position:relative;
     background:var(--surface-2);
-    border-bottom:3px solid var(--accent);
     flex-shrink:0;
   }
   .card-thumb img{
@@ -372,19 +371,6 @@
   .card p{
     font-size:13.5px; color:var(--fog-dim); flex:1; position:relative; z-index:1;
   }
-
-  .signal-meter{display:flex; gap:3px; align-items:flex-end; height:15px; flex-shrink:0;}
-  .signal-meter span{
-    width:4px; display:block; background:var(--line); border-radius:1px;
-  }
-  .signal-meter span:nth-child(1){height:30%;}
-  .signal-meter span:nth-child(2){height:50%;}
-  .signal-meter span:nth-child(3){height:70%;}
-  .signal-meter span:nth-child(4){height:85%;}
-  .signal-meter span:nth-child(5){height:100%;}
-  .signal-meter.lvl-3 span:nth-child(-n+3){background:var(--accent);}
-  .signal-meter.lvl-4 span:nth-child(-n+4){background:var(--accent);}
-  .signal-meter.lvl-5 span{background:var(--accent);}
 
   .card-foot{
     display:flex; justify-content:space-between; align-items:center;
@@ -439,7 +425,6 @@
   .modal-thumb{
     width:100%; aspect-ratio:500/280;
     background:var(--surface-2);
-    border-bottom:3px solid var(--accent);
     overflow:hidden;
   }
   .modal-thumb img{width:100%; height:100%; object-fit:contain; display:block; padding:10px;}
@@ -635,7 +620,6 @@
     <div class="modal-body">
       <div class="modal-top">
         <h2 id="modalTitle"></h2>
-        <div class="signal-meter" id="modalMeter"><span></span><span></span><span></span><span></span><span></span></div>
       </div>
       <p id="modalDesc"></p>
       <div class="modal-meta">
@@ -2403,7 +2387,6 @@ function renderSections(){
             <div class="card-body">
               <div class="card-top">
                 <h3>${translatedName(g.name)}</h3>
-                <div class="signal-meter lvl-${g.lvl}"><span></span><span></span><span></span><span></span><span></span></div>
               </div>
               <p>${translatedDesc(g.name, g.desc)}</p>
               <div class="card-foot">
@@ -2536,8 +2519,6 @@ function openModal(cat, idx){
   });
   document.getElementById('modalHint').appendChild(document.createElement('br'));
   document.getElementById('modalHint').appendChild(playBtn);
-  const meter = document.getElementById('modalMeter');
-  meter.className = 'signal-meter lvl-' + g.lvl;
 
   modalOverlay.classList.add('open');
   document.body.style.overflow = 'hidden';
