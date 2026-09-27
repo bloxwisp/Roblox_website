@@ -1,19 +1,19 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="NoSlopBlox">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 64 64" role="img" aria-label="BloxWisp">
   <defs>
-    <linearGradient id="noslopbloxTile" x1=".15" y1="0" x2=".85" y2="1">
+    <linearGradient id="bloxwispTile" x1=".15" y1="0" x2=".85" y2="1">
       <stop offset="0" stop-color="#ffe066"/>
       <stop offset=".55" stop-color="#ffc93c"/>
       <stop offset="1" stop-color="#f5a300"/>
     </linearGradient>
-    <radialGradient id="noslopbloxGloss" cx=".34" cy=".2" r=".85">
+    <radialGradient id="bloxwispGloss" cx=".34" cy=".2" r=".85">
       <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
       <stop offset=".6" stop-color="#fff" stop-opacity=".04"/>
       <stop offset="1" stop-color="#fff" stop-opacity="0"/>
     </radialGradient>
   </defs>
   <!-- blox tile: a squircle, the Roblox nod -->
-    <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#noslopbloxTile)"/>
-    <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#noslopbloxGloss)"/>
+    <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#bloxwispTile)"/>
+    <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#bloxwispGloss)"/>
   <rect x="3.75" y="3.75" width="56.5" height="56.5" rx="18.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
   <ellipse cx="19" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
   <ellipse cx="45" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
