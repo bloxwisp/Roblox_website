@@ -1,45 +1,60 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <title>Actually Good Roblox Games - Search Preview</title>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Actually good Roblox games to play - hand-picked list of quality games, not generic clones or brainrot.">
-    <meta property="og:title" content="Actually Good Roblox Games to Play">
-    <meta property="og:description" content="Skip the slop. Play something good. Hand-picked Roblox games, not trending garbage.">
-    <meta property="og:image" content="https://raw.githubusercontent.com/yourusername/roblox-games-website/main/game-icon.jpg">
-    <meta property="og:url" content="https://actuallygoodrobloxgames.com">
-    <meta property="og:type" content="website">
-    <meta name="twitter:card" content="summary_large_image">
-    <meta name="twitter:title" content="Actually Good Roblox Games">
-    <meta name="twitter:description" content="Hand-curated Roblox games that actually deserve your time. Skip the garbage, play something good.">
-    <meta name="twitter:image" content="https://raw.githubusercontent.com/yourusername/roblox-games-website/main/game-icon.jpg">
-    <title>Actually Good Roblox Games</title>
-    <style>
-        body { font-family: Arial, sans-serif; max-width: 600px; margin: 0 auto; padding: 20px; }
-        .google-preview { border: 1px solid #ddd; padding: 20px; margin: 20px 0; border-radius: 8px; }
-        .google-title { color: #1a0dab; font-size: 20px; margin-bottom: 8px; text-decoration: none; }
-        .google-url { color: #006621; font-size: 14px; margin-bottom: 12px; }
-        .google-description { color: #545454; font-size: 14px; margin-bottom: 12px; }
-        .google-image { max-width: 100%; height: auto; border-radius: 8px; }
-    </style>
+    <link rel="icon" href="favicon.ico" sizes="48x48 96x96">
+    <link rel="icon" type="image/svg+xml" href="images/logo-mark.svg">
+    <title>Goodblox — Google Search Preview</title>
 </head>
 <body>
-    <h1>Google Search Preview Test</h1>
-    
-    <div class="google-preview">
-        <div class="google-title">
-            <a href="https://actuallygoodrobloxgames.com">Actually Good Roblox Games to Play</a>
-        </div>
-        <div class="google-url">https://actuallygoodrobloxgames.com</div>
-        <div class="google-description">
-            Skip the slop. Play something good. Hand-picked Roblox games, not trending garbage.
-        </div>
-        <img src="https://raw.githubusercontent.com/yourusername/roblox-games-website/main/game-icon.jpg" alt="Actually Good Roblox Games" class="google-image">
+    <h1>How "Goodblox" appears in Google</h1>
+    <p>This mock shows the site name and logo that Google displays next to a result once it has crawled the page and structured data.</p>
+
+    <div class="search-bar">
+        <svg viewBox="0 0 24 24" aria-hidden="true"><path fill="#4285f4" d="M11 4a7 7 0 1 0 4.2 12.6l4.1 4.1 1.4-1.4-4.1-4.1A7 7 0 0 0 11 4zm0 2a5 5 0 1 1 0 10 5 5 0 0 1 0-10z"/></svg>
+        <span>goodblox</span>
     </div>
-    
-    <h2>Before vs After Comparison</h2>
-    <p><strong>BEFORE (Broken):</strong> No images in Google search, only text snippet</p>
-    <p><strong>AFTER (Fixed):</strong> Static images display properly in Google search results</p>
+
+    <div class="result">
+        <div class="result-head">
+            <img class="favicon" src="images/favicon-96.png" alt="Goodblox logo" width="26" height="26">
+            <div class="site">
+                <span class="site-name">Goodblox</span>
+                <span class="site-url">https://actuallygoodrobloxgames.com</span>
+            </div>
+        </div>
+        <a class="result-title" href="index.html">Goodblox — Actually Good Roblox Games to Play</a>
+        <p class="result-desc">Goodblox is a hand-picked list of actually good Roblox games to play. No generic simulators, no clones, no brainrot — every game earns its spot on quality.</p>
+    </div>
+
+    <h2>What makes this show up</h2>
+    <ul>
+        <li><strong>Name "Goodblox"</strong> — from the <code>WebSite</code> structured data (<code>name</code>) and <code>og:site_name</code></li>
+        <li><strong>Logo / favicon</strong> — <code>favicon.ico</code> (48px + 96px), plus PNG and SVG fallbacks</li>
+        <li><strong>Title &amp; snippet</strong> — <code>&lt;title&gt;</code> and <code>meta description</code></li>
+        <li><strong>Knowledge-panel logo</strong> — <code>Organization</code> logo image (512×512)</li>
+    </ul>
+    <p class="note">Google only shows these once the site is publicly reachable on the real domain and has been re-crawled.</p>
+
+    <style>
+        body { font-family: Arial, sans-serif; max-width: 680px; margin: 0 auto; padding: 28px 20px 60px; color: #202124; }
+        h1 { font-size: 22px; }
+        h2 { font-size: 17px; margin-top: 34px; }
+        .search-bar { display: flex; align-items: center; gap: 12px; border: 1px solid #dfe1e5; border-radius: 24px; padding: 12px 18px; margin: 22px 0 26px; box-shadow: 0 1px 6px rgba(32,33,36,.18); font-size: 16px; color: #202124; }
+        .search-bar svg { width: 20px; height: 20px; flex: none; }
+        .result { border: 1px solid #ebebeb; border-radius: 10px; padding: 16px 18px; background: #fff; }
+        .result-head { display: flex; align-items: center; gap: 12px; margin-bottom: 8px; }
+        .favicon { border-radius: 50%; }
+        .site { display: flex; flex-direction: column; line-height: 1.3; }
+        .site-name { font-size: 14px; color: #202124; }
+        .site-url { font-size: 12px; color: #4d5156; }
+        .result-title { display: block; font-size: 20px; color: #1a0dab; text-decoration: none; margin-bottom: 4px; }
+        .result-title:hover { text-decoration: underline; }
+        .result-desc { margin: 0; font-size: 14px; color: #4d5156; line-height: 1.58; }
+        li { margin-bottom: 6px; font-size: 14px; }
+        code { background: #f1f3f4; padding: 1px 5px; border-radius: 4px; font-size: 13px; }
+        .note { font-size: 13px; color: #5f6368; margin-top: 18px; }
+    </style>
 </body>
 </html>

@@ -3,19 +3,56 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Actually good Roblox games to play - hand-picked list of quality games, not generic clones or brainrot.">
-<meta name="keywords" content="Roblox games, good games, hand-picked, curated, gaming">
-<meta name="author" content="Actually Good Roblox Games">
-<meta property="og:title" content="Actually Good Roblox Games to Play">
+<meta name="description" content="Goodblox — actually good Roblox games to play. A hand-picked list of quality games, not generic clones or brainrot.">
+<meta name="keywords" content="Goodblox, Roblox games, good games, hand-picked, curated, gaming">
+<meta name="author" content="Goodblox">
+<link rel="icon" href="favicon.ico" sizes="48x48 96x96">
+<link rel="icon" type="image/svg+xml" href="images/logo-mark.svg">
+<link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96.png">
+<link rel="apple-touch-icon" href="images/apple-touch-icon.png">
+<meta name="theme-color" content="#0a0912">
+<meta property="og:site_name" content="Goodblox">
+<meta property="og:title" content="Goodblox — Actually Good Roblox Games to Play">
 <meta property="og:description" content="Skip the slop. Play something good. Hand-picked Roblox games, not trending garbage.">
-<meta property="og:image" content="https://raw.githubusercontent.com/yourusername/roblox-games-website/main/game-icon.jpg">
+<meta property="og:image" content="https://actuallygoodrobloxgames.com/images/og-image.png">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
 <meta property="og:url" content="https://actuallygoodrobloxgames.com">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="Actually Good Roblox Games">
+<meta name="twitter:title" content="Goodblox — Actually Good Roblox Games">
 <meta name="twitter:description" content="Hand-curated Roblox games that actually deserve your time. Skip the garbage, play something good.">
-<meta name="twitter:image" content="https://raw.githubusercontent.com/yourusername/roblox-games-website/main/game-icon.jpg">
-<title>Actually Good Roblox Games to Play</title>
+<meta name="twitter:image" content="https://actuallygoodrobloxgames.com/images/og-image.png">
+<title>Goodblox — Actually Good Roblox Games to Play</title>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@graph": [
+    {
+      "@type": "WebSite",
+      "@id": "https://actuallygoodrobloxgames.com/#website",
+      "url": "https://actuallygoodrobloxgames.com/",
+      "name": "Goodblox",
+      "alternateName": "Goodblox — Actually Good Roblox Games",
+      "description": "Hand-picked, actually good Roblox games to play — curated by hand, not by algorithm.",
+      "inLanguage": "en",
+      "publisher": { "@id": "https://actuallygoodrobloxgames.com/#organization" }
+    },
+    {
+      "@type": "Organization",
+      "@id": "https://actuallygoodrobloxgames.com/#organization",
+      "name": "Goodblox",
+      "url": "https://actuallygoodrobloxgames.com/",
+      "logo": {
+        "@type": "ImageObject",
+        "url": "https://actuallygoodrobloxgames.com/images/logo.png",
+        "width": 512,
+        "height": 512
+      }
+    }
+  ]
+}
+</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@300;400;500;700;900&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
 <style>
@@ -80,21 +117,28 @@
     flex-wrap:wrap;
   }
   .logo{
-    font-family:'Archivo Black',sans-serif;
-    font-size:13px;
-    letter-spacing:.3px;
-    color:#fff;
     display:flex; align-items:center; gap:10px;
-    text-transform:lowercase;
-    line-height:1.2;
-    flex-shrink:0;
+    flex-shrink:0; color:#fff; text-decoration:none;
   }
-  .logo .dot{
-    width:9px;height:9px;border-radius:50%;
-    background:var(--signal);
-    box-shadow:0 0 14px 2px rgba(244,224,77,.7);
-    animation:pulse 1.8s ease-in-out infinite;
-    flex-shrink:0;
+  .logo-mark{
+    width:38px; height:38px; flex-shrink:0;
+    filter:drop-shadow(0 4px 14px rgba(255,201,60,.35));
+  }
+  .logo-text{display:flex; flex-direction:column; line-height:1.1;}
+  .logo-name{
+    font-family:'Archivo Black',sans-serif;
+    font-size:17px;
+    letter-spacing:.2px;
+    color:#fff;
+    text-transform:lowercase;
+  }
+  .logo-name-accent{color:var(--signal);}
+  .logo-tag{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:9.5px;
+    letter-spacing:.6px;
+    text-transform:uppercase;
+    color:var(--fog-dim);
   }
   @keyframes pulse{0%,100%{opacity:1;transform:scale(1);}50%{opacity:.45;transform:scale(.65);}}
 
@@ -541,7 +585,9 @@
   @media(max-width:380px){
     .grid{grid-template-columns:1fr 1fr; gap:8px;}
     h1{font-size:28px;}
-    .logo{font-size:12px;}
+    .logo-mark{width:32px; height:32px;}
+    .logo-name{font-size:15px;}
+    .logo-tag{font-size:8.5px;}
   }
 
   .hidden{display:none !important;}
@@ -558,7 +604,34 @@
 <div class="grain-vignette"></div>
 
 <header>
-  <div class="logo"><span class="dot"></span><span data-i18n-html="logo">actually good<br>roblox games to play</span></div>
+  <div class="logo">
+    <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
+      <defs>
+        <linearGradient id="logoBlox" x1=".15" y1="0" x2=".85" y2="1">
+          <stop offset="0" stop-color="#ffe066"/>
+          <stop offset=".55" stop-color="#ffc93c"/>
+          <stop offset="1" stop-color="#f5a300"/>
+        </linearGradient>
+        <radialGradient id="logoBloxGloss" cx=".34" cy=".2" r=".85">
+          <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
+          <stop offset=".6" stop-color="#fff" stop-opacity=".04"/>
+          <stop offset="1" stop-color="#fff" stop-opacity="0"/>
+        </radialGradient>
+      </defs>
+      <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#logoBlox)"/>
+      <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#logoBloxGloss)"/>
+      <rect x="3.75" y="3.75" width="56.5" height="56.5" rx="18.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
+      <ellipse cx="19" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
+      <ellipse cx="45" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
+      <circle cx="23" cy="27" r="3.6" fill="#3a2600"/>
+      <circle cx="41" cy="27" r="3.6" fill="#3a2600"/>
+      <path d="M21 38 Q32 49 43 38" fill="none" stroke="#3a2600" stroke-width="4.6" stroke-linecap="round"/>
+    </svg>
+    <span class="logo-text">
+      <span class="logo-name">good<span class="logo-name-accent">blox</span></span>
+      <span class="logo-tag" data-i18n="logoTag">good roblox games to play</span>
+    </span>
+  </div>
   <div class="header-right">
     <nav class="filters" id="filters"></nav>
     <button class="full-screen-btn" id="fullScreenBtn" type="button" aria-label="Toggle full screen">⤢</button>
@@ -1074,7 +1147,7 @@ const I18N = {
     statGames:"curated picks", statCats:"categories", statBrainrot:"brainrot",
     all:"All", games:"games", playNow:"Play now →",
     topRated:"Your Top Rated", topRatedEmpty:"Rate a few games (tap the stars) to build your own top list.",
-    logoHtml:"actually good<br>roblox games to play", modalHint:"Open {game} directly in Roblox.", playOnRoblox:"Play on Roblox →",
+    logoTag:"good roblox games to play", documentTitle:"Goodblox — Actually Good Roblox Games to Play", modalHint:"Open {game} directly in Roblox.", playOnRoblox:"Play on Roblox →",
     footerCredit:"A hand-picked list, updated over time — every game here earns its spot on quality, not hashtags.",
     footerMade:"BUILT BY ONE DEVELOPER, AGAINST THE NOISE.",
     ratingsNote:"Ratings are saved on your device only." },
@@ -1084,7 +1157,7 @@ const I18N = {
     statGames:"משחקים נבחרים", statCats:"קטגוריות", statBrainrot:"בריינרוט",
     all:"הכול", games:"משחקים", playNow:"שחקו עכשיו ←",
     topRated:"המשחקים המדורגים שלך", topRatedEmpty:"דרגו כמה משחקים (לחצו על הכוכבים) כדי לבנות רשימת מועדפים אישית.",
-    logoHtml:"משחקי רובלוקס<br>שבאמת טובים", modalHint:"פתחו את {game} ישירות ברובלוקס.", playOnRoblox:"שחקו ברובלוקס ←",
+    logoTag:"משחקי רובלוקס שבאמת טובים", documentTitle:"Goodblox — משחקי רובלוקס שבאמת טובים", modalHint:"פתחו את {game} ישירות ברובלוקס.", playOnRoblox:"שחקו ברובלוקס ←",
     footerCredit:"רשימה שנבחרת ידנית, מתעדכנת עם הזמן — כל משחק כאן הרוויח את מקומו באיכות, לא בהאשטגים.",
     footerMade:"נבנה על ידי מפתח אחד, נגד הרעש.",
     ratingsNote:"הדירוגים נשמרים רק במכשיר שלכם." },
@@ -1094,7 +1167,7 @@ const I18N = {
     statGames:"selecciones", statCats:"categorías", statBrainrot:"basura",
     all:"Todos", games:"juegos", playNow:"Jugar ahora →",
     topRated:"Tus mejor valorados", topRatedEmpty:"Valora algunos juegos (toca las estrellas) para crear tu propia lista.",
-    logoHtml:"juegos de roblox<br>que sí valen la pena", modalHint:"Abre {game} directamente en Roblox.", playOnRoblox:"Jugar en Roblox →",
+    logoTag:"juegos de roblox que sí valen la pena", documentTitle:"Goodblox — Juegos de Roblox que sí valen la pena", modalHint:"Abre {game} directamente en Roblox.", playOnRoblox:"Jugar en Roblox →",
     footerCredit:"Una lista curada a mano, actualizada con el tiempo — cada juego se gana su lugar por calidad, no por hashtags.",
     footerMade:"CREADO POR UN SOLO DESARROLLADOR, CONTRA EL RUIDO.",
     ratingsNote:"Las valoraciones se guardan solo en tu dispositivo." },
@@ -1104,7 +1177,7 @@ const I18N = {
     statGames:"sélections", statCats:"catégories", statBrainrot:"contenu inutile",
     all:"Tous", games:"jeux", playNow:"Jouer maintenant →",
     topRated:"Vos mieux notés", topRatedEmpty:"Notez quelques jeux (touchez les étoiles) pour créer votre liste.",
-    logoHtml:"bons jeux roblox<br>à essayer", modalHint:"Ouvrez {game} directement dans Roblox.", playOnRoblox:"Jouer sur Roblox →",
+    logoTag:"bons jeux roblox à essayer", documentTitle:"Goodblox — Bons jeux Roblox à essayer", modalHint:"Ouvrez {game} directement dans Roblox.", playOnRoblox:"Jouer sur Roblox →",
     footerCredit:"Une liste triée à la main, mise à jour au fil du temps — chaque jeu mérite sa place par sa qualité.",
     footerMade:"CRÉÉ PAR UN SEUL DÉVELOPPEUR, CONTRE LE BRUIT.",
     ratingsNote:"Les notes sont enregistrées uniquement sur votre appareil." },
@@ -1114,7 +1187,7 @@ const I18N = {
     statGames:"escolhas", statCats:"categorias", statBrainrot:"porcaria",
     all:"Todos", games:"jogos", playNow:"Jogar agora →",
     topRated:"Seus mais bem avaliados", topRatedEmpty:"Avalie alguns jogos (toque nas estrelas) para montar sua lista.",
-    logoHtml:"bons jogos de roblox<br>para jogar", modalHint:"Abra {game} diretamente no Roblox.", playOnRoblox:"Jogar no Roblox →",
+    logoTag:"bons jogos de roblox para jogar", documentTitle:"Goodblox — Bons jogos de Roblox para jogar", modalHint:"Abra {game} diretamente no Roblox.", playOnRoblox:"Jogar no Roblox →",
     footerCredit:"Uma lista feita à mão, atualizada com o tempo — cada jogo ganha seu lugar pela qualidade.",
     footerMade:"CONSTRUÍDO POR UM ÚNICO DESENVOLVEDOR, CONTRA O RUÍDO.",
     ratingsNote:"As avaliações são salvas apenas no seu dispositivo." },
@@ -1124,7 +1197,7 @@ const I18N = {
     statGames:"Auswahl", statCats:"Kategorien", statBrainrot:"Brainrot",
     all:"Alle", games:"Spiele", playNow:"Jetzt spielen →",
     topRated:"Deine Top-Bewertungen", topRatedEmpty:"Bewerte ein paar Spiele (tippe auf die Sterne), um deine eigene Liste zu erstellen.",
-    logoHtml:"wirklich gute roblox-spiele<br>zum spielen", modalHint:"Öffne {game} direkt in Roblox.", playOnRoblox:"Auf Roblox spielen →",
+    logoTag:"wirklich gute roblox-spiele zum spielen", documentTitle:"Goodblox — Wirklich gute Roblox-Spiele zum Spielen", modalHint:"Öffne {game} direkt in Roblox.", playOnRoblox:"Auf Roblox spielen →",
     footerCredit:"Eine handverlesene Liste, die mit der Zeit aktualisiert wird — jedes Spiel verdient sich seinen Platz durch Qualität.",
     footerMade:"GEBAUT VON EINEM ENTWICKLER, GEGEN DAS RAUSCHEN.",
     ratingsNote:"Bewertungen werden nur auf deinem Gerät gespeichert." },
@@ -1134,7 +1207,7 @@ const I18N = {
     statGames:"اختيارات مختارة", statCats:"فئات", statBrainrot:"ضوضاء",
     all:"الكل", games:"ألعاب", playNow:"العب الآن ←",
     topRated:"أفضل ألعابك تقييمًا", topRatedEmpty:"قيّم بعض الألعاب لبناء قائمتك الخاصة.",
-    logoHtml:"ألعاب روبلوكس<br>تستحق اللعب", modalHint:"افتح {game} مباشرة في روبلوكس.", playOnRoblox:"العب على روبلوكس ←",
+    logoTag:"ألعاب روبلوكس تستحق اللعب", documentTitle:"Goodblox — ألعاب روبلوكس تستحق اللعب", modalHint:"افتح {game} مباشرة في روبلوكس.", playOnRoblox:"العب على روبلوكس ←",
     footerCredit:"قائمة مختارة يدويًا وتتطور مع الوقت — كل لعبة هنا تستحق مكانها بسبب جودتها.",
     footerMade:"بُنيت بواسطة مطور واحد، ضد الضوضاء.",
     ratingsNote:"يتم حفظ التقييمات على جهازك فقط." },
@@ -1143,21 +1216,21 @@ const I18N = {
     sub:"ここにあるゲームは流行っているからではなく、本当に時間を使う価値があるものを手作業で選びました。",
     statGames:"厳選ゲーム", statCats:"カテゴリー", statBrainrot:"ノイズ",
     all:"すべて", games:"ゲーム", playNow:"今すぐ遊ぶ →", topRated:"高評価のゲーム", topRatedEmpty:"ゲームを評価して自分のリストを作りましょう。",
-    logoHtml:"本当に良いロブロックスゲーム<br>を遊ぼう", modalHint:"{game}をRobloxで直接開く。", playOnRoblox:"Robloxで遊ぶ →",
+    logoTag:"本当に良いロブロックスゲームを遊ぼう", documentTitle:"Goodblox — 本当に良いロブロックスゲームを遊ぼう", modalHint:"{game}をRobloxで直接開く。", playOnRoblox:"Robloxで遊ぶ →",
     footerCredit:"手作業で選ばれたリスト。すべてのゲームが品質で選ばれています。", footerMade:"一人の開発者がノイズに抗って制作。", ratingsNote:"評価はこの端末だけに保存されます。" },
   zh:{ eyebrow:"人工精选 // 不是算法推荐",
     heroHtml:'跳过<span class="accent">垃圾游戏。</span><br>去玩点真正好的。',
     sub:"这里的每款游戏都是手工挑选的，不是因为热门，而是真正值得你花时间。",
     statGames:"精选游戏", statCats:"分类", statBrainrot:"噪音",
     all:"全部", games:"游戏", playNow:"立即游玩 →", topRated:"你的高分游戏", topRatedEmpty:"给几款游戏评分，建立你的专属列表。",
-    logoHtml:"真正好玩的 Roblox 游戏<br>精选列表", modalHint:"直接在 Roblox 中打开 {game}。", playOnRoblox:"在 Roblox 中游玩 →",
+    logoTag:"真正好玩的 Roblox 游戏精选列表", documentTitle:"Goodblox — 真正好玩的 Roblox 游戏精选", modalHint:"直接在 Roblox 中打开 {game}。", playOnRoblox:"在 Roblox 中游玩 →",
     footerCredit:"手工精选并持续更新，每款游戏都凭质量赢得位置。", footerMade:"由一名开发者打造，拒绝噪音。", ratingsNote:"评分只保存在你的设备上。" },
   ko:{ eyebrow:"사람이 직접 선정 // 알고리즘이 아닙니다",
     heroHtml:'<span class="accent">별로인 게임</span>은 건너뛰고<br>좋은 게임을 플레이하세요.',
     sub:"인기 때문이 아니라 정말 시간을 쓸 가치가 있는 게임만 직접 골랐습니다.",
     statGames:"엄선한 게임", statCats:"카테고리", statBrainrot:"소음",
     all:"전체", games:"게임", playNow:"지금 플레이 →", topRated:"내 최고 평점 게임", topRatedEmpty:"게임에 평점을 남겨 나만의 목록을 만들어 보세요.",
-    logoHtml:"정말 좋은 Roblox 게임<br>플레이 목록", modalHint:"{game}을(를) Roblox에서 바로 열기.", playOnRoblox:"Roblox에서 플레이 →",
+    logoTag:"정말 좋은 Roblox 게임 플레이 목록", documentTitle:"Goodblox — 정말 좋은 Roblox 게임 플레이 목록", modalHint:"{game}을(를) Roblox에서 바로 열기.", playOnRoblox:"Roblox에서 플레이 →",
     footerCredit:"직접 고른 목록입니다. 모든 게임은 품질로 자리를 얻었습니다.", footerMade:"한 명의 개발자가 소음을 넘어 만들었습니다.", ratingsNote:"평점은 이 기기에만 저장됩니다." },
 };
 const CATLABELS = {
@@ -2535,8 +2608,8 @@ function applyLang(lang){
   const t = I18N[lang];
   document.documentElement.dir = (lang === 'he' || lang === 'ar') ? 'rtl' : 'ltr';
   document.documentElement.lang = lang;
-  document.title = t.logoHtml.replace(/<br>/g, ' ');
-  document.querySelector('[data-i18n-html="logo"]').innerHTML = t.logoHtml;
+  document.title = t.documentTitle;
+  document.querySelector('[data-i18n="logoTag"]').textContent = t.logoTag;
   document.querySelector('[data-i18n="eyebrow"]').textContent = t.eyebrow;
   document.querySelector('[data-i18n-html="hero"]').innerHTML = t.heroHtml;
   document.querySelector('[data-i18n="sub"]').textContent = t.sub;
