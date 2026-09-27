@@ -4,7 +4,7 @@
 $ErrorActionPreference = 'Stop'
 
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
-$html = Get-Content (Join-Path $root 'index.html') -Raw
+$html = [System.IO.File]::ReadAllText((Join-Path $root 'index.html'), [System.Text.Encoding]::UTF8)
 
 function Get-Norm([string]$n) {
   $s = $n.ToLowerInvariant()

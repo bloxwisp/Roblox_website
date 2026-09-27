@@ -1,10 +1,15 @@
 # Inject the resolved Roblox place IDs into index.html as GAME_PLACE_IDS.
 # Run after resolve-place-ids.ps1. Verifies every game in DATA has an id.
+#
+# index.html holds Hebrew/Arabic/CJK text and emoji, so it MUST be read and written as
+# UTF-8 explicitly: `Get-Content -Raw` reads it as the ANSI code page and
+# `Set-Content -Encoding utf8` then writes a BOM, double-encoding every non-ASCII char.
 $ErrorActionPreference = 'Stop'
 
+$utf8 = New-Object System.Text.UTF8Encoding($false)
 $root = Split-Path -Parent $MyInvocation.MyCommand.Path
 $path = Join-Path $root 'index.html'
-$html = Get-Content $path -Raw
+$html = [System.IO.File]::ReadAllText($path, [System.Text.Encoding]::UTF8)
 
 function Get-Slug([string]$n) {
   $s = $n.ToLowerInvariant()
@@ -33,5 +38,5 @@ $marker = 'const GAME_ALIASES = {'
 if (-not $html.Contains($marker)) { throw 'GAME_ALIASES marker not found' }
 $html = $html.Replace($marker, $block + $marker)
 
-Set-Content $path $html -NoNewline -Encoding utf8
+[System.IO.File]::WriteAllText($path, $html, $utf8)
 Write-Output "injected=$($ids.Count)"

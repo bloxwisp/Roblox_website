@@ -9,7 +9,7 @@ $outFile = Join-Path $env:TEMP 'place-ids.json'
 $failFile = Join-Path $env:TEMP 'place-ids-failed.txt'
 $logFile = Join-Path $env:TEMP 'place-ids.log'
 
-$html = Get-Content (Join-Path $root 'index.html') -Raw
+$html = [System.IO.File]::ReadAllText((Join-Path $root 'index.html'), [System.Text.Encoding]::UTF8)
 $names = [regex]::Matches($html, '\{name:"([^"]+)"') | ForEach-Object { $_.Groups[1].Value } | Select-Object -Unique
 
 function Get-Slug([string]$n) {
