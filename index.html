@@ -523,19 +523,25 @@
     .section{padding:40px 0 4px;}
     .section-head h2{font-size:18px;}
     .grid{grid-template-columns:repeat(auto-fill,minmax(150px,1fr)); gap:10px;}
-    .card{padding:15px; border-radius:13px;}
-    .card h3{font-size:15px;}
+    .card{border-radius:13px;}
+    .card-body{padding:15px;}
+    .card h3{font-size:15px; min-width:0;}
     .card p{font-size:12.5px;}
     .stats{max-width:100%;}
     .stat{min-width:33%; padding:14px 6px;}
     .stat b{font-size:19px;}
     .stat span{font-size:9px;}
     .wrap{padding:0 16px;}
+    .modal-overlay{padding:12px;}
+    .modal-panel{border-radius:16px; max-height:90dvh;}
+    .modal-body{padding:20px;}
+    .modal-body h2{font-size:22px;}
   }
 
   @media(max-width:380px){
     .grid{grid-template-columns:1fr 1fr; gap:8px;}
     h1{font-size:28px;}
+    .logo{font-size:12px;}
   }
 
   .hidden{display:none !important;}
