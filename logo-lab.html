@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>Goodblox — logo lab</title>
+<style>
+  :root{ --bg:#08070f; --panel:#12101c; --line:#241f38; --fog:#d6d2e3; --dim:#7d7894; }
+  *{box-sizing:border-box;margin:0;padding:0;}
+  body{background:var(--bg);color:var(--fog);font-family:Inter,system-ui,sans-serif;padding:36px 24px 90px;}
+  h1{font-size:22px;color:#fff;margin-bottom:4px;}
+  .lead{color:var(--dim);font-size:14px;margin-bottom:30px;max-width:660px;}
+  .layout{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:26px;max-width:1120px;align-items:start;}
+  @media(max-width:880px){ .layout{grid-template-columns:1fr;} }
+
+  .stage{background:linear-gradient(160deg,#191526,#0f0d18);border:1px solid var(--line);border-radius:22px;padding:30px;}
+  .stage-top{display:flex;align-items:center;gap:20px;margin-bottom:26px;}
+  .stage-top svg{width:104px;height:104px;flex:none;filter:drop-shadow(0 12px 30px rgba(0,0,0,.5));}
+  .wm{font-family:'Archivo Black',Impact,sans-serif;font-size:40px;line-height:1;text-transform:lowercase;}
+  .previews{display:flex;gap:22px;flex-wrap:wrap;align-items:flex-end;padding-top:20px;border-top:1px solid var(--line);}
+  .prev{display:flex;flex-direction:column;align-items:center;gap:8px;}
+  .prev figcaption{font-family:'IBM Plex Mono',monospace;font-size:9.5px;color:#5a5670;}
+  .chip48{display:flex;align-items:flex-end;gap:12px;}
+  .on-white,.on-dark{display:flex;align-items:center;justify-content:center;width:60px;height:60px;border-radius:14px;}
+  .on-white{background:#fff;} .on-dark{background:#000;border:1px solid #222;}
+  .tabmock{display:flex;align-items:center;gap:7px;background:#2b2b3a;border-radius:9px 9px 0 0;padding:8px 14px 8px 10px;font-size:12.5px;color:#e8e8ef;}
+  .tabmock img,.tabmock svg{width:16px;height:16px;flex:none;}
+
+  h2{font-size:12px;letter-spacing:1.4px;text-transform:uppercase;color:var(--dim);margin-bottom:12px;font-family:'IBM Plex Mono',monospace;}
+  .side{display:flex;flex-direction:column;gap:26px;}
+  .row{display:flex;gap:10px;flex-wrap:wrap;}
+  button.opt{background:#161324;border:1px solid var(--line);border-radius:14px;padding:8px;cursor:pointer;display:flex;align-items:center;justify-content:center;transition:.18s;}
+  button.opt svg{width:44px;height:44px;display:block;}
+  button.opt:hover{border-color:#4a4468;transform:translateY(-2px);}
+  button.opt.sel{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.14);}
+  .swatches{display:flex;gap:10px;flex-wrap:wrap;}
+  .sw{width:52px;height:52px;border-radius:14px;border:2px solid transparent;cursor:pointer;transition:.18s;position:relative;}
+  .sw:hover{transform:translateY(-2px);}
+  .sw.sel{border-color:#fff;box-shadow:0 0 0 2px rgba(255,255,255,.16);}
+  .sw span{position:absolute;bottom:3px;left:0;right:0;text-align:center;font-size:7.5px;color:rgba(0,0,0,.65);font-weight:700;font-family:'IBM Plex Mono',monospace;letter-spacing:.2px;}
+  .actions{display:flex;gap:10px;}
+  .btn{flex:1;font-family:'IBM Plex Mono',monospace;font-size:12px;padding:11px 14px;border-radius:12px;border:1px solid var(--line);background:#161324;color:var(--fog);cursor:pointer;}
+  .btn:hover{border-color:#4a4468;color:#fff;}
+  .note{margin-top:34px;font-size:13px;color:var(--dim);max-width:660px;border-left:2px solid var(--line);padding-left:14px;}
+</style>
+</head>
+<body>
+<h1>Goodblox — logo lab</h1>
+<p class="lead">בחרו צורה ופלטה. כל שילוב מוצג גדול, כאייקון 48/32/16px, על רקע לבן ושחור, וכטאב בדפדפן אמיתי. מה שנשאר קריא ב-16px הוא מה שעובד בגוגל.</p>
+
+<div class="layout">
+  <div class="stage">
+    <div class="stage-top">
+      <span id="heroMark"></span>
+      <span class="wm" id="heroWord">goodblox</span>
+    </div>
+    <div class="previews">
+      <figure class="prev"><span class="chip48" id="sizes48"></span><figcaption>48 / 32 / 16</figcaption></figure>
+      <figure class="prev"><span class="on-white" id="onWhite"></span><figcaption>on white</figcaption></figure>
+      <figure class="prev"><span class="on-dark" id="onDark"></span><figcaption>on black</figcaption></figure>
+      <figure class="prev" style="align-self:flex-end;"><span class="tabmock"><span id="tabIcon"></span>Goodblox</span><figcaption>browser tab</figcaption></figure>
+    </div>
+  </div>
+
+  <div class="side">
+    <div>
+      <h2>Shape</h2>
+      <div class="row" id="markRow"></div>
+    </div>
+    <div>
+      <h2>Palette</h2>
+      <div class="swatches" id="palRow"></div>
+    </div>
+    <div class="actions">
+      <button class="btn" id="shuffle">🎲 Surprise me</button>
+    </div>
+  </div>
+</div>
+
+<p class="note">תגידו לי שילוב (למשל "מסכת + טוקסיק") ואחבר אותו לכל האתר, לאייקונים ולגוגל. רוצים צורה אחרת לגמרי? תגידו מה בא לכם — אני אצייר.</p>
+
+<script>
+/* ---------- palettes: bold, high-energy ---------- */
+const PALETTES = [
+  { id:'neon',    name:'NEON',    c1:'#00e5ff', c2:'#0057ff', accent:'#8affff', text:'#00415c' },
+  { id:'vapor',   name:'VAPOR',   c1:'#ff2e97', c2:'#7b2ff7', accent:'#00fff0', text:'#5c0031' },
+  { id:'lime',    name:'SHOCK',   c1:'#b4ff00', c2:'#00e676', accent:'#ffffff', text:'#2b4200' },
+  { id:'sunset',  name:'SUNSET',  c1:'#ff9500', c2:'#ff2d55', accent:'#ffd60a', text:'#5c1400' },
+  { id:'cosmic',  name:'COSMIC',  c1:'#a855f7', c2:'#3b82f6', accent:'#22d3ee', text:'#2a0a5c' },
+  { id:'toxic',   name:'TOXIC',   c1:'#c6ff00', c2:'#00ffa3', accent:'#f9f002', text:'#2f4200' },
+  { id:'candy',   name:'CANDY',   c1:'#ff5cc8', c2:'#00d4ff', accent:'#fff36b', text:'#5c0048' },
+  { id:'arcade',  name:'ARCADE',  c1:'#ff0040', c2:'#ffb300', accent:'#00e5ff', text:'#5c000f' },
+];
+
+/* ---------- helpers ---------- */
+const grad = (p, uid, x1='0', y1='0', x2='1', y2='1') =>
+  `<defs><linearGradient id="g-${uid}" x1="${x1}" y1="${y1}" x2="${x2}" y2="${y2}">
+     <stop offset="0" stop-color="${p.c1}"/><stop offset="1" stop-color="${p.c2}"/>
+   </linearGradient></defs>`;
+const tile = (uid, radius=18) => `<rect x="2" y="2" width="60" height="60" rx="${radius}" fill="url(#g-${uid})"/>`;
+const darkTile = (uid, radius=18) =>
+  `<rect x="2" y="2" width="60" height="60" rx="${radius}" fill="#0d0c16"/>
+   <rect x="2" y="2" width="60" height="60" rx="${radius}" fill="none" stroke="url(#g-${uid})" stroke-width="2.5"/>`;
+
+const starPoints = (cx, cy, outer, inner, spikes) => {
+  const pts = [];
+  for (let i = 0; i < spikes * 2; i++) {
+    const r = i % 2 ? inner : outer;
+    const a = (Math.PI * i) / spikes - Math.PI / 2;
+    pts.push(`${(cx + r * Math.cos(a)).toFixed(1)},${(cy + r * Math.sin(a)).toFixed(1)}`);
+  }
+  return pts.join(' ');
+};
+
+const pixelArt = (pattern, size, ox, oy, fill, uid) => {
+  let out = `<g fill="${fill}">`;
+  pattern.forEach((row, y) => {
+    [...row].forEach((cell, x) => {
+      if (cell === 'X') out += `<rect x="${ox + x * size}" y="${oy + y * size}" width="${size}" height="${size}"/>`;
+    });
+  });
+  return out + '</g>';
+};
+
+/* ---------- shapes ---------- */
+const MARKS = [
+  {
+    id:'bolt', name:'Bolt', svg:(p,uid)=>`<svg viewBox="0 0 64 64">${grad(p,uid)}${tile(uid)}
+      <path d="M36 7 L16 35 L29 35 L26 57 L48 26 L34 26 Z" fill="${p.accent}"/></svg>`
+  },
+  {
+    id:'mascot', name:'Mascot', svg:(p,uid)=>`<svg viewBox="0 0 64 64">${grad(p,uid)}
+      <rect x="2" y="2" width="60" height="60" rx="18" fill="#0d0c16"/>
+      <rect x="8" y="19" width="7" height="14" rx="3.5" fill="${p.accent}"/>
+      <rect x="49" y="19" width="7" height="14" rx="3.5" fill="${p.accent}"/>
+      <rect x="12" y="13" width="40" height="40" rx="13" fill="url(#g-${uid})" stroke="#0d0c16" stroke-width="3"/>
+      <circle cx="25" cy="31" r="5" fill="#fff"/><circle cx="39" cy="31" r="5" fill="#fff"/>
+      <circle cx="26" cy="32" r="2.4" fill="#0d0c16"/><circle cx="40" cy="32" r="2.4" fill="#0d0c16"/>
+      <path d="M24 42q8 8 16 0" fill="none" stroke="#0d0c16" stroke-width="3.2" stroke-linecap="round"/></svg>`
+  },
+  {
+    id:'controller', name:'Pad', svg:(p,uid)=>`<svg viewBox="0 0 64 64">${grad(p,uid)}
+      <rect x="2" y="2" width="60" height="60" rx="18" fill="#0d0c16"/>
+      <rect x="9" y="23" width="46" height="23" rx="11.5" fill="url(#g-${uid})"/>
+      <rect x="17" y="31" width="4.5" height="11" rx="2.2" fill="#0d0c16"/>
+      <rect x="13.5" y="34.5" width="11" height="4.5" rx="2.2" fill="#0d0c16"/>
+      <circle cx="41" cy="31.5" r="3.4" fill="#0d0c16"/>
+      <circle cx="47.5" cy="38" r="3.4" fill="${p.accent}"/></svg>`
+  },
+  {
+    id:'cube', name:'Cube', svg:(p,uid)=>`<svg viewBox="0 0 64 64">${grad(p,uid)}
+      <rect x="2" y="2" width="60" height="60" rx="18" fill="#0d0c16"/>
+      <polygon points="32,9 53,20 32,31 11,20" fill="${p.accent}"/>
+      <polygon points="11,20 32,31 32,54 11,43" fill="url(#g-${uid})"/>
+      <polygon points="53,20 32,31 32,54 53,43" fill="${p.c2}"/>
+      <polygon points="32,9 53,20 32,31 11,20" fill="none" stroke="#0d0c16" stroke-width="2"/></svg>`
+  },
+  {
+    id:'burst', name:'Burst', svg:(p,uid)=>`<svg viewBox="0 0 64 64">${grad(p,uid)}${tile(uid)}
+      <polygon points="${starPoints(32,32,30,17,12)}" fill="${p.accent}" opacity=".92"/>
+      <circle cx="32" cy="32" r="15" fill="url(#g-${uid})"/>
+      <path d="M36 22 L26 36 L33 36 L31 44 L42 30 L35 30 Z" fill="#fff"/></svg>`
+  },
+  {
+    id:'invader', name:'Pixel', svg:(p,uid)=>`<svg viewBox="0 0 64 64">${grad(p,uid)}
+      <rect x="2" y="2" width="60" height="60" rx="18" fill="#0d0c16"/>
+      ${pixelArt(['..X.....X..','...X...X...','.XXXXXXXXX.','XX.XXXXX.XX','XXXXXXXXXXX','X.XXXXXXX.X','X.X.....X.X','...XX.XX...'], 3.6, 12.4, 17, `url(#g-${uid})`, uid)}</svg>`
+  },
+  {
+    id:'gem', name:'Gem', svg:(p,uid)=>`<svg viewBox="0 0 64 64">${grad(p,uid)}
+      <rect x="2" y="2" width="60" height="60" rx="18" fill="#0d0c16"/>
+      <polygon points="20,14 44,14 56,30 32,55 8,30" fill="url(#g-${uid})"/>
+      <polygon points="20,14 44,14 32,30" fill="#fff" opacity=".3"/>
+      <polygon points="8,30 32,30 20,14" fill="${p.accent}" opacity=".55"/>
+      <polygon points="56,30 32,30 44,14" fill="#000" opacity=".2"/></svg>`
+  },
+  {
+    id:'crown', name:'Crown', svg:(p,uid)=>`<svg viewBox="0 0 64 64">${grad(p,uid)}${tile(uid)}
+      <path d="M10 42 L12 20 L23 31 L32 14 L41 31 L52 20 L54 42 Z" fill="${p.accent}"/>
+      <rect x="10" y="42" width="44" height="8" rx="3" fill="${p.accent}"/>
+      <circle cx="32" cy="14" r="3.6" fill="#fff"/>
+      <circle cx="12" cy="20" r="3" fill="#fff"/><circle cx="52" cy="20" r="3" fill="#fff"/></svg>`
+  },
+];
+
+/* ---------- state ---------- */
+let state = { mark: 'bolt', pal: 'vapor' };
+let uidCounter = 0;
+const nextUid = () => 'u' + (uidCounter++);
+
+const markById = id => MARKS.find(m => m.id === id);
+const palById  = id => PALETTES.find(p => p.id === id);
+
+/* ---------- render ---------- */
+function render(){
+  const mark = markById(state.mark);
+  const pal  = palById(state.pal);
+
+  // hero
+  document.getElementById('heroMark').innerHTML = mark.svg(pal, nextUid());
+  const heroWord = document.getElementById('heroWord');
+  heroWord.textContent = 'goodblox';
+  heroWord.style.background = `linear-gradient(100deg, ${pal.c1}, ${pal.c2})`;
+  heroWord.style.webkitBackgroundClip = 'text';
+  heroWord.style.backgroundClip = 'text';
+  heroWord.style.color = 'transparent';
+
+  // size row + white/black + tab
+  const sizes = [48, 32, 16];
+  document.getElementById('sizes48').innerHTML = sizes
+    .map(s => mark.svg(pal, nextUid()).replace('<svg ', `<svg width="${s}" height="${s}" `)).join('');
+  document.getElementById('onWhite').innerHTML = mark.svg(pal, nextUid()).replace('<svg ', '<svg width="40" height="40" ');
+  document.getElementById('onDark').innerHTML  = mark.svg(pal, nextUid()).replace('<svg ', '<svg width="40" height="40" ');
+  document.getElementById('tabIcon').innerHTML = mark.svg(pal, nextUid()).replace('<svg ', '<svg width="16" height="16" ');
+
+  // pickers
+  renderPickers();
+}
+
+function renderPickers(){
+  const markRow = document.getElementById('markRow');
+  markRow.innerHTML = MARKS.map(m =>
+    `<button class="opt ${m.id===state.mark?'sel':''}" data-mark="${m.id}" title="${m.name}">${m.svg(palById(state.pal), nextUid())}</button>`
+  ).join('');
+
+  const palRow = document.getElementById('palRow');
+  palRow.innerHTML = PALETTES.map(p =>
+    `<button class="sw ${p.id===state.pal?'sel':''}" data-pal="${p.id}"
+        style="background:linear-gradient(135deg,${p.c1},${p.c2})" title="${p.name}"><span>${p.name}</span></button>`
+  ).join('');
+}
+
+document.addEventListener('click', e => {
+  const m = e.target.closest('[data-mark]');
+  if (m) { state.mark = m.dataset.mark; render(); return; }
+  const s = e.target.closest('[data-pal]');
+  if (s) { state.pal = s.dataset.pal; render(); return; }
+});
+
+document.getElementById('shuffle').addEventListener('click', () => {
+  const pick = arr => arr[Math.floor(Math.random()*arr.length)].id;
+  let m, p;
+  do { m = pick(MARKS); p = pick(PALETTES); } while (m === state.mark && p === state.pal);
+  state = { mark:m, pal:p };
+  render();
+});
+
+render();
+</script>
+</body>
+</html>
