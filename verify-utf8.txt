@@ -1,4 +1,0 @@
-﻿verified=244 total=247 problems=3
-  chat-ragdoll-voice-hangout -> 'Chat [????] rp ragdoll' (place 71774876641249)
-  punching-simulator -> 'Punch Simulator ??[FREE UGC]' (place 14236123211)
-  tower-battles : cannot verify (place 45146873)
