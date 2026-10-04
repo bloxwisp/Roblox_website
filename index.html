@@ -14,7 +14,7 @@
 <link rel="canonical" href="https://bloxwisp.github.io/Roblox_website/">
 <meta property="og:site_name" content="BloxWisp">
 <meta property="og:locale" content="en">
-<meta property="og:title" content="BloxWisp">
+<meta property="og:title" content="BloxWisp — Actually Good Roblox Games">
 <meta property="og:description" content="Skip the slop. Play something good. Hand-picked Roblox games, not trending garbage.">
 <meta property="og:image" content="https://bloxwisp.github.io/Roblox_website/images/og-image.png">
 <meta property="og:image:width" content="1200">
@@ -22,10 +22,10 @@
 <meta property="og:url" content="https://bloxwisp.github.io/Roblox_website/">
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
-<meta name="twitter:title" content="BloxWisp">
+<meta name="twitter:title" content="BloxWisp — Actually Good Roblox Games">
 <meta name="twitter:description" content="Hand-curated Roblox games that actually deserve your time. Skip the garbage, play something good.">
 <meta name="twitter:image" content="https://bloxwisp.github.io/Roblox_website/images/og-image.png">
-<title>BloxWisp</title>
+<title>BloxWisp — Actually Good Roblox Games</title>
 <script type="application/ld+json">
 {
   "@context": "https://schema.org",
@@ -3287,15 +3287,15 @@ const OG_LOCALE = document.querySelector('meta[property="og:locale"]');
 const TWITTER_DESCRIPTION = document.querySelector('meta[name="twitter:description"]');
 const TWITTER_TITLE = document.querySelector('meta[name="twitter:title"]');
 
-const SITE_NAME = 'BloxWisp';
+const PAGE_TITLE = 'BloxWisp — Actually Good Roblox Games';
 
 function applyMetaTags(t){
-  document.title = SITE_NAME;
+  document.title = PAGE_TITLE;
   META_DESCRIPTION.content = t.sub;
   OG_DESCRIPTION.content = t.sub;
-  OG_TITLE.content = SITE_NAME;
+  OG_TITLE.content = PAGE_TITLE;
   TWITTER_DESCRIPTION.content = t.sub;
-  TWITTER_TITLE.content = SITE_NAME;
+  TWITTER_TITLE.content = PAGE_TITLE;
   OG_LOCALE.content = CURRENT_LANG === 'he' ? 'he_IL' : CURRENT_LANG;
 }
 
