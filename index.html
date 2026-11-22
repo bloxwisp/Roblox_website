@@ -83,13 +83,14 @@ a{color:inherit}
 /* ---------- header ---------- */
 .site-head{position:sticky;top:0;z-index:40;background:rgba(15,31,16,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line);transition:transform .32s var(--ease)}
 .head-row{display:flex;align-items:center;gap:20px;min-height:var(--row1)}
-.logo{display:flex;align-items:center;gap:10px;text-decoration:none;flex-shrink:0}
-.logo-mark{width:36px;height:36px;transition:transform .3s var(--ease)}
+.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;border-radius:14px}
+.logo-mark{width:38px;height:38px;filter:drop-shadow(0 6px 14px rgba(198,241,157,.22));transition:transform .35s var(--ease)}
 .logo:hover .logo-mark{transform:rotate(-8deg) scale(1.06)}
-.logo-text{display:flex;flex-direction:column;line-height:1.1}
-.logo-name{font:600 19px/1 var(--font-display);letter-spacing:-.02em}
+.logo-text{display:flex;flex-direction:column;gap:4px;line-height:1}
+.logo-name{font:600 20px/1 var(--font-display);letter-spacing:-.035em}
 .logo-name-accent{color:var(--accent)}
-.logo-tag{font:400 9.5px/1 var(--font-mono);color:var(--muted);text-transform:uppercase;letter-spacing:.06em;margin-top:5px}
+.logo-tag{font:500 11.5px/1 var(--font-text);color:var(--muted);letter-spacing:.01em;white-space:nowrap}
+.logo-tag::first-letter{text-transform:uppercase}
 .head-search{flex:1;max-width:520px;margin-inline:auto;position:relative}
 .head-search svg{position:absolute;inset-inline-start:16px;top:50%;translate:0 -50%;width:18px;height:18px;color:var(--muted);pointer-events:none}
 .search-input{width:100%;height:44px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);padding-inline:46px 18px;font-size:15px;transition:border-color .2s,background .2s,box-shadow .2s}
@@ -101,25 +102,36 @@ a{color:inherit}
 .icon-btn,.lang-select{height:44px;min-width:44px;border-radius:999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,border-color .2s,transform .15s}
 .icon-btn:hover,.lang-select:hover{background:var(--surface-2);border-color:rgba(198,241,157,.45)}
 .icon-btn:active,.lang-select:active{transform:scale(.96)}
-.lang-select{padding-inline:14px 12px;font-size:12px}
-.lang-flag,.flag{width:20px;height:14px;border-radius:3px;flex-shrink:0}
-.lang-caret{font-size:10px;color:var(--muted)}
+.lang-select{padding-inline:8px 14px;font:500 13px/1 var(--font-text);gap:9px}
+.lang-current{display:inline-flex;align-items:center;gap:9px}
+.lang-flag,.flag{width:24px;height:17px;border-radius:4px;flex-shrink:0;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
+.lang-select .lang-flag{width:26px;height:26px;border-radius:50%;object-fit:cover}
+.lang-code{display:none;font:500 11px/1 var(--font-mono);letter-spacing:.04em}
+.lang-caret{display:inline-block;width:8px;height:8px;border-right:1.6px solid var(--muted);border-bottom:1.6px solid var(--muted);transform:translateY(-2px) rotate(45deg);font-size:0;transition:transform .2s}
+.lang-select-wrap.open .lang-caret{transform:translateY(2px) rotate(-135deg)}
+.lang-select-wrap.open .lang-select{background:var(--surface-2);border-color:rgba(198,241,157,.5)}
 .lang-select-wrap{position:relative}
-.lang-menu{position:absolute;inset-inline-end:0;top:calc(100% + 8px);min-width:190px;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-md);padding:6px;box-shadow:0 24px 60px rgba(0,0,0,.45);display:none;z-index:60}
-.lang-select-wrap.open .lang-menu{display:grid;animation:pop .18s var(--ease)}
-.lang-option{display:flex;align-items:center;gap:10px;width:100%;min-height:42px;padding:8px 12px;border:0;border-radius:var(--r-sm);background:none;cursor:pointer;text-align:start;font-size:14px}
-.lang-option:hover{background:var(--surface-2)}
-.lang-option.active{background:var(--accent-soft);color:var(--accent)}
+.lang-menu{position:absolute;inset-inline-end:0;top:calc(100% + 10px);width:360px;grid-template-columns:1fr 1fr;gap:4px;background:#17301a;border:1px solid var(--line-2);border-radius:20px;padding:10px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.2);display:none;z-index:60}
+.lang-select-wrap.open .lang-menu{display:grid;animation:pop .2s var(--ease)}
+.lang-menu-title{grid-column:1/-1;margin:2px 8px 8px;font:500 10.5px/1 var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
+.lang-option{position:relative;display:flex;align-items:center;gap:11px;width:100%;min-height:46px;padding:8px 12px;border:1px solid transparent;border-radius:12px;background:none;cursor:pointer;text-align:start;font:500 14.5px/1.2 var(--font-text);color:var(--ink);transition:background .15s,border-color .15s}
+.lang-option::after{content:attr(data-lang);margin-inline-start:auto;font:500 10px/1 var(--font-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
+.lang-option:hover{background:rgba(255,255,255,.05)}
+.lang-option.active{background:var(--accent-soft);border-color:rgba(198,241,157,.35);color:var(--accent)}
+.lang-option.active::after{content:"";width:14px;height:14px;background:var(--accent);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat}
 @keyframes pop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
 
 .chip-row{border-top:1px solid var(--line)}
-.filters{display:flex;gap:8px;overflow-x:auto;padding-block:10px;scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 92%,transparent);mask-image:linear-gradient(90deg,#000 92%,transparent)}
-[dir=rtl] .filters{-webkit-mask-image:linear-gradient(270deg,#000 92%,transparent);mask-image:linear-gradient(270deg,#000 92%,transparent)}
+.filters{display:flex;gap:8px;overflow-x:auto;padding-block:11px;scroll-padding-inline:var(--gutter);scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
+[dir=rtl] .filters{-webkit-mask-image:linear-gradient(270deg,#000 90%,transparent);mask-image:linear-gradient(270deg,#000 90%,transparent)}
 .filters::-webkit-scrollbar{display:none}
-.chip{flex-shrink:0;height:36px;padding-inline:16px;border-radius:999px;border:1px solid var(--line-2);background:transparent;font-size:14px;font-weight:500;color:var(--muted);cursor:pointer;white-space:nowrap;transition:color .2s,background .2s,border-color .2s,transform .15s}
-.chip:hover{color:var(--ink);border-color:rgba(198,241,157,.45)}
+.chip{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;height:38px;padding-inline:15px 7px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.035);font:500 14px/1 var(--font-text);color:#d5dcd5;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s,border-color .2s,transform .15s,box-shadow .2s}
+.chip-n{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:24px;padding-inline:7px;border-radius:999px;background:rgba(255,255,255,.07);font:500 10.5px/1 var(--font-mono);color:var(--muted);transition:background .2s,color .2s}
+.chip:hover{color:var(--ink);background:rgba(255,255,255,.06);border-color:rgba(198,241,157,.4)}
+.chip:hover .chip-n{color:var(--ink)}
 .chip:active{transform:scale(.96)}
-.chip.active{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600}
+.chip.active{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600;box-shadow:0 6px 20px rgba(198,241,157,.22)}
+.chip.active .chip-n{background:rgba(15,31,16,.14);color:var(--accent-ink)}
 
 /* ---------- hero ---------- */
 .hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
@@ -264,6 +276,12 @@ footer{border-top:1px solid var(--line)}
   .head-search{order:3;flex-basis:100%;max-width:none;margin:0}
   .site-head.tucked{transform:translateY(calc(-1 * var(--row1)))}
   .lang-select .lang-current span{display:none}
+  .lang-select .lang-current .lang-code{display:inline}
+  .lang-select{padding-inline:6px 12px}
+  .site-head .logo{transition:opacity .2s}
+  .site-head.tucked .logo,.site-head.tucked .head-tools{opacity:0;pointer-events:none}
+  .lang-menu{position:fixed;top:66px;inset-inline:12px;width:auto}
+  .logo-tag{font-size:11px}
   .full-screen-btn{display:none}
   .chip-row{border-top:0}
   .filters{padding-top:0}
@@ -420,9 +438,9 @@ footer{border-top:1px solid var(--line)}
       <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
         <defs>
           <linearGradient id="logoBlox" x1=".15" y1="0" x2=".85" y2="1">
-            <stop offset="0" stop-color="#ffe066"/>
-            <stop offset=".55" stop-color="#ffc93c"/>
-            <stop offset="1" stop-color="#f5a300"/>
+            <stop offset="0" stop-color="#ecffd6"/>
+            <stop offset=".55" stop-color="#c6f19d"/>
+            <stop offset="1" stop-color="#8fd156"/>
           </linearGradient>
           <radialGradient id="logoBloxGloss" cx=".34" cy=".2" r=".85">
             <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
@@ -433,11 +451,11 @@ footer{border-top:1px solid var(--line)}
         <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#logoBlox)"/>
         <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#logoBloxGloss)"/>
         <rect x="3.75" y="3.75" width="56.5" height="56.5" rx="18.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
-        <ellipse cx="19" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
-        <ellipse cx="45" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
-        <circle cx="23" cy="27" r="3.6" fill="#3a2600"/>
-        <circle cx="41" cy="27" r="3.6" fill="#3a2600"/>
-        <path d="M21 38 Q32 49 43 38" fill="none" stroke="#3a2600" stroke-width="4.6" stroke-linecap="round"/>
+        <ellipse cx="19" cy="37" rx="4.4" ry="2.6" fill="#6fb33a" opacity=".45"/>
+        <ellipse cx="45" cy="37" rx="4.4" ry="2.6" fill="#6fb33a" opacity=".45"/>
+        <circle cx="23" cy="27" r="3.6" fill="#0f1f10"/>
+        <circle cx="41" cy="27" r="3.6" fill="#0f1f10"/>
+        <path d="M21 38 Q32 49 43 38" fill="none" stroke="#0f1f10" stroke-width="4.6" stroke-linecap="round"/>
       </svg>
       <span class="logo-text">
         <span class="logo-name">Blox<span class="logo-name-accent">Wisp</span></span>
@@ -456,6 +474,7 @@ footer{border-top:1px solid var(--line)}
           <span class="lang-caret" aria-hidden="true">▾</span>
         </button>
         <div class="lang-menu" id="langMenu" role="menu" aria-label="Language menu">
+          <p class="lang-menu-title" data-i18n="a11yLanguage" aria-hidden="true">Language</p>
           <button class="lang-option active" type="button" data-lang="en" role="menuitem"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-us"/></svg><span>English</span></button>
           <button class="lang-option" type="button" data-lang="he" role="menuitem"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-il"/></svg><span>עברית</span></button>
           <button class="lang-option" type="button" data-lang="es" role="menuitem"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-es"/></svg><span>Español</span></button>
@@ -3064,14 +3083,15 @@ function applyLang(lang){
   document.querySelector('[data-i18n="footerMade"]').textContent = t.footerMade;
   ['heroCtaBrowse','heroCtaWhy','featuresTitle','featuresLead',
    'f1t','f1d','f2t','f2d','f3t','f3d','f4t','f4d',
-   'ctaTitle','ctaBody','ctaBtn','surprise','skipLink'].forEach(key=>{
+   'ctaTitle','ctaBody','ctaBtn','surprise','skipLink','a11yLanguage'].forEach(key=>{
     const el = document.querySelector(`[data-i18n="${key}"]`);
     if(el) el.textContent = t[key];
   });
   document.querySelectorAll('.chip').forEach(btn=>{
-    btn.textContent = btn.dataset.i18nChip === 'all'
-      ? t.all
-      : ((CATLABELS[btn.dataset.i18nChip] && CATLABELS[btn.dataset.i18nChip][lang]) || btn.dataset.i18nChip);
+    const id = btn.dataset.i18nChip;
+    const label = id === 'all' ? t.all : ((CATLABELS[id] && CATLABELS[id][lang]) || (DATA.find(s => s.cat === id) || {}).catLabel || id);
+    const count = id === 'all' ? DATA.reduce((sum, s) => sum + s.games.length, 0) : ((DATA.find(s => s.cat === id) || {}).games || []).length;
+    btn.innerHTML = `<span>${label}</span><span class="chip-n">${count}</span>`;
   });
   renderStats();
   renderSections();
@@ -3091,7 +3111,7 @@ const languageLabels = {
 
 function updateLanguageButton(lang){
   const current = languageLabels[lang] || languageLabels.en;
-  langSelect.querySelector('.lang-current').innerHTML = `<svg class="lang-flag" aria-hidden="true" focusable="false"><use href="#flag-${current.flag}"/></svg><span>${current.text}</span>`;
+  langSelect.querySelector('.lang-current').innerHTML = `<svg class="lang-flag" aria-hidden="true" focusable="false" viewBox="10 0 40 40" preserveAspectRatio="xMidYMid slice"><use href="#flag-${current.flag}"/></svg><span>${current.text}</span><span class="lang-code">${lang.toUpperCase()}</span>`;
   langOptions.forEach(option => option.classList.toggle('active', option.dataset.lang === lang));
 }
 
