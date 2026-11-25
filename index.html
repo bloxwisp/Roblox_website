@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<meta name="description" content="Actually good Roblox games to play — a hand-picked list of quality games, not generic clones or brainrot.">
+<meta name="description" content="Good Roblox games to play: a hand-picked list of 320 games, each one played before it was added.">
 <meta name="keywords" content="BloxWisp, Roblox games, good games, hand-picked, curated, gaming">
 <meta name="author" content="BloxWisp">
 <link rel="icon" href="favicon.ico" sizes="48x48 96x96">
@@ -15,7 +15,7 @@
 <meta property="og:site_name" content="BloxWisp">
 <meta property="og:locale" content="en">
 <meta property="og:title" content="BloxWisp — Actually Good Roblox Games">
-<meta property="og:description" content="Skip the slop. Play something good. Hand-picked Roblox games, not trending garbage.">
+<meta property="og:description" content="A hand-picked list of good Roblox games. Each one was played before it went on the list.">
 <meta property="og:image" content="https://bloxwisp.github.io/Roblox_website/images/og-image.png">
 <meta property="og:image:width" content="1200">
 <meta property="og:image:height" content="630">
@@ -23,7 +23,7 @@
 <meta property="og:type" content="website">
 <meta name="twitter:card" content="summary_large_image">
 <meta name="twitter:title" content="BloxWisp — Actually Good Roblox Games">
-<meta name="twitter:description" content="Hand-curated Roblox games that actually deserve your time. Skip the garbage, play something good.">
+<meta name="twitter:description" content="A hand-picked list of good Roblox games. Each one was played before it went on the list.">
 <meta name="twitter:image" content="https://bloxwisp.github.io/Roblox_website/images/og-image.png">
 <title>BloxWisp — Actually Good Roblox Games</title>
 <script type="application/ld+json">
@@ -206,7 +206,7 @@ a{color:inherit}
 /* game cards: on hover the art leans in, a play button appears and the card takes its category colour */
 .card-thumb{position:relative}
 .card-thumb::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 50%,rgba(12,11,15,.05),rgba(12,11,15,.55));opacity:0;transition:opacity .3s}
-.card-thumb::before{content:"";position:absolute;z-index:2;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13l11-6.5z' fill='%23121116'/%3E%3C/svg%3E") no-repeat 56% 50%/24px;box-shadow:0 12px 30px rgba(0,0,0,.5);opacity:0;scale:.6;transition:opacity .25s,scale .4s var(--ease)}
+.card-thumb::before{content:"";position:absolute;z-index:2;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:14px;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13l11-6.5z' fill='%23121116'/%3E%3C/svg%3E") no-repeat 56% 50%/24px;box-shadow:0 12px 30px rgba(0,0,0,.5);opacity:0;scale:.6;transition:opacity .25s,scale .4s var(--ease)}
 @media (hover:hover) and (pointer:fine){
   .card:hover{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 22px 50px -16px rgba(0,0,0,.6)}
   .card:hover .card-thumb img{transform:scale(1.08)}
@@ -214,6 +214,16 @@ a{color:inherit}
   .card:hover .card-thumb::before{opacity:1;scale:1}
 }
 .card:focus-visible .card-thumb::before{opacity:1;scale:1}
+
+/* phone: a sticky bar with the two main actions, shown once the hero buttons scroll away */
+.bar{display:none}
+@media (max-width:760px){
+  body{padding-bottom:76px}
+  .bar{display:flex;position:fixed;inset:auto 0 0 0;z-index:60;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(18,17,22,.96);border-top:1px solid var(--line);transition:transform .35s var(--ease)}
+  .bar .btn{flex:1 1 0;height:48px;padding-inline:12px;font-size:15px}
+  .bar.is-hidden{transform:translateY(110%)}
+}
+@media (prefers-reduced-motion:reduce){.bar{transition:none}}
 
 /* ---------- intro + list ---------- */
 .intro{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;padding-block:72px 24px}
@@ -239,7 +249,7 @@ a{color:inherit}
 .card-body p{margin:0 0 16px;font-size:14.5px;line-height:1.5;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
 .card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
 .card-foot .tag{display:none}
-.best-with{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);background:var(--accent-soft);padding:6px 10px;border-radius:999px}
+.best-with{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);background:var(--accent-soft);padding:6px 10px;border-radius:8px}
 .best-with::before{content:"";width:12px;height:12px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='9' cy='8' r='4'/%3E%3Cpath d='M2 21v-1a6 6 0 0 1 12 0v1M16 4a4 4 0 0 1 0 8M22 21v-1a6 6 0 0 0-4-5.6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='9' cy='8' r='4'/%3E%3Cpath d='M2 21v-1a6 6 0 0 1 12 0v1M16 4a4 4 0 0 1 0 8M22 21v-1a6 6 0 0 0-4-5.6'/%3E%3C/svg%3E") center/contain no-repeat}
 .card-open{font-size:13px;font-weight:600;color:var(--muted);transition:color .2s,translate .2s}
 .card:hover .card-open{color:var(--accent);translate:3px 0}
@@ -290,7 +300,7 @@ footer{border-top:1px solid var(--line)}
 .modal-cta{display:flex;align-items:center;justify-content:center;height:54px;margin-top:14px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:16px;text-decoration:none;transition:transform .18s var(--ease),box-shadow .2s}
 .modal-cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,201,60,.25)}
 .modal-cta:active{transform:scale(.98)}
-.modal-close{position:absolute;top:14px;inset-inline-end:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:rgba(18,17,22,.8);cursor:pointer;font-size:16px;transition:background .2s,transform .15s}
+.modal-close{position:absolute;top:14px;inset-inline-end:14px;z-index:2;width:44px;height:44px;border-radius:10px;border:1px solid var(--line-2);background:rgba(18,17,22,.8);cursor:pointer;font-size:16px;transition:background .2s,transform .15s}
 .modal-close:hover{background:var(--surface-2)}
 .modal-close:active{transform:scale(.94)}
 
@@ -557,9 +567,9 @@ footer{border-top:1px solid var(--line)}
 <section class="hero">
   <div class="wrap hero-grid">
     <div class="hero-copy">
-      <p class="eyebrow"><span class="pip" aria-hidden="true"></span><span data-i18n="eyebrow">human curated // not the algorithm</span></p>
+      <p class="eyebrow"><span class="pip" aria-hidden="true"></span><span data-i18n="eyebrow">a hand-picked list of roblox games</span></p>
       <h1 data-i18n-html="hero">Skip the <span class="accent">slop.</span><br>Play good Roblox games.</h1>
-      <p class="sub" data-i18n="sub">Every game here was picked by hand, not because it's trending, but because it's actually worth your time.</p>
+      <p class="sub" data-i18n="sub">Each game was played before it went on the list. Generic simulators, clones and brainrot stay off it.</p>
       <div class="hero-cta">
         <a class="btn btn-primary btn-hero" href="#sections"><span data-i18n="heroCtaBrowse">Browse the list →</span></a>
         <button class="btn btn-ghost" id="surpriseBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.3" fill="currentColor"/></svg><span data-i18n="surprise">Surprise me</span></button>
@@ -583,7 +593,7 @@ footer{border-top:1px solid var(--line)}
 <div class="wrap">
   <section class="intro">
     <p class="intro-label" data-i18n="introLabel">what to play</p>
-    <p class="intro-body" data-i18n="introBody">BloxWisp is a hand-picked list of good Roblox games to play.</p>
+    <p class="intro-body" data-i18n="introBody">BloxWisp is a hand-picked list of good Roblox games to play. Each one was played before it was added: PvP, horror, RPGs, obbies and more. Use it to find a game to play with friends or on your own.</p>
   </section>
   <p class="search-empty hidden" id="searchEmpty" role="status"></p>
 </div>
@@ -595,27 +605,27 @@ footer{border-top:1px solid var(--line)}
     <div class="section-head">
       <h2 data-i18n="featuresTitle">Why this list is short on purpose</h2>
     </div>
-    <p class="intro-body" data-i18n="featuresLead">Four rules decide what makes it in — and what gets cut.</p>
+    <p class="intro-body" data-i18n="featuresLead">Four rules decide which games get in and which get cut.</p>
     <div class="values-grid">
       <div class="value">
         <span class="value-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <h3 data-i18n="f1t">Played, not scraped</h3>
-        <p data-i18n="f1d">Every entry was actually played before it earned a spot.</p>
+        <h3 data-i18n="f1t">Played first</h3>
+        <p data-i18n="f1d">Every game was played before it got a spot. Nothing is copied from top-100 charts.</p>
       </div>
       <div class="value">
         <span class="value-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
         <h3 data-i18n="f2t">Worth your time</h3>
-        <p data-i18n="f2d">Depth over grind.</p>
+        <p data-i18n="f2d">A game with real depth beats endless grinding. If an hour in it feels well spent, it stays.</p>
       </div>
       <div class="value">
         <span class="value-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
         <h3 data-i18n="f3t">Better with friends</h3>
-        <p data-i18n="f3d">Each card says who it's for.</p>
+        <p data-i18n="f3d">Each card says who the game suits: solo, a small squad or a full lobby on voice.</p>
       </div>
       <div class="value">
         <span class="value-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6 18.4 18.4"/></svg></span>
         <h3 data-i18n="f4t">No brainrot</h3>
-        <p data-i18n="f4d">No clones, no cash-grab simulators, no hype cycles.</p>
+        <p data-i18n="f4d">Clones and cash-grab simulators are left out. The games here still hold up after the first hour.</p>
       </div>
     </div>
   </section>
@@ -628,8 +638,8 @@ footer{border-top:1px solid var(--line)}
   <section class="cta-band">
     <div class="cta-inner">
       <div>
-        <h2 data-i18n="ctaTitle">Stop scrolling the front page.</h2>
-        <p data-i18n="ctaBody">Every game here is hand-picked and sorted.</p>
+        <h2 data-i18n="ctaTitle">Find your next game.</h2>
+        <p data-i18n="ctaBody">The list is sorted by category, so finding a good game takes about a minute.</p>
       </div>
       <a class="btn" href="#sections"><span data-i18n="ctaBtn">Start browsing →</span></a>
     </div>
@@ -658,14 +668,19 @@ footer{border-top:1px solid var(--line)}
 <footer>
   <div class="wrap foot-row">
     <p class="footer-mark">Blox<span>Wisp</span></p>
-    <p class="credit" data-i18n="footerCredit">BloxWisp — a hand-picked list, updated over time.</p>
-    <p class="made mono" data-i18n="footerMade">BUILT BY ONE DEVELOPER, AGAINST THE NOISE.</p>
+    <p class="credit" data-i18n="footerCredit">BloxWisp is a hand-picked list of Roblox games, updated over time.</p>
+    <p class="made mono" data-i18n="footerMade">MADE BY ONE DEVELOPER.</p>
   </div>
   <div class="wrap foot-legal">
     <nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a></nav>
     <p>BloxWisp is an independent fan list. It is not affiliated with or endorsed by Roblox Corporation. Game names and images belong to their creators.</p>
   </div>
 </footer>
+
+<nav class="bar is-hidden" id="phoneBar" aria-label="Quick actions">
+  <a class="btn btn-primary" href="#sections" id="barBrowse">Browse the list</a>
+  <button class="btn btn-ghost" type="button" id="barSurprise">Surprise me</button>
+</nav>
 
 <script>
 const DATA = [
@@ -1501,198 +1516,198 @@ async function loadVisibleGameImages(){
 
 /* ---------- I18N ---------- */
 const I18N = {
-  en:{ eyebrow:"human curated // not the algorithm",
+  en:{ eyebrow:"a hand-picked list of roblox games",
     heroHtml:'Skip the <span class="accent">slop.</span><br>Play good Roblox games.',
-    sub:"Every game here was picked by hand, not because it's trending, but because it's actually worth your time. No generic simulators, no clones, no brainrot.",
+    sub:"Each game was played before it went on the list. Generic simulators, clones and brainrot stay off it.",
     statGames:"curated picks", statCats:"categories", statBrainrot:"links checked", picksTitle:"Start here", picksLead:"Not sure what to play? One pick from each of five categories.",
     all:"All", games:"games", playNow:"Play now →",
     topRated:"Your Top Rated", topRatedEmpty:"Rate a few games (tap the stars) to build your own top list.",
     logoTag:"good roblox games to play", modalHint:"Open {game} directly in Roblox.", playOnRoblox:"Play on Roblox →",
-    footerCredit:"BloxWisp — a hand-picked list, updated over time. Every game here earns its spot on quality, not hashtags.",
-    footerMade:"BUILT BY ONE DEVELOPER, AGAINST THE NOISE.",
+    footerCredit:"BloxWisp is a hand-picked list of Roblox games, updated over time.",
+    footerMade:"MADE BY ONE DEVELOPER.",
     searchPlaceholder:"Search games…", noResults:"No games match your search.",
-    introLabel:"what to play", introBody:"BloxWisp is a hand-picked list of good Roblox games to play. Skip the front page. Everything below was played and picked by a person, not an algorithm — PvP, horror, RPGs, obbies and everything between. If you want good Roblox games to play with friends or something great to sink into solo, start here. No clones, no brainrot, no filler.",
+    introLabel:"what to play", introBody:"BloxWisp is a hand-picked list of good Roblox games to play. Each one was played before it was added: PvP, horror, RPGs, obbies and more. Use it to find a game to play with friends or on your own.",
     ratingsNote:"Ratings are saved on your device only.",
     a11yFullScreen:"Full screen", a11yLanguage:"Language", a11yClose:"Close",
     heroCtaBrowse:"Browse the list →", heroCtaWhy:"How we pick",
-    featuresTitle:"Why this list is short on purpose", featuresLead:"Four rules decide what makes it in — and what gets cut.",
-    f1t:"Played, not scraped", f1d:"Every entry was actually played before it earned a spot. No scraped top-100 lists.",
-    f2t:"Worth your time", f2d:"Depth over grind. If a game respects an hour of your evening, it stays.",
-    f3t:"Better with friends", f3d:"Each card says who it's for — solo, squads, or a full lobby on voice.",
-    f4t:"No brainrot", f4d:"No clones, no cash-grab simulators, no hype cycles. Just games that hold up.",
-    ctaTitle:"Stop scrolling the front page.", ctaBody:"Every game here is hand-picked and sorted, so you find the good one in under a minute.", ctaBtn:"Start browsing →" },
-  he:{ eyebrow:"קיוריישן אנושי // לא אלגוריתם",
+    featuresTitle:"Why this list is short on purpose", featuresLead:"Four rules decide which games get in and which get cut.",
+    f1t:"Played first", f1d:"Every game was played before it got a spot. Nothing is copied from top-100 charts.",
+    f2t:"Worth your time", f2d:"A game with real depth beats endless grinding. If an hour in it feels well spent, it stays.",
+    f3t:"Better with friends", f3d:"Each card says who the game suits: solo, a small squad or a full lobby on voice.",
+    f4t:"No brainrot", f4d:"Clones and cash-grab simulators are left out. The games here still hold up after the first hour.",
+    ctaTitle:"Find your next game.", ctaBody:"The list is sorted by category, so finding a good game takes about a minute.", ctaBtn:"Start browsing →" },
+  he:{ eyebrow:"רשימה של משחקי רובלוקס שנבחרו ידנית",
     heroHtml:'דלגו על <span class="accent">הזבל.</span><br>שחקו במשהו טוב.',
-    sub:"כל משחק כאן נבחר ידנית, לא כי הוא ויראלי, אלא כי הוא באמת שווה את הזמן שלכם. בלי סימולטורים גנריים, בלי קלונים, בלי בריינרוט.",
+    sub:"כל משחק נשחק לפני שנכנס לרשימה. סימולטורים גנריים, שכפולים ובריינרוט לא נכנסים.",
     statGames:"משחקים נבחרים", statCats:"קטגוריות", statBrainrot:"קישורים נבדקו", picksTitle:"מתחילים מכאן", picksLead:"לא בטוחים מה לשחק? משחק אחד מכל אחת מחמש קטגוריות.",
     all:"הכול", games:"משחקים", playNow:"שחקו עכשיו ←",
     topRated:"המשחקים המדורגים שלך", topRatedEmpty:"דרגו כמה משחקים (לחצו על הכוכבים) כדי לבנות רשימת מועדפים אישית.",
     logoTag:"משחקי רובלוקס שבאמת טובים", modalHint:"פתחו את {game} ישירות ברובלוקס.", playOnRoblox:"שחקו ברובלוקס ←",
-    footerCredit:"BloxWisp — רשימה שנבחרת ידנית, מתעדכנת עם הזמן. כל משחק כאן הרוויח את מקומו באיכות, לא בהאשטגים.",
-    footerMade:"נבנה על ידי מפתח אחד, נגד הרעש.",
+    footerCredit:"BloxWisp היא רשימה של משחקי רובלוקס שנבחרו ידנית, והיא מתעדכנת עם הזמן.",
+    footerMade:"נבנה על ידי מפתח אחד.",
     searchPlaceholder:"חיפוש משחקים…", noResults:"לא נמצאו משחקים מתאימים.",
-    introLabel:"מה לשחק", introBody:"BloxWisp הוא מבחר ידני של משחקי רובלוקס טובים לשחק. דלגו על העמוד הראשי. כל מה שלמטה נבחר ונבדק על ידי בן אדם, לא אלגוריתם — קרבות, אימה, RPG, אובי וכל מה שביניהם. בין אם בא לכם משחקים טובים לשחק עם חברים או משהו טוב לשחק לבד, תתחילו כאן. בלי קלונים, בלי בריינרוט, בלי מילוי.",
+    introLabel:"מה לשחק", introBody:"BloxWisp היא רשימה של משחקי רובלוקס טובים שנבחרו ידנית. כל משחק נשחק לפני שנכנס: קרבות, אימה, RPG, אובי ועוד. כאן אפשר למצוא משחק לשחק עם חברים או לבד.",
     ratingsNote:"הדירוגים נשמרים רק במכשיר שלכם.",
     a11yFullScreen:"מסך מלא", a11yLanguage:"שפה", a11yClose:"סגירה",
     heroCtaBrowse:"לדפדוף ברשימה ←", heroCtaWhy:"איך אנחנו בוחרים",
-    featuresTitle:"למה הרשימה קצרה בכוונה", featuresLead:"ארבעה כללים מחליטים מה נכנס — ומה נחתך.",
-    f1t:"נשחק, לא נסרק", f1d:"כל משחק כאן נבדק בפועל לפני שקיבל מקום. בלי רשימות טופ-100 סרוקות.",
-    f2t:"שווה את הזמן שלכם", f2d:"עומק לפני גריינד. אם משחק מכבד שעה מהערב שלכם — הוא נשאר.",
-    f3t:"עדיף עם חברים", f3d:"כל כרטיס אומר למי הוא מתאים — סולו, חוליה, או לובי מלא באוזניות.",
-    f4t:"בלי בריינרוט", f4d:"בלי קלונים, בלי סימולטורי גרייבכסף, בלי הייפ. רק משחקים שמחזיקים.",
-    ctaTitle:"תפסיקו לגלול בעמוד הראשי.", ctaBody:"כל משחק כאן נבחר ידנית ומסודר, כך שתמצאו את הטוב תוך פחות מדקה.", ctaBtn:"התחילו לגלוש ←" },
-  es:{ eyebrow:"curado a mano // no por algoritmo",
+    featuresTitle:"למה הרשימה קצרה בכוונה", featuresLead:"ארבעה כללים קובעים אילו משחקים נכנסים ואילו יוצאים.",
+    f1t:"קודם משחקים", f1d:"כל משחק נשחק לפני שקיבל מקום. שום דבר לא מועתק מרשימות טופ 100.",
+    f2t:"שווה את הזמן שלכם", f2d:"משחק עם עומק עדיף על גריינד בלי סוף. אם שעה בתוכו מרגישה שווה, הוא נשאר.",
+    f3t:"עדיף עם חברים", f3d:"בכל כרטיס כתוב למי המשחק מתאים: לבד, לקבוצה קטנה או ללובי מלא עם צ'אט קולי.",
+    f4t:"בלי בריינרוט", f4d:"שכפולים וסימולטורים שנועדו רק למכור לא נכנסים. המשחקים כאן מחזיקים גם אחרי השעה הראשונה.",
+    ctaTitle:"מצאו את המשחק הבא שלכם.", ctaBody:"הרשימה מסודרת לפי קטגוריות, כך שמוצאים משחק טוב תוך דקה בערך.", ctaBtn:"התחילו לגלוש ←" },
+  es:{ eyebrow:"una lista de juegos de roblox elegida a mano",
     heroHtml:'Olvídate de la <span class="accent">basura.</span><br>Juega algo bueno.',
-    sub:"Cada juego aquí fue elegido a mano, no por ser tendencia, sino porque realmente vale tu tiempo. Sin simuladores genéricos, sin clones, sin basura.",
+    sub:"Cada juego se jugó antes de entrar en la lista. Los simuladores genéricos, los clones y el brainrot se quedan fuera.",
     statGames:"selecciones", statCats:"categorías", statBrainrot:"enlaces revisados",
     all:"Todos", games:"juegos", playNow:"Jugar ahora →",
     topRated:"Tus mejor valorados", topRatedEmpty:"Valora algunos juegos (toca las estrellas) para crear tu propia lista.",
     logoTag:"juegos de roblox que sí valen la pena", modalHint:"Abre {game} directamente en Roblox.", playOnRoblox:"Jugar en Roblox →",
-    footerCredit:"BloxWisp — una lista curada a mano, actualizada con el tiempo. Cada juego se gana su lugar por calidad, no por hashtags.",
-    footerMade:"CREADO POR UN SOLO DESARROLLADOR, CONTRA EL RUIDO.",
+    footerCredit:"BloxWisp es una lista de juegos de Roblox elegida a mano y actualizada con el tiempo.",
+    footerMade:"HECHO POR UN SOLO DESARROLLADOR.",
     searchPlaceholder:"Buscar juegos…", noResults:"Ningún juego coincide con tu búsqueda.",
-    introLabel:"qué jugar", introBody:"BloxWisp es una lista elegida a mano de buenos juegos de Roblox para jugar. Pasa de la página principal. Todo lo de abajo lo eligió y probó una persona, no un algoritmo: PvP, terror, RPG, obbies y todo lo demás. Si quieres buenos juegos de Roblox para jugar con amigos o algo bueno para jugar solo, empieza aquí. Sin clones, sin relleno.",
+    introLabel:"qué jugar", introBody:"BloxWisp es una lista de buenos juegos de Roblox elegida a mano. Cada juego se jugó antes de añadirlo: PvP, terror, RPG, obbies y más. Úsala para encontrar un juego para jugar con amigos o por tu cuenta.",
     ratingsNote:"Las valoraciones se guardan solo en tu dispositivo.",
     a11yFullScreen:"Pantalla completa", a11yLanguage:"Idioma", a11yClose:"Cerrar",
     heroCtaBrowse:"Ver la lista →", heroCtaWhy:"Cómo elegimos",
-    featuresTitle:"Por qué la lista es corta a propósito", featuresLead:"Cuatro reglas deciden qué entra — y qué se queda fuera.",
-    f1t:"Jugados, no raspados", f1d:"Cada entrada se jugó de verdad antes de ganar su lugar. Sin listas top-100 raspadas.",
-    f2t:"Vale tu tiempo", f2d:"Profundidad antes que grind. Si un juego respeta una hora de tu tarde, se queda.",
-    f3t:"Mejor con amigos", f3d:"Cada tarjeta dice para quién es — solo, escuadras o un lobby entero con voz.",
-    f4t:"Sin brainrot", f4d:"Sin clones, sin simuladores de sacar dinero, sin ciclos de hype. Solo juegos que aguantan.",
-    ctaTitle:"Deja de scrollear la página principal.", ctaBody:"Cada juego está elegido a mano y ordenado para que encuentres el bueno en menos de un minuto.", ctaBtn:"Empezar a explorar →" },
-  fr:{ eyebrow:"sélection humaine // pas l'algorithme",
+    featuresTitle:"Por qué la lista es corta a propósito", featuresLead:"Cuatro reglas deciden qué juegos entran y cuáles salen.",
+    f1t:"Primero se juega", f1d:"Cada juego se jugó antes de ganarse un lugar. Nada se copia de rankings top 100.",
+    f2t:"Vale tu tiempo", f2d:"Un juego con profundidad gana a uno de grind sin fin. Si una hora en él vale la pena, se queda.",
+    f3t:"Mejor con amigos", f3d:"Cada tarjeta dice para quién es: solo, un grupo pequeño o un lobby completo con voz.",
+    f4t:"Sin brainrot", f4d:"Los clones y los simuladores hechos para sacar dinero se quedan fuera. Estos juegos siguen siendo buenos después de la primera hora.",
+    ctaTitle:"Encuentra tu próximo juego.", ctaBody:"La lista está ordenada por categoría, así que encontrar un buen juego lleva más o menos un minuto.", ctaBtn:"Empezar a explorar →" },
+  fr:{ eyebrow:"une liste de jeux roblox choisis à la main",
     heroHtml:'Oubliez la <span class="accent">soupe.</span><br>Jouez à un bon jeu.',
-    sub:"Chaque jeu ici a été choisi à la main, pas parce qu'il est tendance, mais parce qu'il mérite vraiment votre temps. Pas de simulateurs génériques, pas de clones.",
+    sub:"Chaque jeu a été joué avant d'entrer dans la liste. Les simulateurs génériques, les clones et le brainrot restent dehors.",
     statGames:"sélections", statCats:"catégories", statBrainrot:"liens vérifiés",
     all:"Tous", games:"jeux", playNow:"Jouer maintenant →",
     topRated:"Vos mieux notés", topRatedEmpty:"Notez quelques jeux (touchez les étoiles) pour créer votre liste.",
     logoTag:"bons jeux roblox à essayer", modalHint:"Ouvrez {game} directement dans Roblox.", playOnRoblox:"Jouer sur Roblox →",
-    footerCredit:"BloxWisp — une liste triée à la main, mise à jour au fil du temps. Chaque jeu mérite sa place par sa qualité.",
-    footerMade:"CRÉÉ PAR UN SEUL DÉVELOPPEUR, CONTRE LE BRUIT.",
+    footerCredit:"BloxWisp est une liste de jeux Roblox choisis à la main, mise à jour au fil du temps.",
+    footerMade:"FAIT PAR UN SEUL DÉVELOPPEUR.",
     searchPlaceholder:"Rechercher des jeux…", noResults:"Aucun jeu ne correspond à votre recherche.",
-    introLabel:"à quoi jouer", introBody:"BloxWisp est une liste de bons jeux Roblox à essayer, choisie à la main. Laissez tomber la page d'accueil. Tout ce qui suit a été testé et choisi par une personne, pas par un algorithme : PvP, horreur, RPG, obbys et tout le reste. Que vous cherchiez de bons jeux Roblox à jouer entre amis ou un bon jeu en solo, commencez ici. Pas de clones, pas de remplissage.",
+    introLabel:"à quoi jouer", introBody:"BloxWisp est une liste de bons jeux Roblox choisis à la main. Chaque jeu a été joué avant d'être ajouté : PvP, horreur, RPG, obbys et plus encore. Servez-vous-en pour trouver un jeu à faire entre amis ou en solo.",
     ratingsNote:"Les notes sont enregistrées uniquement sur votre appareil.",
     a11yFullScreen:"Plein écran", a11yLanguage:"Langue", a11yClose:"Fermer",
     heroCtaBrowse:"Parcourir la liste →", heroCtaWhy:"Notre méthode",
-    featuresTitle:"Pourquoi la liste est courte, exprès", featuresLead:"Quatre règles décident ce qui entre — et ce qui est écarté.",
-    f1t:"Joués, pas aspirés", f1d:"Chaque entrée a vraiment été jouée avant de mériter sa place. Pas de top-100 aspiré.",
-    f2t:"Digne de votre temps", f2d:"La profondeur avant le grind. Si un jeu respecte une heure de votre soirée, il reste.",
-    f3t:"Meilleur à plusieurs", f3d:"Chaque carte dit pour qui c'est — solo, escouades, ou un lobby entier en vocal.",
-    f4t:"Zéro brainrot", f4d:"Pas de clones, pas de simulateurs à fric, pas de cycles de hype. Juste des jeux qui tiennent.",
-    ctaTitle:"Arrêtez de scroller la page d'accueil.", ctaBody:"Chaque jeu est choisi à la main et trié pour que vous trouviez le bon en moins d'une minute.", ctaBtn:"Commencer à explorer →" },
-  pt:{ eyebrow:"curadoria humana // não algoritmo",
+    featuresTitle:"Pourquoi la liste est courte, exprès", featuresLead:"Quatre règles décident quels jeux entrent et lesquels sortent.",
+    f1t:"Joué d'abord", f1d:"Chaque jeu a été joué avant d'obtenir sa place. Rien n'est copié depuis des classements top 100.",
+    f2t:"Digne de votre temps", f2d:"Un jeu qui a de la profondeur passe avant un grind sans fin. Si une heure dedans vaut le coup, il reste.",
+    f3t:"Meilleur à plusieurs", f3d:"Chaque carte indique à qui le jeu convient : solo, petit groupe ou lobby complet en vocal.",
+    f4t:"Zéro brainrot", f4d:"Les clones et les simulateurs faits pour vendre restent dehors. Ces jeux tiennent encore après la première heure.",
+    ctaTitle:"Trouvez votre prochain jeu.", ctaBody:"La liste est classée par catégorie : trouver un bon jeu prend environ une minute.", ctaBtn:"Commencer à explorer →" },
+  pt:{ eyebrow:"uma lista de jogos de roblox escolhidos à mão",
     heroHtml:'Pule a <span class="accent">porcaria.</span><br>Jogue algo bom.',
-    sub:"Cada jogo aqui foi escolhido manualmente, não por ser viral, mas porque realmente vale o seu tempo. Sem simuladores genéricos, sem clones.",
+    sub:"Cada jogo foi jogado antes de entrar na lista. Simuladores genéricos, clones e brainrot ficam de fora.",
     statGames:"escolhas", statCats:"categorias", statBrainrot:"links verificados",
     all:"Todos", games:"jogos", playNow:"Jogar agora →",
     topRated:"Seus mais bem avaliados", topRatedEmpty:"Avalie alguns jogos (toque nas estrelas) para montar sua lista.",
     logoTag:"bons jogos de roblox para jogar", modalHint:"Abra {game} diretamente no Roblox.", playOnRoblox:"Jogar no Roblox →",
-    footerCredit:"BloxWisp — uma lista feita à mão, atualizada com o tempo. Cada jogo ganha seu lugar pela qualidade.",
-    footerMade:"CONSTRUÍDO POR UM ÚNICO DESENVOLVEDOR, CONTRA O RUÍDO.",
+    footerCredit:"BloxWisp é uma lista de jogos de Roblox escolhidos à mão, atualizada com o tempo.",
+    footerMade:"FEITO POR UM ÚNICO DESENVOLVEDOR.",
     searchPlaceholder:"Buscar jogos…", noResults:"Nenhum jogo corresponde à sua busca.",
-    introLabel:"o que jogar", introBody:"BloxWisp é uma lista feita à mão de bons jogos de Roblox para jogar. Ignore a página inicial. Tudo aqui foi testado e escolhido por uma pessoa, não por um algoritmo: PvP, terror, RPG, obbys e tudo mais. Se você quer bons jogos de Roblox para jogar com amigos ou algo bom para jogar sozinho, comece por aqui. Sem clones, sem enrolação.",
+    introLabel:"o que jogar", introBody:"BloxWisp é uma lista de bons jogos de Roblox escolhidos à mão. Cada jogo foi jogado antes de entrar: PvP, terror, RPG, obbys e mais. Use para achar um jogo para jogar com amigos ou sozinho.",
     ratingsNote:"As avaliações são salvas apenas no seu dispositivo.",
     a11yFullScreen:"Tela cheia", a11yLanguage:"Idioma", a11yClose:"Fechar",
     heroCtaBrowse:"Ver a lista →", heroCtaWhy:"Como escolhemos",
-    featuresTitle:"Por que a lista é curta de propósito", featuresLead:"Quatro regras decidem o que entra — e o que fica de fora.",
-    f1t:"Jogados, não raspados", f1d:"Cada item foi realmente jogado antes de ganhar seu lugar. Nada de top-100 raspado.",
-    f2t:"Vale seu tempo", f2d:"Profundidade antes de grind. Se um jogo respeita uma hora da sua noite, ele fica.",
-    f3t:"Melhor com amigos", f3d:"Cada card diz para quem é — solo, esquadrões ou um lobby inteiro no voz.",
-    f4t:"Sem brainrot", f4d:"Sem clones, sem simuladores de dinheiro fácil, sem hype. Só jogos que se sustentam.",
-    ctaTitle:"Pare de rolar a página inicial.", ctaBody:"Cada jogo é escolhido à mão e organizado para você achar o bom em menos de um minuto.", ctaBtn:"Começar a explorar →" },
-  de:{ eyebrow:"von Hand kuratiert // kein Algorithmus",
+    featuresTitle:"Por que a lista é curta de propósito", featuresLead:"Quatro regras decidem quais jogos entram e quais saem.",
+    f1t:"Jogado primeiro", f1d:"Cada jogo foi jogado antes de ganhar um lugar. Nada é copiado de rankings top 100.",
+    f2t:"Vale seu tempo", f2d:"Um jogo com profundidade vale mais que grind sem fim. Se uma hora nele vale a pena, ele fica.",
+    f3t:"Melhor com amigos", f3d:"Cada card diz para quem o jogo serve: sozinho, um grupo pequeno ou um lobby cheio no voz.",
+    f4t:"Sem brainrot", f4d:"Clones e simuladores feitos só para vender ficam de fora. Estes jogos continuam bons depois da primeira hora.",
+    ctaTitle:"Encontre seu próximo jogo.", ctaBody:"A lista é organizada por categoria, então achar um bom jogo leva cerca de um minuto.", ctaBtn:"Começar a explorar →" },
+  de:{ eyebrow:"eine handverlesene liste von roblox-spielen",
     heroHtml:'Überspring den <span class="accent">Müll.</span><br>Spiel etwas Gutes.',
-    sub:"Jedes Spiel hier wurde von Hand ausgewählt, nicht weil es im Trend liegt, sondern weil es deine Zeit wirklich wert ist. Keine generischen Simulatoren, keine Klone.",
+    sub:"Jedes Spiel wurde gespielt, bevor es auf die Liste kam. Generische Simulatoren, Klone und Brainrot bleiben draußen.",
     statGames:"Auswahl", statCats:"Kategorien", statBrainrot:"Links geprüft",
     all:"Alle", games:"Spiele", playNow:"Jetzt spielen →",
     topRated:"Deine Top-Bewertungen", topRatedEmpty:"Bewerte ein paar Spiele (tippe auf die Sterne), um deine eigene Liste zu erstellen.",
     logoTag:"wirklich gute roblox-spiele zum spielen", modalHint:"Öffne {game} direkt in Roblox.", playOnRoblox:"Auf Roblox spielen →",
-    footerCredit:"BloxWisp — eine handverlesene Liste, die mit der Zeit aktualisiert wird. Jedes Spiel verdient sich seinen Platz durch Qualität.",
-    footerMade:"GEBAUT VON EINEM ENTWICKLER, GEGEN DAS RAUSCHEN.",
+    footerCredit:"BloxWisp ist eine handverlesene Liste von Roblox-Spielen, die mit der Zeit aktualisiert wird.",
+    footerMade:"GEMACHT VON EINEM EINZELNEN ENTWICKLER.",
     searchPlaceholder:"Spiele suchen…", noResults:"Keine Spiele entsprechen deiner Suche.",
-    introLabel:"was spielen", introBody:"BloxWisp ist eine handverlesene Liste guter Roblox-Spiele zum Spielen. Lass die Startseite links liegen. Alles hier wurde von einem Menschen gespielt und ausgewählt, nicht von einem Algorithmus: PvP, Horror, RPGs, Obby und alles dazwischen. Ob du gute Roblox-Spiele zum Spielen mit Freunden suchst oder etwas Gutes für solo – fang hier an. Keine Klone, keine Füller.",
+    introLabel:"was spielen", introBody:"BloxWisp ist eine handverlesene Liste guter Roblox-Spiele. Jedes Spiel wurde gespielt, bevor es dazukam: PvP, Horror, RPGs, Obbys und mehr. Hier findest du ein Spiel für dich allein oder mit Freunden.",
     ratingsNote:"Bewertungen werden nur auf deinem Gerät gespeichert.",
     a11yFullScreen:"Vollbild", a11yLanguage:"Sprache", a11yClose:"Schließen",
     heroCtaBrowse:"Zur Liste →", heroCtaWhy:"Wie wir auswählen",
-    featuresTitle:"Warum die Liste absichtlich kurz ist", featuresLead:"Vier Regeln entscheiden, was rein kommt — und was raus fällt.",
-    f1t:"Gespielt, nicht gescrapt", f1d:"Jeder Eintrag wurde wirklich gespielt, bevor er einen Platz bekam. Keine gescrapten Top-100-Listen.",
-    f2t:"Deine Zeit wert", f2d:"Tiefe statt Grind. Wenn ein Spiel eine Stunde deines Abends respektiert, bleibt es.",
-    f3t:"Besser mit Freunden", f3d:"Jede Karte sagt, für wen sie ist — solo, Trupps oder eine volle Lobby im Voice.",
-    f4t:"Kein Brainrot", f4d:"Keine Klone, keine Abzock-Simulatoren, keine Hype-Zyklen. Nur Spiele, die halten.",
-    ctaTitle:"Hör auf, die Startseite zu scrollen.", ctaBody:"Jedes Spiel ist handverlesen und sortiert, damit du das gute in unter einer Minute findest.", ctaBtn:"Jetzt stöbern →" },
-  ar:{ eyebrow:"اختيار بشري // ليس خوارزمية",
+    featuresTitle:"Warum die Liste absichtlich kurz ist", featuresLead:"Vier Regeln entscheiden, welche Spiele reinkommen und welche rausfliegen.",
+    f1t:"Erst gespielt", f1d:"Jedes Spiel wurde gespielt, bevor es einen Platz bekam. Nichts ist aus Top-100-Listen kopiert.",
+    f2t:"Deine Zeit wert", f2d:"Ein Spiel mit Tiefe schlägt endlosen Grind. Wenn sich eine Stunde darin lohnt, bleibt es.",
+    f3t:"Besser mit Freunden", f3d:"Jede Karte zeigt, für wen das Spiel passt: allein, eine kleine Gruppe oder eine volle Lobby mit Voice.",
+    f4t:"Kein Brainrot", f4d:"Klone und Simulatoren, die nur aufs Geld aus sind, bleiben draußen. Diese Spiele halten auch nach der ersten Stunde.",
+    ctaTitle:"Finde dein nächstes Spiel.", ctaBody:"Die Liste ist nach Kategorien sortiert, so findest du in etwa einer Minute ein gutes Spiel.", ctaBtn:"Jetzt stöbern →" },
+  ar:{ eyebrow:"قائمة ألعاب روبلوكس مختارة يدويًا",
     heroHtml:'تجاوز <span class="accent">الضوضاء.</span><br>العب شيئًا جيدًا.',
-    sub:"كل لعبة هنا اختيرت يدويًا، ليس لأنها رائجة، بل لأنها تستحق وقتك فعلًا. بدون ألعاب مكررة أو نسخ متشابهة.",
+    sub:"كل لعبة لُعبت قبل أن تدخل القائمة. ألعاب المحاكاة المكررة والنسخ والبرينروت لا تدخل.",
     statGames:"اختيارات مختارة", statCats:"فئات", statBrainrot:"روابط تم فحصها",
     all:"الكل", games:"ألعاب", playNow:"العب الآن ←",
     topRated:"أفضل ألعابك تقييمًا", topRatedEmpty:"قيّم بعض الألعاب لبناء قائمتك الخاصة.",
     logoTag:"ألعاب روبلوكس تستحق اللعب", modalHint:"افتح {game} مباشرة في روبلوكس.", playOnRoblox:"العب على روبلوكس ←",
-    footerCredit:"BloxWisp — قائمة مختارة يدويًا وتتطور مع الوقت. كل لعبة هنا تستحق مكانها بسبب جودتها.",
-    footerMade:"بُنيت بواسطة مطور واحد، ضد الضوضاء.",
+    footerCredit:"BloxWisp قائمة ألعاب روبلوكس مختارة يدويًا، وتُحدَّث مع الوقت.",
+    footerMade:"صنعها مطور واحد.",
     searchPlaceholder:"ابحث عن ألعاب…", noResults:"لا توجد ألعاب تطابق بحثك.",
-    introLabel:"ماذا تلعب", introBody:"BloxWisp هي قائمة مختارة يدويًا لألعاب روبلوكس الجيدة. تجاوز الصفحة الرئيسية. كل ما بالأسفل اختبره واختاره إنسان، لا خوارزمية — قتال، رعب، RPG، أوبي وكل ما بينها. سواء أردت ألعاب روبلوكس جيدة لتلعبها مع أصدقاء أو لعبة ممتازة تلعبها وحدك، ابدأ من هنا. بلا نسخ مكررة، بلا حشو.",
+    introLabel:"ماذا تلعب", introBody:"BloxWisp قائمة مختارة يدويًا لألعاب روبلوكس الجيدة. كل لعبة لُعبت قبل إضافتها: قتال، رعب، RPG، أوبي والمزيد. استخدمها لتجد لعبة تلعبها مع أصدقائك أو وحدك.",
     ratingsNote:"يتم حفظ التقييمات على جهازك فقط.",
     a11yFullScreen:"ملء الشاشة", a11yLanguage:"اللغة", a11yClose:"إغلاق",
     heroCtaBrowse:"تصفح القائمة ←", heroCtaWhy:"كيف نختار",
-    featuresTitle:"لماذا القائمة قصيرة عن قصد", featuresLead:"أربع قواعد تحدد ما يدخل — وما يُستبعد.",
-    f1t:"مُلعَبة، لا منسوخة", f1d:"كل لعبة هنا جُرِّبت فعلاً قبل أن تنال مكانها. لا قوائم توب-100 منسوخة.",
-    f2t:"تستحق وقتك", f2d:"العمق قبل الجرايند. إن كانت اللعبة تحترم ساعة من مسائك، فهي تبقى.",
-    f3t:"أفضل مع الأصدقاء", f3d:"كل بطاقة توضح لمن هي — فردي، فرق، أو لوبي كامل بالصوت.",
-    f4t:"بلا برينروت", f4d:"بلا نسخ، بلا سيمولاتورات جمع المال، بلا موجات هيب. فقط ألعاب تصمد.",
-    ctaTitle:"توقف عن تمرير الصفحة الرئيسية.", ctaBody:"كل لعبة مختارة يدوياً ومرتبة لتجد الجيدة في أقل من دقيقة.", ctaBtn:"ابدأ التصفح ←" },
-  ja:{ eyebrow:"人が選定 // アルゴリズムではありません",
+    featuresTitle:"لماذا القائمة قصيرة عن قصد", featuresLead:"أربع قواعد تحدد أي الألعاب تدخل وأيها تخرج.",
+    f1t:"نلعبها أولًا", f1d:"كل لعبة لُعبت قبل أن تنال مكانها. لا شيء منسوخ من قوائم أفضل 100.",
+    f2t:"تستحق وقتك", f2d:"اللعبة العميقة أفضل من الجرايند الذي لا ينتهي. إذا كانت ساعة فيها تستحق، تبقى.",
+    f3t:"أفضل مع الأصدقاء", f3d:"كل بطاقة توضح لمن تناسب اللعبة: لاعب واحد، مجموعة صغيرة أو لوبي كامل بالصوت.",
+    f4t:"بلا برينروت", f4d:"النسخ المكررة وألعاب المحاكاة التي هدفها المال فقط لا تدخل. هذه الألعاب تبقى ممتعة بعد الساعة الأولى.",
+    ctaTitle:"اعثر على لعبتك التالية.", ctaBody:"القائمة مرتبة حسب الفئة، لذلك يستغرق العثور على لعبة جيدة دقيقة تقريبًا.", ctaBtn:"ابدأ التصفح ←" },
+  ja:{ eyebrow:"人が選んだrobloxゲームのリスト",
     heroHtml:'<span class="accent">くだらないゲーム</span>は飛ばして。<br>良いゲームを遊ぼう。',
-    sub:"ここにあるゲームは流行っているからではなく、本当に時間を使う価値があるものを手作業で選びました。",
+    sub:"どのゲームもリストに入れる前に実際に遊んでいます。ありがちなシミュレーター、クローン、ブレインロットは入れていません。",
     statGames:"厳選ゲーム", statCats:"カテゴリー", statBrainrot:"リンク確認済み",
     all:"すべて", games:"ゲーム", playNow:"今すぐ遊ぶ →", topRated:"高評価のゲーム", topRatedEmpty:"ゲームを評価して自分のリストを作りましょう。",
     logoTag:"本当に良いロブロックスゲームを遊ぼう", modalHint:"{game}をRobloxで直接開く。", playOnRoblox:"Robloxで遊ぶ →",
-    introLabel:"何を遊ぶか", introBody:"BloxWispは、遊ぶ価値のあるRobloxゲームを人が実際に遊んで選んだリストです。トップページは飛ばしましょう。ここにあるものはすべて、アルゴリズムではなく人が選んだものです。PvP、ホラー、RPG、おびー、そのすべて。友達と遊べる良いRobloxゲームが欲しい人も、一人でじっくり遊びたい人も、ここから始めてください。",
-    footerCredit:"BloxWisp — 手作業で選ばれたリスト。すべてのゲームが品質で選ばれています。", footerMade:"一人の開発者がノイズに抗って制作。", searchPlaceholder:"ゲームを検索…", noResults:"一致するゲームがありません。", ratingsNote:"評価はこの端末だけに保存されます。",
+    introLabel:"何を遊ぶか", introBody:"BloxWispは、人が選んだ良いRobloxゲームのリストです。どのゲームも追加する前に遊んでいます。PvP、ホラー、RPG、オビーなど。友達と遊ぶゲームも、一人で遊ぶゲームもここで探せます。",
+    footerCredit:"BloxWispは人が選んだRobloxゲームのリストで、少しずつ更新しています。", footerMade:"一人の開発者が制作。", searchPlaceholder:"ゲームを検索…", noResults:"一致するゲームがありません。", ratingsNote:"評価はこの端末だけに保存されます。",
     a11yFullScreen:"全画面", a11yLanguage:"言語", a11yClose:"閉じる",
     heroCtaBrowse:"リストを見る →", heroCtaWhy:"選び方",
-    featuresTitle:"リストが意図的に短い理由", featuresLead:"4つのルールが採用を決め、そして削るものも決めます。",
-    f1t:"遊んで選ぶ、コピーしない", f1d:"すべてのゲームは実際に遊んでから掲載しています。スクレイプしたトップ100はありません。",
-    f2t:"時間に見合う", f2d:"作業量より深さ。夜の1時間に値するゲームだけが残ります。",
-    f3t:"フレンドと一緒が良い", f3d:"各カードが誰向けかを示します — ソロ、スクワッド、ボイスでのフルロビー。",
-    f4t:"ブレインロットなし", f4d:"クローンなし、稼ぎシミュレーターなし、ハイプなし。長く遊べるゲームだけ。",
-    ctaTitle:"トップページをスクロールするのはやめよう。", ctaBody:"すべて手作業で選び整理しているので、1分以内に良い一本が見つかります。", ctaBtn:"見てみる →" },
-  zh:{ eyebrow:"人工精选 // 不是算法推荐",
+    featuresTitle:"リストが意図的に短い理由", featuresLead:"4つのルールで、入るゲームと外れるゲームを決めています。",
+    f1t:"まず遊ぶ", f1d:"どのゲームも掲載前に遊んでいます。トップ100ランキングからのコピーはありません。",
+    f2t:"時間に見合う", f2d:"終わりのない作業より、遊びごたえのあるゲーム。1時間遊んで良かったと思えるものが残ります。",
+    f3t:"フレンドと一緒が良い", f3d:"各カードに向いている遊び方を書いています。ソロ、少人数、ボイス付きのフルロビー。",
+    f4t:"ブレインロットなし", f4d:"クローンや課金目当てのシミュレーターは入れていません。最初の1時間を過ぎても楽しめるゲームです。",
+    ctaTitle:"次に遊ぶゲームを見つけよう。", ctaBody:"リストはカテゴリー別なので、1分ほどで良いゲームが見つかります。", ctaBtn:"見てみる →" },
+  zh:{ eyebrow:"人工挑选的 roblox 游戏清单",
     heroHtml:'跳过<span class="accent">垃圾游戏。</span><br>去玩点真正好的。',
-    sub:"这里的每款游戏都是手工挑选的，不是因为热门，而是真正值得你花时间。",
+    sub:"每款游戏都先玩过才加入清单。普通模拟器、换皮游戏和脑腐游戏不收录。",
     statGames:"精选游戏", statCats:"分类", statBrainrot:"链接已核实",
     all:"全部", games:"游戏", playNow:"立即游玩 →", topRated:"你的高分游戏", topRatedEmpty:"给几款游戏评分，建立你的专属列表。",
     logoTag:"真正好玩的 Roblox 游戏精选列表", modalHint:"直接在 Roblox 中打开 {game}。", playOnRoblox:"在 Roblox 中游玩 →",
-    introLabel:"玩什么", introBody:"BloxWisp 是一份手工挑选的好玩 Roblox 游戏清单。別再看首页推荐了。下面每一款都由真人试玩后挑选，不是算法推荐——PvP、恐怖、RPG、跑酷，应有尽有。想找能和朋友一起玩的好游戏，或者一个人安静体验的佳作，从这里开始。没有换皮，没有凑数。",
-    footerCredit:"BloxWisp — 手工精选并持续更新，每款游戏都凭质量赢得位置。", footerMade:"由一名开发者打造，拒绝噪音。", searchPlaceholder:"搜索游戏…", noResults:"没有匹配的游戏。", ratingsNote:"评分只保存在你的设备上。",
+    introLabel:"玩什么", introBody:"BloxWisp 是一份人工挑选的好玩 Roblox 游戏清单。每款游戏都先玩过再加入：PvP、恐怖、RPG、跑酷等等。可以在这里找到和朋友一起玩或一个人玩的游戏。",
+    footerCredit:"BloxWisp 是一份人工挑选的 Roblox 游戏清单，会持续更新。", footerMade:"由一名开发者制作。", searchPlaceholder:"搜索游戏…", noResults:"没有匹配的游戏。", ratingsNote:"评分只保存在你的设备上。",
     a11yFullScreen:"全屏", a11yLanguage:"语言", a11yClose:"关闭",
     heroCtaBrowse:"浏览列表 →", heroCtaWhy:"我们的标准",
-    featuresTitle:"为什么这份列表故意很短", featuresLead:"四条规则决定什么能进 — 什么被淘汰。",
-    f1t:"亲自玩过，不是爬来的", f1d:"每一条都是真正玩过之后才上榜。没有爬来的百强榜。",
-    f2t:"值得你的时间", f2d:"重深度而非肝。一款游戏若能尊重你晚上的一小时，它就会留下。",
-    f3t:"和朋友一起更好", f3d:"每张卡都写明适合谁 — 单人、战队，或整个语音房间。",
-    f4t:"没有脑腐", f4d:"没有换皮、没有捞金模拟器、没有炒作周期。只有经得起玩的游戏。",
-    ctaTitle:"别再刷首页了。", ctaBody:"每款游戏都经过手选和整理，让你在一分钟内找到好游戏。", ctaBtn:"开始浏览 →" },
-  ko:{ eyebrow:"사람이 직접 선정 // 알고리즘이 아닙니다",
+    featuresTitle:"为什么这份列表故意很短", featuresLead:"四条规则决定哪些游戏能进、哪些被移除。",
+    f1t:"先玩再选", f1d:"每款游戏都玩过才上榜，没有从百强榜照搬。",
+    f2t:"值得你的时间", f2d:"有深度的游戏胜过无尽的刷。玩一小时觉得值，就留下。",
+    f3t:"和朋友一起更好", f3d:"每张卡片都写明适合谁：单人、小队或开语音的满员房间。",
+    f4t:"没有脑腐", f4d:"换皮游戏和只为赚钱的模拟器不收录。这些游戏过了第一个小时依然好玩。",
+    ctaTitle:"找到你的下一款游戏。", ctaBody:"清单按分类整理，大约一分钟就能找到一款好游戏。", ctaBtn:"开始浏览 →" },
+  ko:{ eyebrow:"사람이 고른 roblox 게임 목록",
     heroHtml:'<span class="accent">별로인 게임</span>은 건너뛰고<br>좋은 게임을 플레이하세요.',
-    sub:"인기 때문이 아니라 정말 시간을 쓸 가치가 있는 게임만 직접 골랐습니다.",
+    sub:"모든 게임은 목록에 넣기 전에 직접 플레이했습니다. 흔한 시뮬레이터, 복제 게임, 브레인롯은 넣지 않습니다.",
     statGames:"엄선한 게임", statCats:"카테고리", statBrainrot:"링크 확인 완료",
     all:"전체", games:"게임", playNow:"지금 플레이 →", topRated:"내 최고 평점 게임", topRatedEmpty:"게임에 평점을 남겨 나만의 목록을 만들어 보세요.",
     logoTag:"정말 좋은 Roblox 게임 플레이 목록", modalHint:"{game}을(를) Roblox에서 바로 열기.", playOnRoblox:"Roblox에서 플레이 →",
-    introLabel:"무엇을 플레이할까", introBody:"BloxWisp는 사람이 직접 고른 플레이할 만한 Roblox 게임 목록입니다. 메인 페이지는 건너뛰세요. 아래 게임은 모두 알고리즘이 아니라 사람이 직접 플레이하고 고른 것입니다. PvP, 호러, RPG, 오비 등 모든 장르를 담았습니다. 친구와 함께할 좋은 Roblox 게임도, 혼자 몰입할 게임도 여기서 시작하세요.",
-    footerCredit:"BloxWisp — 직접 고른 목록입니다. 모든 게임은 품질로 자리를 얻었습니다.", footerMade:"한 명의 개발자가 소음을 넘어 만들었습니다.", searchPlaceholder:"게임 검색…", noResults:"일치하는 게임이 없습니다.", ratingsNote:"평점은 이 기기에만 저장됩니다.",
+    introLabel:"무엇을 플레이할까", introBody:"BloxWisp는 사람이 고른 좋은 Roblox 게임 목록입니다. 모든 게임은 추가하기 전에 플레이했습니다. PvP, 호러, RPG, 오비 등. 친구와 함께하거나 혼자 즐길 게임을 여기서 찾아보세요.",
+    footerCredit:"BloxWisp는 사람이 고른 Roblox 게임 목록이며 계속 업데이트됩니다.", footerMade:"개발자 한 명이 만들었습니다.", searchPlaceholder:"게임 검색…", noResults:"일치하는 게임이 없습니다.", ratingsNote:"평점은 이 기기에만 저장됩니다.",
     a11yFullScreen:"전체 화면", a11yLanguage:"언어", a11yClose:"닫기",
     heroCtaBrowse:"목록 보기 →", heroCtaWhy:"선정 기준",
-    featuresTitle:"목록이 일부러 짧은 이유", featuresLead:"네 가지 규칙이 무엇이 들어오고 무엇이 잘리는지 결정합니다.",
-    f1t:"직접 플레이, 스크래핑 아님", f1d:"모든 항목은 실제로 플레이한 뒤에만 올라갑니다. 긁어온 톱100은 없습니다.",
-    f2t:"시간이 아깝지 않게", f2d:"노가다보다 깊이. 저녁 한 시간을 존중하는 게임만 남습니다.",
-    f3t:"친구와 함께가 더 좋음", f3d:"각 카드에 누구를 위한 게임인지 표시됩니다 — 솔로, 분대, 또는 음성 풀 로비.",
-    f4t:"브레인롯 없음", f4d:"복제품, 돈벌이 시뮬레이터, 하이프 사이클 없음. 오래 가는 게임만.",
-    ctaTitle:"홈페이지를 그만 스크롤하세요.", ctaBody:"모든 게임을 직접 고르고 정리해서, 1분 안에 좋은 게임을 찾습니다.", ctaBtn:"둘러보기 →" },
+    featuresTitle:"목록이 일부러 짧은 이유", featuresLead:"네 가지 규칙으로 들어올 게임과 빠질 게임을 정합니다.",
+    f1t:"먼저 플레이", f1d:"모든 게임은 자리를 얻기 전에 플레이했습니다. 톱100 순위에서 복사한 것은 없습니다.",
+    f2t:"시간이 아깝지 않게", f2d:"끝없는 노가다보다 깊이 있는 게임. 한 시간이 아깝지 않으면 남습니다.",
+    f3t:"친구와 함께가 더 좋음", f3d:"카드마다 어울리는 플레이 방식을 적었습니다: 솔로, 소규모 그룹, 음성 채팅 풀 로비.",
+    f4t:"브레인롯 없음", f4d:"복제 게임과 돈벌이용 시뮬레이터는 넣지 않습니다. 첫 한 시간이 지나도 재미있는 게임들입니다.",
+    ctaTitle:"다음에 할 게임을 찾아보세요.", ctaBody:"목록이 카테고리별로 정리되어 있어 1분 정도면 좋은 게임을 찾을 수 있습니다.", ctaBtn:"둘러보기 →" },
 };
 const I18N_EXTRA = {
-  en:{surprise:"Surprise me", skipLink:"Skip to the games", sub:"Every game here was picked by hand because it's actually worth your time, not because it's trending. No clones, no cash-grab simulators, no brainrot."},
-  he:{surprise:"תפתיעו אותי", skipLink:"דלגו למשחקים", sub:"כל משחק כאן נבחר ידנית כי הוא באמת שווה את הזמן שלכם, לא כי הוא טרנדי. בלי קלונים, בלי סימולטורים של גריינד-כסף, בלי בריינרוט."},
+  en:{surprise:"Surprise me", skipLink:"Skip to the games"},
+  he:{surprise:"תפתיעו אותי", skipLink:"דלגו למשחקים"},
   es:{surprise:"Sorpréndeme", skipLink:"Ir a los juegos"},
   fr:{surprise:"Surprends-moi", skipLink:"Aller aux jeux"},
   pt:{surprise:"Me surpreenda", skipLink:"Ir para os jogos"},
@@ -3184,7 +3199,7 @@ function buildGameListSchema(){
     "@type": "ItemList",
     "@id": `${SITE_URL}#gamelist`,
     name: "Actually good Roblox games, hand-picked",
-    description: "A hand-curated list of Roblox games worth playing — picked by a human, not the algorithm.",
+    description: "A hand-picked list of Roblox games worth playing.",
     url: SITE_URL,
     numberOfItems: games.length,
     itemListOrder: "https://schema.org/ItemListUnordered",
@@ -3453,6 +3468,15 @@ function renderFaq(lang){
 const _applyLangBase = applyLang;
 applyLang = function(lang){ _applyLangBase(lang); renderFaq(lang); };
 renderFaq(typeof CURRENT_LANG === 'string' ? CURRENT_LANG : 'en');
+const _applyLangBar = applyLang;
+applyLang = function(lang){ _applyLangBar(lang); const t = I18N[lang] || I18N.en; document.getElementById('barBrowse').textContent = t.heroCtaBrowse || I18N.en.heroCtaBrowse; document.getElementById('barSurprise').textContent = t.surprise || I18N.en.surprise; };
+document.getElementById('barSurprise').addEventListener('click', () => document.getElementById('surpriseBtn').click());
+(() => {
+  const bar = document.getElementById('phoneBar'), cta = document.querySelector('.hero-cta');
+  if (bar && cta && 'IntersectionObserver' in window) new IntersectionObserver(([e]) => bar.classList.toggle('is-hidden', e.isIntersecting || e.boundingClientRect.top > 0)).observe(cta);
+  else if (bar) bar.classList.remove('is-hidden');
+})();
+(() => { const t = I18N[CURRENT_LANG] || I18N.en; document.getElementById('barBrowse').textContent = t.heroCtaBrowse || I18N.en.heroCtaBrowse; document.getElementById('barSurprise').textContent = t.surprise || I18N.en.surprise; })();
 </script>
 </body>
 </html>
