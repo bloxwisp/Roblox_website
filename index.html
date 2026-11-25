@@ -63,7 +63,7 @@
   --ink:#ffffff; --muted:#aaa7b0; --accent:#ffc93c; --accent-ink:#1a1305; --accent-soft:rgba(255,201,60,.12);
   --font-display:"Sora",system-ui,sans-serif; --font-text:"Figtree",system-ui,sans-serif;
   --font-mono:"Martian Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-  --r-sm:10px; --r-md:16px; --r-lg:24px; --wrap:1240px; --gutter:clamp(16px,4vw,40px);
+  --r-sm:4px; --r-md:8px; --r-lg:10px; --wrap:1240px; --gutter:clamp(16px,4vw,40px);
   --row1:64px; --ease:cubic-bezier(.2,.7,.2,1);
 }
 *,*::before,*::after{box-sizing:border-box}
@@ -382,7 +382,10 @@ footer{border-top:1px solid var(--line)}
 .foot-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-block:0 36px;color:var(--muted);font-size:14px}
 .foot-legal nav{display:flex;gap:18px}
 .foot-legal a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
-.foot-legal p{margin:0;max-width:70ch}</style>
+.foot-legal p{margin:0;max-width:70ch}/* corners: square-ish controls (4px) and cards (8px), no pills or circles on buttons */
+.search-input,.icon-btn,.lang-select,.lang-option,.chip,.chip-n,.btn,.best-with,.pick-n,.modal-close,.modal-cta,.value-ico,.modal-meta span,.full-screen-btn,.card-thumb::before{border-radius:4px}
+.pick{border-radius:var(--r-md)}
+</style>
 </head>
 <body>
 

@@ -38,16 +38,16 @@
   html.a11y-links a { text-decoration: underline !important; text-underline-offset: 3px; }
   html.a11y-motion *, html.a11y-motion *::before, html.a11y-motion *::after { animation: none !important; transition: none !important; scroll-behavior: auto !important; }
   html.a11y-font body, html.a11y-font body * { font-family: Arial, "Segoe UI", system-ui, sans-serif !important; letter-spacing: .01em; }
-  .a11y-btn { position: fixed; z-index: 90; bottom: 18px; inset-inline-start: 18px; width: 48px; height: 48px; border-radius: 12px; border: 1px solid rgba(255,255,255,.35);
+  .a11y-btn { position: fixed; z-index: 90; bottom: 18px; inset-inline-start: 18px; width: 48px; height: 48px; border-radius: 6px; border: 1px solid rgba(255,255,255,.35);
     background: #12305e; color: #fff; display: grid; place-items: center; cursor: pointer; box-shadow: 0 8px 24px -8px rgba(0,0,0,.5); }
   .a11y-btn svg { width: 28px; height: 28px; }
   .a11y-btn:focus-visible, .a11y-panel button:focus-visible, .a11y-panel a:focus-visible { outline: 3px solid #ffbf47; outline-offset: 2px; }
-  .a11y-panel { position: fixed; z-index: 91; bottom: 76px; inset-inline-start: 18px; width: min(300px, calc(100vw - 36px)); background: #fff; color: #111; border-radius: 12px;
+  .a11y-panel { position: fixed; z-index: 91; bottom: 76px; inset-inline-start: 18px; width: min(300px, calc(100vw - 36px)); background: #fff; color: #111; border-radius: 6px;
     padding: 16px; box-shadow: 0 20px 50px -12px rgba(0,0,0,.55); font: 16px/1.4 Arial, system-ui, sans-serif; }
   .a11y-panel[hidden] { display: none; }
   .a11y-panel h2 { margin: 0 0 12px; font: 700 18px/1.2 Arial, system-ui, sans-serif; color: #111; }
   .a11y-panel .a11y-row { display: grid; grid-template-columns: 1fr auto auto auto; gap: 6px; align-items: center; margin-bottom: 10px; }
-  .a11y-panel button { min-height: 40px; border: 1px solid #8a8a8a; border-radius: 8px; background: #f4f4f4; color: #111; font: 600 15px Arial, system-ui, sans-serif; cursor: pointer; padding: 0 10px; }
+  .a11y-panel button { min-height: 40px; border: 1px solid #8a8a8a; border-radius: 4px; background: #f4f4f4; color: #111; font: 600 15px Arial, system-ui, sans-serif; cursor: pointer; padding: 0 10px; }
   .a11y-panel button[aria-pressed="true"] { background: #12305e; color: #fff; border-color: #12305e; }
   .a11y-panel .a11y-toggles { display: grid; gap: 6px; }
   .a11y-panel .a11y-toggles button { text-align: start; }
