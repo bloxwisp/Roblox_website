@@ -308,3 +308,8 @@ h2 { font-size: var(--t-h2); line-height: 1.02; }
 @keyframes enter-rise { from { opacity: 0; translate: 0 16px; } to { opacity: 1; translate: 0 0; } }
 @media (max-width: 400px) { .nav__bar { gap: 8px; } .logo-name { font-size: 18px; } }
 @media (max-width: 340px) { .logo-name { display: none; } }
+
+/* how we pick: the head at the top of the screen, the four rules standing at its foot with their numbers set large */
+#rules > .wrap { display: flex; flex-direction: column; min-height: calc(100svh - var(--padt) - var(--padb) - var(--bar)); }
+#rules .rules { margin-top: auto; padding-top: 48px; }
+#rules .rule__n { font-size: clamp(64px, 7vw + 8px, 136px); line-height: .9; margin-bottom: 40px; }
