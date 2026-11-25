@@ -172,6 +172,49 @@ a{color:inherit}
 }
 @keyframes rise{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
 
+/* hero wall in motion: four columns of game icons drifting in opposite directions, paused on hover */
+.hero-wall{height:min(640px,calc(100svh - 190px));overflow:hidden;align-items:start;-webkit-mask-image:linear-gradient(transparent,#000 13%,#000 87%,transparent);mask-image:linear-gradient(transparent,#000 13%,#000 87%,transparent)}
+.wall-col{display:flex;flex-direction:column;gap:14px;will-change:translate}
+.wall-col:nth-child(even){margin-top:-60px}
+@media (prefers-reduced-motion:no-preference){
+  .wall-col{animation:wall-up var(--t,46s) linear infinite}
+  .wall-col:nth-child(even){animation-name:wall-down}
+  .hero-wall:hover .wall-col,.hero-wall:focus-within .wall-col{animation-play-state:paused}
+}
+@keyframes wall-up{from{translate:0 0}to{translate:0 calc(-50% - 7px)}}
+@keyframes wall-down{from{translate:0 calc(-50% - 7px)}to{translate:0 0}}
+
+/* start here: one pick from each of the first five categories, as big cards */
+.picks{padding-block:72px 8px}
+.picks-head{display:flex;align-items:end;justify-content:space-between;gap:12px 32px;flex-wrap:wrap;margin-bottom:26px}
+.picks-head h2{font:400 clamp(30px,4vw,52px)/1.05 var(--font-display);letter-spacing:-.035em;margin:0}
+.picks-head p{margin:0;color:var(--muted);max-width:46ch}
+.picks-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
+.pick{position:relative;display:block;aspect-ratio:3/4;padding:0;border:1px solid var(--line-2);border-radius:var(--r-lg,18px);overflow:hidden;background:#0c0b0f;color:var(--ink);text-align:start;cursor:pointer;font:inherit;isolation:isolate;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
+.pick img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
+.pick::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(12,11,15,.96) 0,rgba(12,11,15,.8) 34%,rgba(12,11,15,0) 66%)}
+.pick-body{position:absolute;inset:auto 0 0 0;padding:18px 18px 20px;display:grid;gap:6px}
+.pick-cat{font:400 10.5px/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
+.pick b{font:500 clamp(19px,1.6vw,23px)/1.15 var(--font-display);letter-spacing:-.02em}
+.pick-desc{font-size:13.5px;line-height:1.45;color:#c9c5d2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
+.pick-n{position:absolute;top:14px;inset-inline-start:14px;font:400 12px/1 var(--font-mono);color:var(--accent-ink);background:var(--accent);padding:6px 8px;border-radius:8px}
+@media (hover:hover) and (pointer:fine){
+  .pick:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 24px 60px -18px rgba(0,0,0,.7),0 0 0 1px var(--accent)}
+  .pick:hover img{transform:scale(1.07)}
+}
+
+/* game cards: on hover the art leans in, a play button appears and the card takes its category colour */
+.card-thumb{position:relative}
+.card-thumb::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 50%,rgba(12,11,15,.05),rgba(12,11,15,.55));opacity:0;transition:opacity .3s}
+.card-thumb::before{content:"";position:absolute;z-index:2;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:50%;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13l11-6.5z' fill='%23121116'/%3E%3C/svg%3E") no-repeat 56% 50%/24px;box-shadow:0 12px 30px rgba(0,0,0,.5);opacity:0;scale:.6;transition:opacity .25s,scale .4s var(--ease)}
+@media (hover:hover) and (pointer:fine){
+  .card:hover{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 22px 50px -16px rgba(0,0,0,.6)}
+  .card:hover .card-thumb img{transform:scale(1.08)}
+  .card:hover .card-thumb::after{opacity:1}
+  .card:hover .card-thumb::before{opacity:1;scale:1}
+}
+.card:focus-visible .card-thumb::before{opacity:1;scale:1}
+
 /* ---------- intro + list ---------- */
 .intro{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;padding-block:72px 24px}
 .intro-label{font:400 11px/1.6 var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:6px 0 0}
@@ -262,7 +305,13 @@ footer{border-top:1px solid var(--line)}
 @media (max-width:900px){
   .hero-grid{grid-template-columns:1fr;min-height:0;padding-block:40px 48px}
   .hero-wall{grid-template-columns:repeat(4,1fr);gap:10px}
-  .wall-tile:nth-child(n+9){display:none}
+  .hero-wall{height:300px}
+  .wall-col{gap:10px}
+  @keyframes wall-up{from{translate:0 0}to{translate:0 calc(-50% - 5px)}}
+  @keyframes wall-down{from{translate:0 calc(-50% - 5px)}to{translate:0 0}}
+  .picks-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(220px,62%);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:none;margin-inline:-20px;padding-inline:20px}
+  .picks-row::-webkit-scrollbar{display:none}
+  .pick{scroll-snap-align:start}
   .wall-tile .wall-name{display:none}
   .intro{grid-template-columns:1fr;gap:12px;padding-block:48px 8px}
   .cta-band{grid-template-columns:1fr}
@@ -518,6 +567,16 @@ footer{border-top:1px solid var(--line)}
       <div class="stats" id="stats"></div>
     </div>
     <div class="hero-wall" id="heroWall"></div>
+  </div>
+</section>
+
+<section class="picks" id="picks" aria-labelledby="picksTitle">
+  <div class="wrap">
+    <div class="picks-head">
+      <h2 id="picksTitle" data-i18n="picksTitle">Start here</h2>
+      <p data-i18n="picksLead">Not sure what to play? One pick from each of five categories.</p>
+    </div>
+    <div class="picks-row" id="picksRow"></div>
   </div>
 </section>
 
@@ -1445,7 +1504,7 @@ const I18N = {
   en:{ eyebrow:"human curated // not the algorithm",
     heroHtml:'Skip the <span class="accent">slop.</span><br>Play good Roblox games.',
     sub:"Every game here was picked by hand, not because it's trending, but because it's actually worth your time. No generic simulators, no clones, no brainrot.",
-    statGames:"curated picks", statCats:"categories", statBrainrot:"links checked",
+    statGames:"curated picks", statCats:"categories", statBrainrot:"links checked", picksTitle:"Start here", picksLead:"Not sure what to play? One pick from each of five categories.",
     all:"All", games:"games", playNow:"Play now →",
     topRated:"Your Top Rated", topRatedEmpty:"Rate a few games (tap the stars) to build your own top list.",
     logoTag:"good roblox games to play", modalHint:"Open {game} directly in Roblox.", playOnRoblox:"Play on Roblox →",
@@ -1465,7 +1524,7 @@ const I18N = {
   he:{ eyebrow:"קיוריישן אנושי // לא אלגוריתם",
     heroHtml:'דלגו על <span class="accent">הזבל.</span><br>שחקו במשהו טוב.',
     sub:"כל משחק כאן נבחר ידנית, לא כי הוא ויראלי, אלא כי הוא באמת שווה את הזמן שלכם. בלי סימולטורים גנריים, בלי קלונים, בלי בריינרוט.",
-    statGames:"משחקים נבחרים", statCats:"קטגוריות", statBrainrot:"קישורים נבדקו",
+    statGames:"משחקים נבחרים", statCats:"קטגוריות", statBrainrot:"קישורים נבדקו", picksTitle:"מתחילים מכאן", picksLead:"לא בטוחים מה לשחק? משחק אחד מכל אחת מחמש קטגוריות.",
     all:"הכול", games:"משחקים", playNow:"שחקו עכשיו ←",
     topRated:"המשחקים המדורגים שלך", topRatedEmpty:"דרגו כמה משחקים (לחצו על הכוכבים) כדי לבנות רשימת מועדפים אישית.",
     logoTag:"משחקי רובלוקס שבאמת טובים", modalHint:"פתחו את {game} ישירות ברובלוקס.", playOnRoblox:"שחקו ברובלוקס ←",
@@ -3179,9 +3238,9 @@ function applyLang(lang){
   document.querySelector('[data-i18n="footerMade"]').textContent = t.footerMade;
   ['heroCtaBrowse','heroCtaWhy','featuresTitle','featuresLead',
    'f1t','f1d','f2t','f2d','f3t','f3d','f4t','f4d',
-   'ctaTitle','ctaBody','ctaBtn','surprise','skipLink','a11yLanguage'].forEach(key=>{
+   'ctaTitle','ctaBody','ctaBtn','surprise','skipLink','a11yLanguage','picksTitle','picksLead'].forEach(key=>{
     const el = document.querySelector(`[data-i18n="${key}"]`);
-    if(el) el.textContent = t[key];
+    if(el) el.textContent = t[key] ?? I18N.en[key];
   });
   document.querySelectorAll('.chip').forEach(btn=>{
     const id = btn.dataset.i18nChip;
@@ -3191,6 +3250,7 @@ function applyLang(lang){
   });
   renderStats();
   renderSections();
+  if(typeof renderPicks === 'function') renderPicks();
   translateMissingDescriptions(lang);
 }
 
@@ -3279,20 +3339,47 @@ if (fullScreenBtn) {
 
 /* ---------- REDESIGN 2026-11: hero wall, surprise me, header tuck ---------- */
 const heroWallEl = document.getElementById('heroWall');
+/* four columns of six icons; each column holds its tiles twice so the drift loops without a seam */
 function renderHeroWall(){
-  const picks = [];
-  for(let round = 0; picks.length < 12 && round < 4; round++){
+  const COLS = 4, PER = 6, picks = [];
+  for(let round = 0; picks.length < COLS * PER && round < 8; round++){
     DATA.forEach(sec => {
       const g = sec.games[round];
-      if(picks.length < 12 && g && localIconUrl(slugify(g.name))) picks.push({cat: sec.cat, idx: round, g});
+      if(picks.length < COLS * PER && g && localIconUrl(slugify(g.name))) picks.push({cat: sec.cat, idx: round, g});
     });
   }
-  heroWallEl.innerHTML = picks.map((p, i) => `
-    <button class="wall-tile" type="button" style="--i:${i}" data-cat="${p.cat}" data-idx="${p.idx}" aria-label="${p.g.name}">
-      <img src="${localIconUrl(slugify(p.g.name))}" alt="" width="180" height="180" ${i > 5 ? 'loading="lazy"' : ''}>
+  const tile = (p, i, copy) => `
+    <button class="wall-tile" type="button" style="--i:${i}" data-cat="${p.cat}" data-idx="${p.idx}" aria-label="${p.g.name}"${copy ? ' aria-hidden="true" tabindex="-1"' : ''}>
+      <img src="${localIconUrl(slugify(p.g.name))}" alt="" width="180" height="180" ${i > 7 || copy ? 'loading="lazy"' : ''}>
       <span class="wall-name">${translatedName(p.g.name)}</span>
-    </button>`).join('');
+    </button>`;
+  let html = '';
+  for(let c = 0; c < COLS; c++){
+    const col = picks.filter((_, i) => i % COLS === c);
+    html += `<div class="wall-col" style="--t:${44 + c * 7}s">${col.map((p, i) => tile(p, i * COLS + c, false)).join('')}${col.map((p, i) => tile(p, i * COLS + c, true)).join('')}</div>`;
+  }
+  heroWallEl.innerHTML = html;
 }
+
+/* start here: the first game of each of the first five categories */
+function renderPicks(){
+  const row = document.getElementById('picksRow');
+  if(!row) return;
+  const picks = DATA.slice(0, 5).map(sec => ({sec, g: sec.games[0]})).filter(p => p.g);
+  row.innerHTML = picks.map(({sec, g}, i) => {
+    const label = (CATLABELS[sec.cat] && CATLABELS[sec.cat][CURRENT_LANG]) || sec.catLabel;
+    const icon = localIconUrl(slugify(g.name));
+    return `<button class="pick" type="button" data-cat="${sec.cat}" data-idx="0">
+      ${icon ? `<img src="${icon}" alt="" width="420" height="420" loading="lazy">` : ''}
+      <span class="pick-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
+      <span class="pick-body"><span class="pick-cat">${label}</span><b>${translatedName(g.name)}</b><span class="pick-desc">${translatedDesc(g.name, g.desc)}</span></span>
+    </button>`;
+  }).join('');
+}
+document.getElementById('picksRow').addEventListener('click', e => {
+  const p = e.target.closest('.pick');
+  if(p) openModal(p.dataset.cat, parseInt(p.dataset.idx, 10));
+});
 heroWallEl.addEventListener('click', e => {
   const tile = e.target.closest('.wall-tile');
   if(tile) openModal(tile.dataset.cat, parseInt(tile.dataset.idx, 10));
