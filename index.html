@@ -54,9 +54,8 @@
   ]
 }
 </script>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Sora:wght@400..700&family=Figtree:wght@400..700&family=Martian+Mono:wght@400..500&display=swap" rel="stylesheet">
+<link href="fonts/fonts.css" rel="stylesheet">
+<script src="a11y.js" data-lang="en" data-statement="accessibility.html"></script>
 <style>
 /* BloxWisp redesign 2026-11 — palette forest-pale-lime, type Sora / Figtree / Martian Mono (taste-skill deal) */
 :root{
@@ -93,13 +92,13 @@ a{color:inherit}
 .logo-tag::first-letter{text-transform:uppercase}
 .head-search{flex:1;max-width:520px;margin-inline:auto;position:relative}
 .head-search svg{position:absolute;inset-inline-start:16px;top:50%;translate:0 -50%;width:18px;height:18px;color:var(--muted);pointer-events:none}
-.search-input{width:100%;height:44px;border-radius:999px;border:1px solid var(--line-2);background:var(--surface);padding-inline:46px 18px;font-size:15px;transition:border-color .2s,background .2s,box-shadow .2s}
+.search-input{width:100%;height:44px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface);padding-inline:46px 18px;font-size:15px;transition:border-color .2s,background .2s,box-shadow .2s}
 .search-input::placeholder{color:var(--muted)}
 .search-input:hover{border-color:rgba(255,201,60,.4)}
 .search-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);background:var(--surface-2)}
 .search-input::-webkit-search-cancel-button{filter:invert(1) opacity(.6)}
 .head-tools{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.icon-btn,.lang-select{height:44px;min-width:44px;border-radius:999px;border:1px solid var(--line-2);background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,border-color .2s,transform .15s}
+.icon-btn,.lang-select{height:44px;min-width:44px;border-radius:10px;border:1px solid var(--line-2);background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,border-color .2s,transform .15s}
 .icon-btn:hover,.lang-select:hover{background:var(--surface-2);border-color:rgba(255,201,60,.45)}
 .icon-btn:active,.lang-select:active{transform:scale(.96)}
 .lang-select{padding-inline:8px 14px;font:500 13px/1 var(--font-text);gap:9px}
@@ -125,7 +124,7 @@ a{color:inherit}
 .filters{display:flex;gap:8px;overflow-x:auto;padding-block:11px;scroll-padding-inline:var(--gutter);scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
 [dir=rtl] .filters{-webkit-mask-image:linear-gradient(270deg,#000 90%,transparent);mask-image:linear-gradient(270deg,#000 90%,transparent)}
 .filters::-webkit-scrollbar{display:none}
-.chip{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;height:38px;padding-inline:15px 7px;border-radius:999px;border:1px solid var(--line);background:rgba(255,255,255,.035);font:500 14px/1 var(--font-text);color:#dddbe2;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s,border-color .2s,transform .15s,box-shadow .2s}
+.chip{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;height:38px;padding-inline:15px 7px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.035);font:500 14px/1 var(--font-text);color:#dddbe2;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s,border-color .2s,transform .15s,box-shadow .2s}
 .chip-n{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:24px;padding-inline:7px;border-radius:999px;background:rgba(255,255,255,.07);font:500 10.5px/1 var(--font-mono);color:var(--muted);transition:background .2s,color .2s}
 .chip:hover{color:var(--ink);background:rgba(255,255,255,.06);border-color:rgba(255,201,60,.4)}
 .chip:hover .chip-n{color:var(--ink)}
@@ -143,7 +142,7 @@ a{color:inherit}
 .hero h1 .accent{color:var(--accent);font-style:normal}
 .sub{font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:var(--muted);max-width:44ch;margin:0 0 32px}
 .hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding-inline:26px;border-radius:999px;font:600 16px/1 var(--font-text);text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .18s var(--ease),background .2s,box-shadow .2s,border-color .2s}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding-inline:26px;border-radius:10px;font:600 16px/1 var(--font-text);text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .18s var(--ease),background .2s,box-shadow .2s,border-color .2s}
 .btn:hover{transform:translateY(-2px)}
 .btn:active{transform:translateY(0) scale(.97)}
 .btn-primary{background:var(--accent);color:var(--accent-ink)}
@@ -241,11 +240,11 @@ footer{border-top:1px solid var(--line)}
 .modal-top h2{font:400 clamp(28px,3vw,40px)/1.08 var(--font-display);letter-spacing:-.035em;margin:0 0 16px;padding-inline-end:40px}
 #modalDesc{color:var(--muted);font-size:16px;margin:0 0 20px}
 .modal-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.modal-meta span{font:400 10.5px/1 var(--font-mono);text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;border-radius:999px;border:1px solid var(--line-2);color:var(--muted)}
+.modal-meta span{font:400 10.5px/1 var(--font-mono);text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;border-radius:10px;border:1px solid var(--line-2);color:var(--muted)}
 .modal-meta .m-cat{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
 .modal-hint{margin:auto 0 0;color:var(--muted);font-size:14px}
 .modal-hint br{display:none}
-.modal-cta{display:flex;align-items:center;justify-content:center;height:54px;margin-top:14px;border-radius:999px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:16px;text-decoration:none;transition:transform .18s var(--ease),box-shadow .2s}
+.modal-cta{display:flex;align-items:center;justify-content:center;height:54px;margin-top:14px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:16px;text-decoration:none;transition:transform .18s var(--ease),box-shadow .2s}
 .modal-cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,201,60,.25)}
 .modal-cta:active{transform:scale(.98)}
 .modal-close{position:absolute;top:14px;inset-inline-end:14px;z-index:2;width:44px;height:44px;border-radius:50%;border:1px solid var(--line-2);background:rgba(18,17,22,.8);cursor:pointer;font-size:16px;transition:background .2s,transform .15s}
@@ -311,7 +310,20 @@ footer{border-top:1px solid var(--line)}
 @media (prefers-reduced-motion:reduce){
   *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
 }
-</style>
+/* FAQ + legal footer (added 2026-11-25) */
+.faq{padding-block:40px 24px;scroll-margin-top:120px}
+.faq-list{border-top:1px solid var(--line);max-width:860px}
+.faq-list details{border-bottom:1px solid var(--line)}
+.faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font:500 clamp(18px,2vw,22px)/1.3 var(--font-display);letter-spacing:-.01em}
+.faq-list summary::-webkit-details-marker{display:none}
+.faq-list summary::after{content:"+";flex:none;width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:var(--r-sm);color:var(--accent);font:500 20px/1 var(--font-text);transition:transform .3s var(--ease)}
+.faq-list details[open] summary::after{transform:rotate(45deg)}
+.faq-list p{margin:0 0 22px;color:var(--muted);max-width:62ch}
+.faq-list a{color:var(--accent)}
+.foot-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-block:0 36px;color:var(--muted);font-size:14px}
+.foot-legal nav{display:flex;gap:18px}
+.foot-legal a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
+.foot-legal p{margin:0;max-width:70ch}</style>
 </head>
 <body>
 
@@ -549,6 +561,11 @@ footer{border-top:1px solid var(--line)}
     </div>
   </section>
 
+  <section class="faq" id="faq" aria-labelledby="faqTitle">
+    <div class="section-head"><h2 id="faqTitle" data-faq="title">Questions people ask</h2></div>
+    <div class="faq-list" id="faqList"></div>
+  </section>
+
   <section class="cta-band">
     <div class="cta-inner">
       <div>
@@ -584,6 +601,10 @@ footer{border-top:1px solid var(--line)}
     <p class="footer-mark">Blox<span>Wisp</span></p>
     <p class="credit" data-i18n="footerCredit">BloxWisp — a hand-picked list, updated over time.</p>
     <p class="made mono" data-i18n="footerMade">BUILT BY ONE DEVELOPER, AGAINST THE NOISE.</p>
+  </div>
+  <div class="wrap foot-legal">
+    <nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a></nav>
+    <p>BloxWisp is an independent fan list. It is not affiliated with or endorsed by Roblox Corporation. Game names and images belong to their creators.</p>
   </div>
 </footer>
 
@@ -1424,7 +1445,7 @@ const I18N = {
   en:{ eyebrow:"human curated // not the algorithm",
     heroHtml:'Skip the <span class="accent">slop.</span><br>Play good Roblox games.',
     sub:"Every game here was picked by hand, not because it's trending, but because it's actually worth your time. No generic simulators, no clones, no brainrot.",
-    statGames:"curated picks", statCats:"categories", statBrainrot:"brainrot",
+    statGames:"curated picks", statCats:"categories", statBrainrot:"links checked",
     all:"All", games:"games", playNow:"Play now →",
     topRated:"Your Top Rated", topRatedEmpty:"Rate a few games (tap the stars) to build your own top list.",
     logoTag:"good roblox games to play", modalHint:"Open {game} directly in Roblox.", playOnRoblox:"Play on Roblox →",
@@ -1444,7 +1465,7 @@ const I18N = {
   he:{ eyebrow:"קיוריישן אנושי // לא אלגוריתם",
     heroHtml:'דלגו על <span class="accent">הזבל.</span><br>שחקו במשהו טוב.',
     sub:"כל משחק כאן נבחר ידנית, לא כי הוא ויראלי, אלא כי הוא באמת שווה את הזמן שלכם. בלי סימולטורים גנריים, בלי קלונים, בלי בריינרוט.",
-    statGames:"משחקים נבחרים", statCats:"קטגוריות", statBrainrot:"בריינרוט",
+    statGames:"משחקים נבחרים", statCats:"קטגוריות", statBrainrot:"קישורים נבדקו",
     all:"הכול", games:"משחקים", playNow:"שחקו עכשיו ←",
     topRated:"המשחקים המדורגים שלך", topRatedEmpty:"דרגו כמה משחקים (לחצו על הכוכבים) כדי לבנות רשימת מועדפים אישית.",
     logoTag:"משחקי רובלוקס שבאמת טובים", modalHint:"פתחו את {game} ישירות ברובלוקס.", playOnRoblox:"שחקו ברובלוקס ←",
@@ -1464,7 +1485,7 @@ const I18N = {
   es:{ eyebrow:"curado a mano // no por algoritmo",
     heroHtml:'Olvídate de la <span class="accent">basura.</span><br>Juega algo bueno.',
     sub:"Cada juego aquí fue elegido a mano, no por ser tendencia, sino porque realmente vale tu tiempo. Sin simuladores genéricos, sin clones, sin basura.",
-    statGames:"selecciones", statCats:"categorías", statBrainrot:"basura",
+    statGames:"selecciones", statCats:"categorías", statBrainrot:"enlaces revisados",
     all:"Todos", games:"juegos", playNow:"Jugar ahora →",
     topRated:"Tus mejor valorados", topRatedEmpty:"Valora algunos juegos (toca las estrellas) para crear tu propia lista.",
     logoTag:"juegos de roblox que sí valen la pena", modalHint:"Abre {game} directamente en Roblox.", playOnRoblox:"Jugar en Roblox →",
@@ -1484,7 +1505,7 @@ const I18N = {
   fr:{ eyebrow:"sélection humaine // pas l'algorithme",
     heroHtml:'Oubliez la <span class="accent">soupe.</span><br>Jouez à un bon jeu.',
     sub:"Chaque jeu ici a été choisi à la main, pas parce qu'il est tendance, mais parce qu'il mérite vraiment votre temps. Pas de simulateurs génériques, pas de clones.",
-    statGames:"sélections", statCats:"catégories", statBrainrot:"contenu inutile",
+    statGames:"sélections", statCats:"catégories", statBrainrot:"liens vérifiés",
     all:"Tous", games:"jeux", playNow:"Jouer maintenant →",
     topRated:"Vos mieux notés", topRatedEmpty:"Notez quelques jeux (touchez les étoiles) pour créer votre liste.",
     logoTag:"bons jeux roblox à essayer", modalHint:"Ouvrez {game} directement dans Roblox.", playOnRoblox:"Jouer sur Roblox →",
@@ -1504,7 +1525,7 @@ const I18N = {
   pt:{ eyebrow:"curadoria humana // não algoritmo",
     heroHtml:'Pule a <span class="accent">porcaria.</span><br>Jogue algo bom.',
     sub:"Cada jogo aqui foi escolhido manualmente, não por ser viral, mas porque realmente vale o seu tempo. Sem simuladores genéricos, sem clones.",
-    statGames:"escolhas", statCats:"categorias", statBrainrot:"porcaria",
+    statGames:"escolhas", statCats:"categorias", statBrainrot:"links verificados",
     all:"Todos", games:"jogos", playNow:"Jogar agora →",
     topRated:"Seus mais bem avaliados", topRatedEmpty:"Avalie alguns jogos (toque nas estrelas) para montar sua lista.",
     logoTag:"bons jogos de roblox para jogar", modalHint:"Abra {game} diretamente no Roblox.", playOnRoblox:"Jogar no Roblox →",
@@ -1524,7 +1545,7 @@ const I18N = {
   de:{ eyebrow:"von Hand kuratiert // kein Algorithmus",
     heroHtml:'Überspring den <span class="accent">Müll.</span><br>Spiel etwas Gutes.',
     sub:"Jedes Spiel hier wurde von Hand ausgewählt, nicht weil es im Trend liegt, sondern weil es deine Zeit wirklich wert ist. Keine generischen Simulatoren, keine Klone.",
-    statGames:"Auswahl", statCats:"Kategorien", statBrainrot:"Brainrot",
+    statGames:"Auswahl", statCats:"Kategorien", statBrainrot:"Links geprüft",
     all:"Alle", games:"Spiele", playNow:"Jetzt spielen →",
     topRated:"Deine Top-Bewertungen", topRatedEmpty:"Bewerte ein paar Spiele (tippe auf die Sterne), um deine eigene Liste zu erstellen.",
     logoTag:"wirklich gute roblox-spiele zum spielen", modalHint:"Öffne {game} direkt in Roblox.", playOnRoblox:"Auf Roblox spielen →",
@@ -1544,7 +1565,7 @@ const I18N = {
   ar:{ eyebrow:"اختيار بشري // ليس خوارزمية",
     heroHtml:'تجاوز <span class="accent">الضوضاء.</span><br>العب شيئًا جيدًا.',
     sub:"كل لعبة هنا اختيرت يدويًا، ليس لأنها رائجة، بل لأنها تستحق وقتك فعلًا. بدون ألعاب مكررة أو نسخ متشابهة.",
-    statGames:"اختيارات مختارة", statCats:"فئات", statBrainrot:"ضوضاء",
+    statGames:"اختيارات مختارة", statCats:"فئات", statBrainrot:"روابط تم فحصها",
     all:"الكل", games:"ألعاب", playNow:"العب الآن ←",
     topRated:"أفضل ألعابك تقييمًا", topRatedEmpty:"قيّم بعض الألعاب لبناء قائمتك الخاصة.",
     logoTag:"ألعاب روبلوكس تستحق اللعب", modalHint:"افتح {game} مباشرة في روبلوكس.", playOnRoblox:"العب على روبلوكس ←",
@@ -1564,7 +1585,7 @@ const I18N = {
   ja:{ eyebrow:"人が選定 // アルゴリズムではありません",
     heroHtml:'<span class="accent">くだらないゲーム</span>は飛ばして。<br>良いゲームを遊ぼう。',
     sub:"ここにあるゲームは流行っているからではなく、本当に時間を使う価値があるものを手作業で選びました。",
-    statGames:"厳選ゲーム", statCats:"カテゴリー", statBrainrot:"ノイズ",
+    statGames:"厳選ゲーム", statCats:"カテゴリー", statBrainrot:"リンク確認済み",
     all:"すべて", games:"ゲーム", playNow:"今すぐ遊ぶ →", topRated:"高評価のゲーム", topRatedEmpty:"ゲームを評価して自分のリストを作りましょう。",
     logoTag:"本当に良いロブロックスゲームを遊ぼう", modalHint:"{game}をRobloxで直接開く。", playOnRoblox:"Robloxで遊ぶ →",
     introLabel:"何を遊ぶか", introBody:"BloxWispは、遊ぶ価値のあるRobloxゲームを人が実際に遊んで選んだリストです。トップページは飛ばしましょう。ここにあるものはすべて、アルゴリズムではなく人が選んだものです。PvP、ホラー、RPG、おびー、そのすべて。友達と遊べる良いRobloxゲームが欲しい人も、一人でじっくり遊びたい人も、ここから始めてください。",
@@ -1580,7 +1601,7 @@ const I18N = {
   zh:{ eyebrow:"人工精选 // 不是算法推荐",
     heroHtml:'跳过<span class="accent">垃圾游戏。</span><br>去玩点真正好的。',
     sub:"这里的每款游戏都是手工挑选的，不是因为热门，而是真正值得你花时间。",
-    statGames:"精选游戏", statCats:"分类", statBrainrot:"噪音",
+    statGames:"精选游戏", statCats:"分类", statBrainrot:"链接已核实",
     all:"全部", games:"游戏", playNow:"立即游玩 →", topRated:"你的高分游戏", topRatedEmpty:"给几款游戏评分，建立你的专属列表。",
     logoTag:"真正好玩的 Roblox 游戏精选列表", modalHint:"直接在 Roblox 中打开 {game}。", playOnRoblox:"在 Roblox 中游玩 →",
     introLabel:"玩什么", introBody:"BloxWisp 是一份手工挑选的好玩 Roblox 游戏清单。別再看首页推荐了。下面每一款都由真人试玩后挑选，不是算法推荐——PvP、恐怖、RPG、跑酷，应有尽有。想找能和朋友一起玩的好游戏，或者一个人安静体验的佳作，从这里开始。没有换皮，没有凑数。",
@@ -1596,7 +1617,7 @@ const I18N = {
   ko:{ eyebrow:"사람이 직접 선정 // 알고리즘이 아닙니다",
     heroHtml:'<span class="accent">별로인 게임</span>은 건너뛰고<br>좋은 게임을 플레이하세요.',
     sub:"인기 때문이 아니라 정말 시간을 쓸 가치가 있는 게임만 직접 골랐습니다.",
-    statGames:"엄선한 게임", statCats:"카테고리", statBrainrot:"소음",
+    statGames:"엄선한 게임", statCats:"카테고리", statBrainrot:"링크 확인 완료",
     all:"전체", games:"게임", playNow:"지금 플레이 →", topRated:"내 최고 평점 게임", topRatedEmpty:"게임에 평점을 남겨 나만의 목록을 만들어 보세요.",
     logoTag:"정말 좋은 Roblox 게임 플레이 목록", modalHint:"{game}을(를) Roblox에서 바로 열기.", playOnRoblox:"Roblox에서 플레이 →",
     introLabel:"무엇을 플레이할까", introBody:"BloxWisp는 사람이 직접 고른 플레이할 만한 Roblox 게임 목록입니다. 메인 페이지는 건너뛰세요. 아래 게임은 모두 알고리즘이 아니라 사람이 직접 플레이하고 고른 것입니다. PvP, 호러, RPG, 오비 등 모든 장르를 담았습니다. 친구와 함께할 좋은 Roblox 게임도, 혼자 몰입할 게임도 여기서 시작하세요.",
@@ -2849,7 +2870,7 @@ function renderStats(){
   document.getElementById('stats').innerHTML = `
     <div class="stat"><b>${totalGames}</b><span>${t.statGames}</span></div>
     <div class="stat"><b>${DATA.length}</b><span>${t.statCats}</span></div>
-    <div class="stat"><b>0</b><span>${t.statBrainrot}</span></div>
+    <div class="stat"><b>100%</b><span>${t.statBrainrot}</span></div>
   `;
 }
 
@@ -3318,5 +3339,33 @@ updateLanguageButton(startLang);
 applyLang(startLang);
 </script>
 
+<script>
+/* FAQ: English and Hebrew text; other languages show English. Re-rendered when the language changes. */
+const FAQ = {
+  en:{ title:"Questions people ask", items:[
+    ["How are the games picked?","By hand. Every game on the list was played before it got a spot. Generic simulators, cash grabs and brainrot clones are left out, and weak games get cut when the list is updated."],
+    ["Are the games free?","Roblox games are free to join. Many sell optional extras for Robux inside the game, so check what you buy before you pay."],
+    ["Is BloxWisp part of Roblox?","No. BloxWisp is an independent list and is not affiliated with Roblox Corporation. The Play button opens the game's official Roblox page."],
+    ["How often is the list updated?","It changes over time: new games are added and games that stop being good are removed. Every link was checked to open the right game."],
+    ["Do I need an account or give any data?","No account and no sign-up. There are no ads and no tracking. Your language choice is kept in your own browser. The <a href=\"privacy.html\">privacy page</a> lists everything."]]},
+  he:{ title:"שאלות נפוצות", items:[
+    ["איך המשחקים נבחרים?","ידנית. כל משחק ברשימה שוחק לפני שקיבל מקום. סימולטורים גנריים, משחקים שנועדו רק למכור ושכפולי בריינרוט לא נכנסים, ומשחקים חלשים יוצאים כשהרשימה מתעדכנת."],
+    ["המשחקים בחינם?","הכניסה למשחקי רובלוקס בחינם. בהרבה מהם אפשר לקנות תוספות ב-Robux בתוך המשחק, אז כדאי לבדוק מה קונים לפני שמשלמים."],
+    ["BloxWisp שייך לרובלוקס?","לא. BloxWisp היא רשימה עצמאית ואין לה קשר ל-Roblox Corporation. כפתור המשחק פותח את הדף הרשמי של המשחק ברובלוקס."],
+    ["כל כמה זמן הרשימה מתעדכנת?","היא משתנה עם הזמן: נכנסים משחקים חדשים ויוצאים משחקים שכבר לא שווים. כל קישור נבדק שהוא פותח את המשחק הנכון."],
+    ["צריך חשבון או למסור מידע?","בלי חשבון ובלי הרשמה. אין פרסומות ואין מעקב. בחירת השפה נשמרת רק בדפדפן שלכם. <a href=\"privacy.html\">דף הפרטיות</a> מפרט הכול."]]}
+};
+function renderFaq(lang){
+  const f = FAQ[lang] || FAQ.en;
+  document.querySelector('[data-faq="title"]').textContent = f.title;
+  document.getElementById('faqList').innerHTML = f.items.map(([q,a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+  let ld = document.getElementById('faqSchema');
+  if(!ld){ ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'faqSchema'; document.head.append(ld); }
+  ld.textContent = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":FAQ.en.items.map(([q,a])=>({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a.replace(/<[^>]+>/g,'')}}))});
+}
+const _applyLangBase = applyLang;
+applyLang = function(lang){ _applyLangBase(lang); renderFaq(lang); };
+renderFaq(typeof CURRENT_LANG === 'string' ? CURRENT_LANG : 'en');
+</script>
 </body>
 </html>
