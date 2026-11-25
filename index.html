@@ -10,7 +10,7 @@
 <link rel="icon" type="image/svg+xml" href="images/logo-mark.svg">
 <link rel="icon" type="image/png" sizes="96x96" href="images/favicon-96.png">
 <link rel="apple-touch-icon" href="images/apple-touch-icon.png">
-<meta name="theme-color" content="#121116">
+<meta name="theme-color" content="#18191b">
 <link rel="canonical" href="https://bloxwisp.github.io/Roblox_website/">
 <meta property="og:site_name" content="BloxWisp">
 <meta property="og:locale" content="en">
@@ -54,338 +54,11 @@
   ]
 }
 </script>
-<link href="fonts/fonts.css" rel="stylesheet">
 <script src="a11y.js" data-lang="en" data-statement="accessibility.html"></script>
-<style>
-/* BloxWisp redesign 2026-11 — palette forest-pale-lime, type Sora / Figtree / Martian Mono (taste-skill deal) */
-:root{
-  --bg:#121116; --surface:#1c1b21; --surface-2:#25242b; --line:rgba(255,255,255,.09); --line-2:rgba(255,255,255,.16);
-  --ink:#ffffff; --muted:#aaa7b0; --accent:#ffc93c; --accent-ink:#1a1305; --accent-soft:rgba(255,201,60,.12);
-  --font-display:"Sora",system-ui,sans-serif; --font-text:"Figtree",system-ui,sans-serif;
-  --font-mono:"Martian Mono",ui-monospace,"SFMono-Regular",Menlo,Consolas,monospace;
-  --r-sm:4px; --r-md:8px; --r-lg:10px; --wrap:1240px; --gutter:clamp(16px,4vw,40px);
-  --row1:64px; --ease:cubic-bezier(.2,.7,.2,1);
-}
-*,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;-webkit-text-size-adjust:100%}
-body{margin:0;background:var(--bg);color:var(--ink);font:400 16px/1.55 var(--font-text);-webkit-font-smoothing:antialiased;overflow-x:hidden}
-img{display:block;max-width:100%}
-button,input{font:inherit;color:inherit}
-a{color:inherit}
-.hidden{display:none!important}
-.mono{font-family:var(--font-mono)}
-.wrap{width:100%;max-width:calc(var(--wrap) + 2*var(--gutter));margin-inline:auto;padding-inline:var(--gutter)}
-:focus-visible{outline:2px solid var(--accent);outline-offset:3px;border-radius:6px}
-.skip{position:absolute;inset-inline-start:12px;top:-60px;z-index:100;background:var(--accent);color:var(--accent-ink);padding:10px 16px;border-radius:var(--r-sm);font-weight:600;text-decoration:none;transition:top .2s}
-.skip:focus{top:12px}
-
-/* ---------- header ---------- */
-.site-head{position:sticky;top:0;z-index:40;background:rgba(18,17,22,.92);backdrop-filter:saturate(1.4) blur(14px);-webkit-backdrop-filter:saturate(1.4) blur(14px);border-bottom:1px solid var(--line);transition:transform .32s var(--ease)}
-.head-row{display:flex;align-items:center;gap:20px;min-height:var(--row1)}
-.logo{display:flex;align-items:center;gap:11px;text-decoration:none;flex-shrink:0;border-radius:14px}
-.logo-mark{width:38px;height:38px;filter:drop-shadow(0 6px 14px rgba(255,201,60,.22));transition:transform .35s var(--ease)}
-.logo:hover .logo-mark{transform:rotate(-8deg) scale(1.06)}
-.logo-text{display:flex;flex-direction:column;gap:4px;line-height:1}
-.logo-name{font:600 20px/1 var(--font-display);letter-spacing:-.035em}
-.logo-name-accent{color:var(--accent)}
-.logo-tag{font:500 11.5px/1 var(--font-text);color:var(--muted);letter-spacing:.01em;white-space:nowrap}
-.logo-tag::first-letter{text-transform:uppercase}
-.head-search{flex:1;max-width:520px;margin-inline:auto;position:relative}
-.head-search svg{position:absolute;inset-inline-start:16px;top:50%;translate:0 -50%;width:18px;height:18px;color:var(--muted);pointer-events:none}
-.search-input{width:100%;height:44px;border-radius:10px;border:1px solid var(--line-2);background:var(--surface);padding-inline:46px 18px;font-size:15px;transition:border-color .2s,background .2s,box-shadow .2s}
-.search-input::placeholder{color:var(--muted)}
-.search-input:hover{border-color:rgba(255,201,60,.4)}
-.search-input:focus{outline:none;border-color:var(--accent);box-shadow:0 0 0 4px var(--accent-soft);background:var(--surface-2)}
-.search-input::-webkit-search-cancel-button{filter:invert(1) opacity(.6)}
-.head-tools{display:flex;align-items:center;gap:8px;flex-shrink:0}
-.icon-btn,.lang-select{height:44px;min-width:44px;border-radius:10px;border:1px solid var(--line-2);background:transparent;cursor:pointer;display:inline-flex;align-items:center;justify-content:center;gap:8px;transition:background .2s,border-color .2s,transform .15s}
-.icon-btn:hover,.lang-select:hover{background:var(--surface-2);border-color:rgba(255,201,60,.45)}
-.icon-btn:active,.lang-select:active{transform:scale(.96)}
-.lang-select{padding-inline:8px 14px;font:500 13px/1 var(--font-text);gap:9px}
-.lang-current{display:inline-flex;align-items:center;gap:9px}
-.lang-flag,.flag{width:24px;height:17px;border-radius:4px;flex-shrink:0;box-shadow:0 0 0 1px rgba(255,255,255,.14)}
-.lang-select .lang-flag{width:26px;height:26px;border-radius:50%;object-fit:cover}
-.lang-code{display:none;font:500 11px/1 var(--font-mono);letter-spacing:.04em}
-.lang-caret{display:inline-block;width:8px;height:8px;border-right:1.6px solid var(--muted);border-bottom:1.6px solid var(--muted);transform:translateY(-2px) rotate(45deg);font-size:0;transition:transform .2s}
-.lang-select-wrap.open .lang-caret{transform:translateY(2px) rotate(-135deg)}
-.lang-select-wrap.open .lang-select{background:var(--surface-2);border-color:rgba(255,201,60,.5)}
-.lang-select-wrap{position:relative}
-.lang-menu{position:absolute;inset-inline-end:0;top:calc(100% + 10px);width:360px;grid-template-columns:1fr 1fr;gap:4px;background:#1f1e25;border:1px solid var(--line-2);border-radius:20px;padding:10px;box-shadow:0 30px 80px rgba(0,0,0,.55),0 0 0 1px rgba(0,0,0,.2);display:none;z-index:60}
-.lang-select-wrap.open .lang-menu{display:grid;animation:pop .2s var(--ease)}
-.lang-menu-title{grid-column:1/-1;margin:2px 8px 8px;font:500 10.5px/1 var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--muted)}
-.lang-option{position:relative;display:flex;align-items:center;gap:11px;width:100%;min-height:46px;padding:8px 12px;border:1px solid transparent;border-radius:12px;background:none;cursor:pointer;text-align:start;font:500 14.5px/1.2 var(--font-text);color:var(--ink);transition:background .15s,border-color .15s}
-.lang-option::after{content:attr(data-lang);margin-inline-start:auto;font:500 10px/1 var(--font-mono);text-transform:uppercase;letter-spacing:.05em;color:var(--muted)}
-.lang-option:hover{background:rgba(255,255,255,.05)}
-.lang-option.active{background:var(--accent-soft);border-color:rgba(255,201,60,.35);color:var(--accent)}
-.lang-option.active::after{content:"";width:14px;height:14px;background:var(--accent);-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='3.2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M20 6 9 17l-5-5'/%3E%3C/svg%3E") center/contain no-repeat}
-@keyframes pop{from{opacity:0;transform:translateY(-4px)}to{opacity:1;transform:none}}
-
-.chip-row{border-top:1px solid var(--line)}
-.filters{display:flex;gap:8px;overflow-x:auto;padding-block:11px;scroll-padding-inline:var(--gutter);scrollbar-width:none;-webkit-mask-image:linear-gradient(90deg,#000 90%,transparent);mask-image:linear-gradient(90deg,#000 90%,transparent)}
-[dir=rtl] .filters{-webkit-mask-image:linear-gradient(270deg,#000 90%,transparent);mask-image:linear-gradient(270deg,#000 90%,transparent)}
-.filters::-webkit-scrollbar{display:none}
-.chip{flex-shrink:0;display:inline-flex;align-items:center;gap:8px;height:38px;padding-inline:15px 7px;border-radius:10px;border:1px solid var(--line);background:rgba(255,255,255,.035);font:500 14px/1 var(--font-text);color:#dddbe2;cursor:pointer;white-space:nowrap;transition:color .2s,background .2s,border-color .2s,transform .15s,box-shadow .2s}
-.chip-n{display:inline-flex;align-items:center;justify-content:center;min-width:26px;height:24px;padding-inline:7px;border-radius:999px;background:rgba(255,255,255,.07);font:500 10.5px/1 var(--font-mono);color:var(--muted);transition:background .2s,color .2s}
-.chip:hover{color:var(--ink);background:rgba(255,255,255,.06);border-color:rgba(255,201,60,.4)}
-.chip:hover .chip-n{color:var(--ink)}
-.chip:active{transform:scale(.96)}
-.chip.active{background:var(--accent);border-color:var(--accent);color:var(--accent-ink);font-weight:600;box-shadow:0 6px 20px rgba(255,201,60,.22)}
-.chip.active .chip-n{background:rgba(18,17,22,.14);color:var(--accent-ink)}
-
-/* ---------- hero ---------- */
-.hero{position:relative;overflow:hidden;border-bottom:1px solid var(--line)}
-.hero::before{content:"";position:absolute;inset:0;background:radial-gradient(60% 70% at 85% 30%,rgba(255,201,60,.10),transparent 70%);pointer-events:none}
-.hero-grid{position:relative;display:grid;grid-template-columns:minmax(0,1.05fr) minmax(0,1fr);gap:56px;align-items:center;min-height:calc(100svh - 120px);padding-block:56px}
-.eyebrow{display:flex;align-items:center;gap:12px;font:400 11px/1.4 var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:0 0 24px}
-.pip{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 4px var(--accent-soft)}
-.hero h1{font:400 clamp(44px,6.4vw,84px)/1.02 var(--font-display);letter-spacing:-.045em;margin:0 0 24px;text-wrap:balance}
-.hero h1 .accent{color:var(--accent);font-style:normal}
-.sub{font-size:clamp(17px,1.5vw,20px);line-height:1.55;color:var(--muted);max-width:44ch;margin:0 0 32px}
-.hero-cta{display:flex;flex-wrap:wrap;gap:12px;margin-bottom:44px}
-.btn{display:inline-flex;align-items:center;justify-content:center;gap:10px;height:52px;padding-inline:26px;border-radius:10px;font:600 16px/1 var(--font-text);text-decoration:none;cursor:pointer;border:1px solid transparent;transition:transform .18s var(--ease),background .2s,box-shadow .2s,border-color .2s}
-.btn:hover{transform:translateY(-2px)}
-.btn:active{transform:translateY(0) scale(.97)}
-.btn-primary{background:var(--accent);color:var(--accent-ink)}
-.btn-primary:hover{box-shadow:0 10px 30px rgba(255,201,60,.25)}
-.btn-ghost{background:transparent;color:var(--ink);border-color:var(--line-2)}
-.btn-ghost:hover{background:var(--surface-2);border-color:rgba(255,201,60,.45)}
-.btn svg{width:18px;height:18px}
-.stats{display:grid;grid-template-columns:repeat(3,auto);justify-content:start;gap:0;border-top:1px solid var(--line);padding-top:22px}
-.stat{padding-inline-end:36px;margin-inline-end:36px;border-inline-end:1px solid var(--line)}
-.stat:last-child{border:0;margin:0;padding:0}
-.stat b{display:block;font:400 34px/1 var(--font-display);letter-spacing:-.03em;color:var(--ink)}
-.stat span{display:block;font:400 10.5px/1.4 var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--muted);margin-top:8px}
-.hero-wall{display:grid;grid-template-columns:repeat(4,1fr);gap:14px}
-.wall-tile{position:relative;aspect-ratio:1;border-radius:var(--r-md);overflow:hidden;border:1px solid var(--line-2);background:var(--surface);padding:0;cursor:pointer;transition:transform .25s var(--ease),border-color .25s,box-shadow .25s}
-.wall-tile img{width:100%;height:100%;object-fit:cover;transition:transform .4s var(--ease)}
-.wall-tile:hover{transform:translateY(-3px);border-color:var(--accent);box-shadow:0 16px 40px rgba(0,0,0,.4)}
-.wall-tile:hover img{transform:scale(1.04)}
-.wall-tile .wall-name{position:absolute;inset-inline:0;bottom:0;padding:22px 10px 8px;font:600 12px/1.2 var(--font-text);text-align:start;background:linear-gradient(transparent,rgba(12,11,15,.85));opacity:0;transition:opacity .25s}
-.wall-tile:hover .wall-name,.wall-tile:focus-visible .wall-name{opacity:1}
-
-/* hero entrance, once on load */
-@media (prefers-reduced-motion:no-preference){
-  .hero-copy>*{animation:rise .7s var(--ease) both}
-  .hero-copy>*:nth-child(2){animation-delay:.06s}.hero-copy>*:nth-child(3){animation-delay:.12s}
-  .hero-copy>*:nth-child(4){animation-delay:.18s}.hero-copy>*:nth-child(5){animation-delay:.24s}
-  .wall-tile{animation:rise .8s var(--ease) both;animation-delay:calc(.15s + var(--i,0) * .04s)}
-}
-@keyframes rise{from{opacity:0;translate:0 18px}to{opacity:1;translate:0 0}}
-
-/* hero wall in motion: four columns of game icons drifting in opposite directions, paused on hover */
-.hero-wall{height:min(640px,calc(100svh - 190px));overflow:hidden;align-items:start;-webkit-mask-image:linear-gradient(transparent,#000 13%,#000 87%,transparent);mask-image:linear-gradient(transparent,#000 13%,#000 87%,transparent)}
-.wall-col{display:flex;flex-direction:column;gap:14px;will-change:translate}
-.wall-col:nth-child(even){margin-top:-60px}
-@media (prefers-reduced-motion:no-preference){
-  .wall-col{animation:wall-up var(--t,46s) linear infinite}
-  .wall-col:nth-child(even){animation-name:wall-down}
-  .hero-wall:hover .wall-col,.hero-wall:focus-within .wall-col{animation-play-state:paused}
-}
-@keyframes wall-up{from{translate:0 0}to{translate:0 calc(-50% - 7px)}}
-@keyframes wall-down{from{translate:0 calc(-50% - 7px)}to{translate:0 0}}
-
-/* start here: one pick from each of the first five categories, as big cards */
-.picks{padding-block:72px 8px}
-.picks-head{display:flex;align-items:end;justify-content:space-between;gap:12px 32px;flex-wrap:wrap;margin-bottom:26px}
-.picks-head h2{font:400 clamp(30px,4vw,52px)/1.05 var(--font-display);letter-spacing:-.035em;margin:0}
-.picks-head p{margin:0;color:var(--muted);max-width:46ch}
-.picks-row{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:16px}
-.pick{position:relative;display:block;aspect-ratio:3/4;padding:0;border:1px solid var(--line-2);border-radius:var(--r-lg,18px);overflow:hidden;background:#0c0b0f;color:var(--ink);text-align:start;cursor:pointer;font:inherit;isolation:isolate;transition:transform .3s var(--ease),border-color .3s,box-shadow .3s}
-.pick img{position:absolute;inset:0;z-index:-2;width:100%;height:100%;object-fit:cover;transition:transform .7s var(--ease)}
-.pick::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(12,11,15,.96) 0,rgba(12,11,15,.8) 34%,rgba(12,11,15,0) 66%)}
-.pick-body{position:absolute;inset:auto 0 0 0;padding:18px 18px 20px;display:grid;gap:6px}
-.pick-cat{font:400 10.5px/1.3 var(--font-mono);text-transform:uppercase;letter-spacing:.06em;color:var(--accent)}
-.pick b{font:500 clamp(19px,1.6vw,23px)/1.15 var(--font-display);letter-spacing:-.02em}
-.pick-desc{font-size:13.5px;line-height:1.45;color:#c9c5d2;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.pick-n{position:absolute;top:14px;inset-inline-start:14px;font:400 12px/1 var(--font-mono);color:var(--accent-ink);background:var(--accent);padding:6px 8px;border-radius:8px}
-@media (hover:hover) and (pointer:fine){
-  .pick:hover{transform:translateY(-4px);border-color:var(--accent);box-shadow:0 24px 60px -18px rgba(0,0,0,.7),0 0 0 1px var(--accent)}
-  .pick:hover img{transform:scale(1.07)}
-}
-
-/* game cards: on hover the art leans in, a play button appears and the card takes its category colour */
-.card-thumb{position:relative}
-.card-thumb::after{content:"";position:absolute;inset:0;z-index:1;background:radial-gradient(circle at 50% 50%,rgba(12,11,15,.05),rgba(12,11,15,.55));opacity:0;transition:opacity .3s}
-.card-thumb::before{content:"";position:absolute;z-index:2;left:50%;top:50%;width:54px;height:54px;margin:-27px 0 0 -27px;border-radius:14px;background:var(--accent) url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24'%3E%3Cpath d='M8 5.5v13l11-6.5z' fill='%23121116'/%3E%3C/svg%3E") no-repeat 56% 50%/24px;box-shadow:0 12px 30px rgba(0,0,0,.5);opacity:0;scale:.6;transition:opacity .25s,scale .4s var(--ease)}
-@media (hover:hover) and (pointer:fine){
-  .card:hover{border-color:var(--accent);box-shadow:0 0 0 1px var(--accent),0 22px 50px -16px rgba(0,0,0,.6)}
-  .card:hover .card-thumb img{transform:scale(1.08)}
-  .card:hover .card-thumb::after{opacity:1}
-  .card:hover .card-thumb::before{opacity:1;scale:1}
-}
-.card:focus-visible .card-thumb::before{opacity:1;scale:1}
-
-/* phone: a sticky bar with the two main actions, shown once the hero buttons scroll away */
-.bar{display:none}
-@media (max-width:760px){
-  body{padding-bottom:76px}
-  .bar{display:flex;position:fixed;inset:auto 0 0 0;z-index:60;gap:10px;padding:10px 14px calc(10px + env(safe-area-inset-bottom));background:rgba(18,17,22,.96);border-top:1px solid var(--line);transition:transform .35s var(--ease)}
-  .bar .btn{flex:1 1 0;height:48px;padding-inline:12px;font-size:15px}
-  .bar.is-hidden{transform:translateY(110%)}
-}
-@media (prefers-reduced-motion:reduce){.bar{transition:none}}
-
-/* ---------- intro + list ---------- */
-.intro{display:grid;grid-template-columns:220px minmax(0,1fr);gap:40px;padding-block:72px 24px}
-.intro-label{font:400 11px/1.6 var(--font-mono);text-transform:uppercase;letter-spacing:.08em;color:var(--accent);margin:6px 0 0}
-.intro-body{font-size:clamp(18px,1.6vw,22px);line-height:1.55;color:var(--ink);margin:0;max-width:60ch}
-.search-empty{padding:48px 0;text-align:center;color:var(--muted);font-size:18px}
-#sections{scroll-margin-top:120px}
-.section{padding-block:48px 8px}
-.section-head{display:flex;align-items:baseline;gap:16px;padding-bottom:18px;margin-bottom:24px;border-bottom:1px solid var(--line)}
-.section-num{font:400 13px/1 var(--font-mono);color:var(--accent)}
-.section-head h2{font:400 clamp(26px,3vw,38px)/1.1 var(--font-display);letter-spacing:-.03em;margin:0}
-.section-count{margin-inline-start:auto;font-size:11px;text-transform:uppercase;letter-spacing:.06em;color:var(--muted);white-space:nowrap}
-.grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(232px,1fr));gap:18px}
-.card{position:relative;display:flex;flex-direction:column;background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);overflow:hidden;cursor:pointer;transition:transform .22s var(--ease),border-color .22s,box-shadow .22s,background .22s}
-.card:hover{transform:translateY(-2px);border-color:rgba(255,201,60,.5);box-shadow:0 18px 40px rgba(0,0,0,.35);background:var(--surface-2)}
-.card:active{transform:translateY(0) scale(.99)}
-.card-thumb{aspect-ratio:16/10;overflow:hidden;background:#0c0b0f;border-bottom:1px solid var(--line)}
-.card-thumb img{width:100%;height:100%;object-fit:cover;transition:transform .45s var(--ease)}
-.card:hover .card-thumb img{transform:scale(1.03)}
-.card-thumb.no-img{display:flex;align-items:center;justify-content:center;padding:16px;text-align:center;font:500 18px/1.15 var(--font-display);letter-spacing:-.02em;color:var(--accent);background:radial-gradient(circle at 30% 20%,#2d2b35,#0c0b0f)}
-.card-body{display:flex;flex-direction:column;flex:1;padding:16px 18px 18px}
-.card-top h3{font:500 18px/1.25 var(--font-display);letter-spacing:-.02em;margin:0 0 8px}
-.card-body p{margin:0 0 16px;font-size:14.5px;line-height:1.5;color:var(--muted);display:-webkit-box;-webkit-line-clamp:3;-webkit-box-orient:vertical;overflow:hidden}
-.card-foot{margin-top:auto;display:flex;align-items:center;justify-content:space-between;gap:8px}
-.card-foot .tag{display:none}
-.best-with{display:inline-flex;align-items:center;gap:6px;font-size:10.5px;text-transform:uppercase;letter-spacing:.05em;color:var(--accent);background:var(--accent-soft);padding:6px 10px;border-radius:8px}
-.best-with::before{content:"";width:12px;height:12px;background:currentColor;-webkit-mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='9' cy='8' r='4'/%3E%3Cpath d='M2 21v-1a6 6 0 0 1 12 0v1M16 4a4 4 0 0 1 0 8M22 21v-1a6 6 0 0 0-4-5.6'/%3E%3C/svg%3E") center/contain no-repeat;mask:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='black' stroke-width='2.4' stroke-linecap='round'%3E%3Ccircle cx='9' cy='8' r='4'/%3E%3Cpath d='M2 21v-1a6 6 0 0 1 12 0v1M16 4a4 4 0 0 1 0 8M22 21v-1a6 6 0 0 0-4-5.6'/%3E%3C/svg%3E") center/contain no-repeat}
-.card-open{font-size:13px;font-weight:600;color:var(--muted);transition:color .2s,translate .2s}
-.card:hover .card-open{color:var(--accent);translate:3px 0}
-[dir=rtl] .card:hover .card-open{translate:-3px 0}
-
-/* ---------- values + cta ---------- */
-.values{padding-block:96px 40px;scroll-margin-top:120px}
-.values .section-head{border:0;margin-bottom:8px;padding:0}
-.values h2{font:400 clamp(30px,4vw,52px)/1.08 var(--font-display);letter-spacing:-.035em;margin:0}
-.values>.intro-body{color:var(--muted);margin-bottom:40px}
-.values-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
-.value{background:var(--surface);border:1px solid var(--line);border-radius:var(--r-md);padding:28px 24px}
-.value-ico{display:inline-flex;align-items:center;justify-content:center;width:44px;height:44px;border-radius:12px;background:var(--accent);color:var(--accent-ink);margin-bottom:22px}
-.value h3{font:500 20px/1.25 var(--font-display);letter-spacing:-.02em;margin:0 0 10px}
-.value p{margin:0;color:var(--muted);font-size:15px}
-.cta-band{margin-block:56px 96px;background:var(--accent);color:var(--accent-ink);border-radius:var(--r-lg);padding:clamp(36px,6vw,72px);display:grid;grid-template-columns:minmax(0,1fr) auto;gap:32px;align-items:center}
-.cta-inner{display:contents}
-.cta-band h2{font:400 clamp(30px,4.4vw,56px)/1.05 var(--font-display);letter-spacing:-.04em;margin:0 0 12px}
-.cta-band p{margin:0;font-size:18px;opacity:.8;max-width:46ch}
-.cta-band .btn{background:var(--accent-ink);color:var(--accent)}
-.cta-band .btn:hover{box-shadow:0 10px 30px rgba(18,17,22,.35)}
-
-/* ---------- footer ---------- */
-footer{border-top:1px solid var(--line)}
-.foot-row{display:flex;flex-wrap:wrap;align-items:center;gap:16px 32px;padding-block:36px}
-.footer-mark{font:600 20px/1 var(--font-display);letter-spacing:-.02em;margin:0}
-.footer-mark span{color:var(--accent)}
-.credit{margin:0;color:var(--muted);font-size:14px;max-width:56ch;flex:1}
-.made{margin:0;font-size:10.5px;letter-spacing:.06em;color:var(--muted)}
-
-/* ---------- modal ---------- */
-.modal-overlay{position:fixed;inset:0;z-index:80;background:rgba(6,6,8,.72);backdrop-filter:blur(6px);-webkit-backdrop-filter:blur(6px);display:flex;align-items:center;justify-content:center;padding:24px;opacity:0;visibility:hidden;transition:opacity .25s,visibility .25s}
-.modal-overlay.open{opacity:1;visibility:visible}
-.modal-panel{position:relative;width:min(860px,100%);max-height:calc(100svh - 48px);overflow:auto;background:var(--surface);border:1px solid var(--line-2);border-radius:var(--r-lg);display:grid;grid-template-columns:minmax(0,.9fr) minmax(0,1fr);box-shadow:0 40px 120px rgba(0,0,0,.6);transform:translateY(16px) scale(.98);transition:transform .3s var(--ease)}
-.modal-overlay.open .modal-panel{transform:none}
-#modalThumbWrap{background:#0c0b0f;min-height:100%}
-.modal-thumb{aspect-ratio:1;height:100%;width:100%}
-.modal-thumb img{width:100%;height:100%;object-fit:cover}
-.modal-thumb.no-img{display:flex;align-items:center;justify-content:center;font:500 28px/1.1 var(--font-display);color:var(--accent);padding:24px;text-align:center}
-.modal-body{padding:40px 36px 36px;display:flex;flex-direction:column}
-.modal-top h2{font:400 clamp(28px,3vw,40px)/1.08 var(--font-display);letter-spacing:-.035em;margin:0 0 16px;padding-inline-end:40px}
-#modalDesc{color:var(--muted);font-size:16px;margin:0 0 20px}
-.modal-meta{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:24px}
-.modal-meta span{font:400 10.5px/1 var(--font-mono);text-transform:uppercase;letter-spacing:.05em;padding:8px 12px;border-radius:10px;border:1px solid var(--line-2);color:var(--muted)}
-.modal-meta .m-cat{background:var(--accent-soft);border-color:transparent;color:var(--accent)}
-.modal-hint{margin:auto 0 0;color:var(--muted);font-size:14px}
-.modal-hint br{display:none}
-.modal-cta{display:flex;align-items:center;justify-content:center;height:54px;margin-top:14px;border-radius:10px;background:var(--accent);color:var(--accent-ink);font-weight:700;font-size:16px;text-decoration:none;transition:transform .18s var(--ease),box-shadow .2s}
-.modal-cta:hover{transform:translateY(-2px);box-shadow:0 10px 30px rgba(255,201,60,.25)}
-.modal-cta:active{transform:scale(.98)}
-.modal-close{position:absolute;top:14px;inset-inline-end:14px;z-index:2;width:44px;height:44px;border-radius:10px;border:1px solid var(--line-2);background:rgba(18,17,22,.8);cursor:pointer;font-size:16px;transition:background .2s,transform .15s}
-.modal-close:hover{background:var(--surface-2)}
-.modal-close:active{transform:scale(.94)}
-
-/* ---------- full screen mode ---------- */
-.app-fullscreen .hero,.app-fullscreen .intro,.app-fullscreen .values,.app-fullscreen .cta-band{display:none}
-
-/* ---------- responsive ---------- */
-@media (max-width:1100px){
-  .values-grid{grid-template-columns:repeat(2,1fr)}
-  .hero-grid{gap:40px}
-}
-@media (max-width:900px){
-  .hero-grid{grid-template-columns:1fr;min-height:0;padding-block:40px 48px}
-  .hero-wall{grid-template-columns:repeat(4,1fr);gap:10px}
-  .hero-wall{height:300px}
-  .wall-col{gap:10px}
-  @keyframes wall-up{from{translate:0 0}to{translate:0 calc(-50% - 5px)}}
-  @keyframes wall-down{from{translate:0 calc(-50% - 5px)}to{translate:0 0}}
-  .picks-row{grid-template-columns:none;grid-auto-flow:column;grid-auto-columns:minmax(220px,62%);overflow-x:auto;scroll-snap-type:x mandatory;scroll-padding-inline:20px;scrollbar-width:none;margin-inline:-20px;padding-inline:20px}
-  .picks-row::-webkit-scrollbar{display:none}
-  .pick{scroll-snap-align:start}
-  .wall-tile .wall-name{display:none}
-  .intro{grid-template-columns:1fr;gap:12px;padding-block:48px 8px}
-  .cta-band{grid-template-columns:1fr}
-}
-@media (max-width:760px){
-  :root{--row1:58px}
-  .head-row{flex-wrap:wrap;gap:0 10px;padding-bottom:10px}
-  .logo{height:var(--row1);margin-inline-end:auto}
-  .head-tools{height:var(--row1)}
-  .head-search{order:3;flex-basis:100%;max-width:none;margin:0}
-  .site-head.tucked{transform:translateY(calc(-1 * var(--row1)))}
-  .lang-select .lang-current span{display:none}
-  .lang-select .lang-current .lang-code{display:inline}
-  .lang-select{padding-inline:6px 12px}
-  .site-head .logo{transition:opacity .2s}
-  .site-head.tucked .logo,.site-head.tucked .head-tools{opacity:0;pointer-events:none}
-  .lang-menu{position:fixed;top:66px;inset-inline:12px;width:auto}
-  .logo-tag{font-size:11px}
-  .full-screen-btn{display:none}
-  .chip-row{border-top:0}
-  .filters{padding-top:0}
-  .hero h1{font-size:clamp(40px,11vw,52px)}
-  .stats{grid-template-columns:repeat(3,1fr)}
-  .stat{padding-inline-end:12px;margin-inline-end:12px}
-  .stat b{font-size:28px}
-  .btn{flex:1 1 100%}
-  .grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:12px}
-  .card-body{padding:12px 12px 14px}
-  .card-top h3{font-size:15.5px;margin-bottom:6px}
-  .card-body p{font-size:13.5px;-webkit-line-clamp:2;margin-bottom:12px}
-  .card-open{display:none}
-  .best-with{font-size:9.5px;padding:5px 8px}
-  .section{padding-top:36px}
-  .section-head{gap:10px}
-  .values-grid{grid-template-columns:1fr}
-  .modal-overlay{align-items:flex-end;padding:0}
-  .modal-panel{grid-template-columns:1fr;border-radius:var(--r-lg) var(--r-lg) 0 0;max-height:92svh}
-  #modalThumbWrap{min-height:0}
-  .modal-thumb{aspect-ratio:16/10}
-  .modal-body{padding:24px 20px 28px}
-}
-@media (max-width:360px){
-  .grid{grid-template-columns:1fr}
-}
-@media (prefers-reduced-motion:reduce){
-  *,*::before,*::after{animation:none!important;transition:none!important;scroll-behavior:auto!important}
-}
-/* FAQ + legal footer (added 2026-11-25) */
-.faq{padding-block:40px 24px;scroll-margin-top:120px}
-.faq-list{border-top:1px solid var(--line);max-width:860px}
-.faq-list details{border-bottom:1px solid var(--line)}
-.faq-list summary{cursor:pointer;list-style:none;display:flex;justify-content:space-between;align-items:center;gap:16px;padding:20px 0;font:500 clamp(18px,2vw,22px)/1.3 var(--font-display);letter-spacing:-.01em}
-.faq-list summary::-webkit-details-marker{display:none}
-.faq-list summary::after{content:"+";flex:none;width:32px;height:32px;display:grid;place-items:center;border:1px solid var(--line-2);border-radius:var(--r-sm);color:var(--accent);font:500 20px/1 var(--font-text);transition:transform .3s var(--ease)}
-.faq-list details[open] summary::after{transform:rotate(45deg)}
-.faq-list p{margin:0 0 22px;color:var(--muted);max-width:62ch}
-.faq-list a{color:var(--accent)}
-.foot-legal{display:flex;flex-wrap:wrap;justify-content:space-between;gap:12px 32px;padding-block:0 36px;color:var(--muted);font-size:14px}
-.foot-legal nav{display:flex;gap:18px}
-.foot-legal a{color:var(--ink);text-decoration:underline;text-underline-offset:4px}
-.foot-legal p{margin:0;max-width:70ch}/* corners: square-ish controls (4px) and cards (8px), no pills or circles on buttons */
-.search-input,.icon-btn,.lang-select,.lang-option,.chip,.chip-n,.btn,.best-with,.pick-n,.modal-close,.modal-cta,.value-ico,.modal-meta span,.full-screen-btn,.card-thumb::before{border-radius:4px}
-.pick{border-radius:var(--r-md)}
-</style>
+<link href="type/fonts.css" rel="stylesheet">
+<link href="site.css" rel="stylesheet">
+<script>document.documentElement.classList.add('mo-js');setTimeout(()=>document.documentElement.classList.add('mo-safe'),2500)</script>
+<script type="module" src="kit/moments/moments.js"></script>
 </head>
 <body>
 
@@ -504,46 +177,40 @@ footer{border-top:1px solid var(--line)}
   </symbol>
 </svg>
 
-<a class="skip" href="#sections" data-i18n="skipLink">Skip to the games</a>
+<a class="skip" href="#games" data-i18n="skipLink">Skip to the games</a>
 
-<header class="site-head" id="siteHead">
-  <div class="wrap head-row">
-    <a class="logo" href="#top" aria-label="BloxWisp">
+<!-- deal: hero photo (the game-art wall as its layer) · nav-cards · close-word · footer-dark · rhythm space · buttons block · mark: client logo
+     moments: counter-rolls (#picks proof row), line-carries-colour (#rules) -->
+<header class="nav" id="siteHead">
+  <div class="wrap nav__bar">
+    <a class="logo" href="#top" aria-label="BloxWisp, home">
       <svg class="logo-mark" viewBox="0 0 64 64" aria-hidden="true" focusable="false">
         <defs>
-          <linearGradient id="logoBlox" x1=".15" y1="0" x2=".85" y2="1">
-            <stop offset="0" stop-color="#ffe066"/>
-            <stop offset=".55" stop-color="#ffc93c"/>
-            <stop offset="1" stop-color="#f5a300"/>
-          </linearGradient>
-          <radialGradient id="logoBloxGloss" cx=".34" cy=".2" r=".85">
-            <stop offset="0" stop-color="#fff" stop-opacity=".55"/>
-            <stop offset=".6" stop-color="#fff" stop-opacity=".04"/>
-            <stop offset="1" stop-color="#fff" stop-opacity="0"/>
-          </radialGradient>
+          <linearGradient id="logoBlox" x1=".15" y1="0" x2=".85" y2="1"><stop offset="0" stop-color="#ffe066"/><stop offset=".55" stop-color="#ffc93c"/><stop offset="1" stop-color="#f5a300"/></linearGradient>
+          <radialGradient id="logoBloxGloss" cx=".34" cy=".2" r=".85"><stop offset="0" stop-color="#fff" stop-opacity=".55"/><stop offset=".6" stop-color="#fff" stop-opacity=".04"/><stop offset="1" stop-color="#fff" stop-opacity="0"/></radialGradient>
         </defs>
         <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#logoBlox)"/>
         <rect x="3" y="3" width="58" height="58" rx="19" fill="url(#logoBloxGloss)"/>
-        <rect x="3.75" y="3.75" width="56.5" height="56.5" rx="18.3" fill="none" stroke="#fff" stroke-opacity=".35" stroke-width="1.5"/>
-        <ellipse cx="19" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
-        <ellipse cx="45" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
-        <circle cx="23" cy="27" r="3.6" fill="#3a2600"/>
-        <circle cx="41" cy="27" r="3.6" fill="#3a2600"/>
+        <ellipse cx="19" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/><ellipse cx="45" cy="37" rx="4.4" ry="2.6" fill="#ff8a5b" opacity=".32"/>
+        <circle cx="23" cy="27" r="3.6" fill="#3a2600"/><circle cx="41" cy="27" r="3.6" fill="#3a2600"/>
         <path d="M21 38 Q32 49 43 38" fill="none" stroke="#3a2600" stroke-width="4.6" stroke-linecap="round"/>
       </svg>
-      <span class="logo-text">
-        <span class="logo-name">Blox<span class="logo-name-accent">Wisp</span></span>
-        <span class="logo-tag" data-i18n="logoTag">good roblox games to play</span>
-      </span>
+      <span class="logo-name">Blox<span>Wisp</span></span>
+      <span class="vh" data-i18n="logoTag">good roblox games to play</span>
     </a>
-    <div class="head-search search-wrap">
-      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
-      <input class="search-input" id="gameSearch" type="search" autocomplete="off" placeholder="Search games…" aria-label="Search games">
-    </div>
-    <div class="head-tools">
-      <button class="icon-btn full-screen-btn" id="fullScreenBtn" type="button" aria-label="Toggle full screen">⤢</button>
+    <nav class="nav__links" aria-label="Main">
+      <div class="nav__item nav__item--menu">
+        <a class="nav__link" href="#games"><span data-i18n="navGames">Games</span> <svg class="chev" viewBox="0 0 12 12" aria-hidden="true"><path d="M3 4.5l3 3 3-3" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/></svg></a>
+        <div class="nav__menu"><div class="wrap menu-cards" id="menuCards"></div></div>
+      </div>
+      <div class="nav__item"><a class="nav__link" href="#picks" data-i18n="navStart">Start here</a></div>
+      <div class="nav__item"><a class="nav__link" href="#rules" data-i18n="navRules">How we pick</a></div>
+      <div class="nav__item"><a class="nav__link" href="#faq" data-i18n="navFaq">FAQ</a></div>
+    </nav>
+    <div class="nav__actions">
+      <button class="icon-btn full-screen-btn" id="fullScreenBtn" type="button" aria-label="Open full screen">⤢</button>
       <div class="lang-select-wrap" id="langSelectWrap">
-        <button class="lang-select mono" id="langSelect" type="button" aria-label="Language" aria-expanded="false" aria-haspopup="true">
+        <button class="lang-select" id="langSelect" type="button" aria-label="Language" aria-expanded="false" aria-haspopup="true">
           <span class="lang-current"><svg class="lang-flag" aria-hidden="true" focusable="false"><use href="#flag-us"/></svg><span>English</span></span>
           <span class="lang-caret" aria-hidden="true">▾</span>
         </button>
@@ -561,93 +228,78 @@ footer{border-top:1px solid var(--line)}
           <button class="lang-option" type="button" data-lang="ko" role="menuitem"><svg class="flag" aria-hidden="true" focusable="false"><use href="#flag-ko"/></svg><span>한국어</span></button>
         </div>
       </div>
+      <a class="btn btn--primary" href="#games" data-i18n-all="heroCtaBrowse">Browse the list →</a>
     </div>
   </div>
-  <div class="chip-row"><nav class="wrap filters" id="filters" aria-label="Categories"></nav></div>
 </header>
 
 <main id="top">
-<section class="hero">
-  <div class="wrap hero-grid">
-    <div class="hero-copy">
-      <p class="eyebrow"><span class="pip" aria-hidden="true"></span><span data-i18n="eyebrow">a hand-picked list of roblox games</span></p>
-      <h1 data-i18n-html="hero">Skip the <span class="accent">slop.</span><br>Play good Roblox games.</h1>
-      <p class="sub" data-i18n="sub">Each game was played before it went on the list. Generic simulators, clones and brainrot stay off it.</p>
-      <div class="hero-cta">
-        <a class="btn btn-primary btn-hero" href="#sections"><span data-i18n="heroCtaBrowse">Browse the list →</span></a>
-        <button class="btn btn-ghost" id="surpriseBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="4"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.3" fill="currentColor"/></svg><span data-i18n="surprise">Surprise me</span></button>
-      </div>
-      <div class="stats" id="stats"></div>
-    </div>
-    <div class="hero-wall" id="heroWall"></div>
-  </div>
-</section>
-
-<section class="picks" id="picks" aria-labelledby="picksTitle">
-  <div class="wrap">
-    <div class="picks-head">
-      <h2 id="picksTitle" data-i18n="picksTitle">Start here</h2>
-      <p data-i18n="picksLead">Not sure what to play? One pick from each of five categories.</p>
-    </div>
-    <div class="picks-row" id="picksRow"></div>
-  </div>
-</section>
-
-<div class="wrap">
-  <section class="intro">
-    <p class="intro-label" data-i18n="introLabel">what to play</p>
-    <p class="intro-body" data-i18n="introBody">BloxWisp is a hand-picked list of good Roblox games to play. Each one was played before it was added: PvP, horror, RPGs, obbies and more. Use it to find a game to play with friends or on your own.</p>
-  </section>
-  <p class="search-empty hidden" id="searchEmpty" role="status"></p>
-</div>
-
-<div class="wrap" id="sections"></div>
-
-<div class="wrap">
-  <section class="values" id="values">
-    <div class="section-head">
-      <h2 data-i18n="featuresTitle">Why this list is short on purpose</h2>
-    </div>
-    <p class="intro-body" data-i18n="featuresLead">Four rules decide which games get in and which get cut.</p>
-    <div class="values-grid">
-      <div class="value">
-        <span class="value-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg></span>
-        <h3 data-i18n="f1t">Played first</h3>
-        <p data-i18n="f1d">Every game was played before it got a spot. Nothing is copied from top-100 charts.</p>
-      </div>
-      <div class="value">
-        <span class="value-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 7v5l3 2"/></svg></span>
-        <h3 data-i18n="f2t">Worth your time</h3>
-        <p data-i18n="f2d">A game with real depth beats endless grinding. If an hour in it feels well spent, it stays.</p>
-      </div>
-      <div class="value">
-        <span class="value-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/></svg></span>
-        <h3 data-i18n="f3t">Better with friends</h3>
-        <p data-i18n="f3d">Each card says who the game suits: solo, a small squad or a full lobby on voice.</p>
-      </div>
-      <div class="value">
-        <span class="value-ico" aria-hidden="true"><svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="9"/><path d="M5.6 5.6 18.4 18.4"/></svg></span>
-        <h3 data-i18n="f4t">No brainrot</h3>
-        <p data-i18n="f4d">Clones and cash-grab simulators are left out. The games here still hold up after the first hour.</p>
+  <section class="hero" id="hero" aria-labelledby="hero-h" data-enter>
+    <div class="hero__bg" id="heroWall" aria-hidden="true"></div>
+    <button class="wall-pause" id="wallPause" type="button" aria-pressed="false" aria-label="Pause the moving game wall"><svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg></button>
+    <div class="wrap">
+      <div class="hero__box">
+        <p class="hero__eyebrow" data-i18n="eyebrow">320 hand-picked roblox games, 12 categories</p>
+        <h1 id="hero-h" data-i18n-html="hero">Skip the <span class="accent">slop.</span><br>Play good Roblox games.</h1>
+        <p class="hero__lead" data-i18n="sub">Each game was played before it went on the list. Generic simulators, clones and brainrot stay off it.</p>
+        <div class="btn-row hero-cta">
+          <a class="btn btn--primary" href="#games"><span data-i18n="heroCtaBrowse">Browse the list →</span></a>
+          <button class="btn btn--secondary" id="surpriseBtn" type="button"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><rect x="3" y="3" width="18" height="18" rx="3"/><circle cx="8.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="15.5" r="1.3" fill="currentColor"/><circle cx="15.5" cy="8.5" r="1.3" fill="currentColor"/><circle cx="8.5" cy="15.5" r="1.3" fill="currentColor"/></svg><span data-i18n="surprise">Surprise me</span></button>
+        </div>
       </div>
     </div>
   </section>
 
-  <section class="faq" id="faq" aria-labelledby="faqTitle">
-    <div class="section-head"><h2 id="faqTitle" data-faq="title">Questions people ask</h2></div>
-    <div class="faq-list" id="faqList"></div>
-  </section>
-
-  <section class="cta-band">
-    <div class="cta-inner">
-      <div>
-        <h2 data-i18n="ctaTitle">Find your next game.</h2>
-        <p data-i18n="ctaBody">The list is sorted by category, so finding a good game takes about a minute.</p>
+  <section class="block" id="picks" aria-labelledby="picksTitle">
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <h2 id="picksTitle" data-i18n="picksTitle">Five games to start with</h2>
+        <p data-i18n="picksLead">Not sure what to play? One pick from each of five categories.</p>
       </div>
-      <a class="btn" href="#sections"><span data-i18n="ctaBtn">Start browsing →</span></a>
+      <div class="picks-row" id="picksRow"></div>
+      <div class="proof" id="stats" data-moment="counter-rolls"></div>
     </div>
   </section>
-</div>
+
+  <section class="block" id="games" aria-labelledby="games-h">
+    <div class="wrap">
+      <div class="section-head">
+        <h2 id="games-h" data-i18n="introLabel">What to play</h2>
+        <p data-i18n="introBody">BloxWisp is a hand-picked list of good Roblox games to play. Each one was played before it was added: PvP, horror, RPGs, obbies and more. Use it to find a game to play with friends or on your own.</p>
+      </div>
+      <div class="toolbar">
+        <div class="search"><label class="search-label" for="gameSearch" data-i18n-all="searchPlaceholder">Search games…</label>
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" aria-hidden="true" focusable="false"><circle cx="11" cy="11" r="7"/><path d="m20 20-3.5-3.5"/></svg>
+          <input class="search-input" id="gameSearch" type="search" autocomplete="off" placeholder="Search games…" aria-label="Search games">
+        </div>
+        <nav class="filters" id="filters" aria-label="Categories"></nav>
+      </div>
+      <p class="search-empty hidden" id="searchEmpty" role="status"></p>
+      <div id="sections"></div>
+    </div>
+  </section>
+
+  <section class="block ground-inverse" id="rules" aria-labelledby="rules-h" data-moment="line-carries-colour" data-moment-opts='{"from": "base"}'>
+    <div class="wrap">
+      <div class="section-head section-head--split">
+        <h2 id="rules-h" data-i18n="featuresTitle">Why this list is short on purpose</h2>
+        <p data-i18n="featuresLead">Four rules decide which games get in and which get cut.</p>
+      </div>
+      <div class="rules">
+        <div class="rule"><span class="rule__n" aria-hidden="true">01</span><h3 data-i18n="f1t">Played first</h3><p data-i18n="f1d">Every game was played before it got a spot. Nothing is copied from top-100 charts.</p></div>
+        <div class="rule"><span class="rule__n" aria-hidden="true">02</span><h3 data-i18n="f2t">Worth your time</h3><p data-i18n="f2d">A game with real depth beats endless grinding. If an hour in it feels well spent, it stays.</p></div>
+        <div class="rule"><span class="rule__n" aria-hidden="true">03</span><h3 data-i18n="f3t">Better with friends</h3><p data-i18n="f3d">Each card says who the game suits: solo, a small squad or a full lobby on voice.</p></div>
+        <div class="rule"><span class="rule__n" aria-hidden="true">04</span><h3 data-i18n="f4t">No brainrot</h3><p data-i18n="f4d">Clones and cash-grab simulators are left out. The games here still hold up after the first hour.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" id="faq" aria-labelledby="faqTitle">
+    <div class="wrap">
+      <div class="section-head"><h2 id="faqTitle" data-faq="title">Questions people ask</h2></div>
+      <div class="faq-list" id="faqList"></div>
+    </div>
+  </section>
 </main>
 
 <div class="modal-overlay" id="modalOverlay">
@@ -668,21 +320,29 @@ footer{border-top:1px solid var(--line)}
   </div>
 </div>
 
-<footer>
-  <div class="wrap foot-row">
-    <p class="footer-mark">Blox<span>Wisp</span></p>
-    <p class="credit" data-i18n="footerCredit">BloxWisp is a hand-picked list of Roblox games, updated over time.</p>
-    <p class="made mono" data-i18n="footerMade">MADE BY ONE DEVELOPER.</p>
-  </div>
-  <div class="wrap foot-legal">
-    <nav aria-label="Legal"><a href="privacy.html">Privacy</a><a href="terms.html">Terms</a><a href="accessibility.html">Accessibility</a></nav>
-    <p>BloxWisp is an independent fan list. It is not affiliated with or endorsed by Roblox Corporation. Game names and images belong to their creators.</p>
+<footer class="closing" id="contact" aria-labelledby="close-h">
+  <div class="wrap">
+    <div class="section-head section-head--split">
+      <div><h2 id="close-h" data-i18n="ctaTitle">Find your next game.</h2><p data-i18n="ctaBody">The list is sorted by category, so finding a good game takes about a minute.</p></div>
+      <a class="btn btn--primary" href="#games" data-i18n-all="heroCtaBrowse">Browse the list →</a>
+    </div>
+    <p class="close__word" aria-hidden="true">Blox<span>Wisp</span></p>
+    <div class="closing__links">
+      <div><p data-i18n="footerCredit">BloxWisp is a hand-picked list of Roblox games, updated over time.</p></div>
+      <div class="footer__col"><h3 data-i18n="navGames">Games</h3><ul><li><a href="#picks" data-i18n-all="navStart">Start here</a></li><li><a href="#games" data-i18n-all="all">All</a></li><li><button type="button" id="footSurprise" data-i18n-all="surprise">Surprise me</button></li></ul></div>
+      <div class="footer__col"><h3>BloxWisp</h3><ul><li><a href="#rules" data-i18n-all="navRules">How we pick</a></li><li><a href="#faq" data-i18n-all="navFaq">FAQ</a></li></ul></div>
+      <div class="footer__col"><h3 data-i18n="navLegal">Legal</h3><ul><li><a href="privacy.html">Privacy</a></li><li><a href="terms.html">Terms</a></li><li><a href="accessibility.html">Accessibility</a></li></ul></div>
+    </div>
+    <div class="footer__legal">
+      <span>© 2026 BloxWisp</span>
+      <p>BloxWisp is an independent fan list. It is not affiliated with or endorsed by Roblox Corporation. Game names and images belong to their creators.</p>
+    </div>
   </div>
 </footer>
 
-<nav class="bar is-hidden" id="phoneBar" aria-label="Quick actions">
-  <a class="btn btn-primary" href="#sections" id="barBrowse">Browse the list</a>
-  <button class="btn btn-ghost" type="button" id="barSurprise">Surprise me</button>
+<nav class="actionbar bar is-hidden" id="phoneBar" aria-label="Quick actions">
+  <a class="btn btn--primary" href="#games" id="barBrowse">Browse the list</a>
+  <button class="btn btn--secondary" type="button" id="barSurprise">Surprise me</button>
 </nav>
 
 <script>
@@ -1519,15 +1179,15 @@ async function loadVisibleGameImages(){
 
 /* ---------- I18N ---------- */
 const I18N = {
-  en:{ eyebrow:"a hand-picked list of roblox games",
+  en:{ eyebrow:"320 hand-picked roblox games, 12 categories",
     heroHtml:'Skip the <span class="accent">slop.</span><br>Play good Roblox games.',
     sub:"Each game was played before it went on the list. Generic simulators, clones and brainrot stay off it.",
-    statGames:"curated picks", statCats:"categories", statBrainrot:"links checked", picksTitle:"Start here", picksLead:"Not sure what to play? One pick from each of five categories.",
+    statGames:"curated picks", statCats:"categories", statBrainrot:"links checked", picksTitle:"Five games to start with", picksLead:"Not sure what to play? One pick from each of five categories.",
     all:"All", games:"games", playNow:"Play now →",
     topRated:"Your Top Rated", topRatedEmpty:"Rate a few games (tap the stars) to build your own top list.",
     logoTag:"good roblox games to play", modalHint:"Open {game} directly in Roblox.", playOnRoblox:"Play on Roblox →",
     footerCredit:"BloxWisp is a hand-picked list of Roblox games, updated over time.",
-    footerMade:"MADE BY ONE DEVELOPER.",
+    footerMade:"Made by one developer.",
     searchPlaceholder:"Search games…", noResults:"No games match your search.",
     introLabel:"what to play", introBody:"BloxWisp is a hand-picked list of good Roblox games to play. Each one was played before it was added: PvP, horror, RPGs, obbies and more. Use it to find a game to play with friends or on your own.",
     ratingsNote:"Ratings are saved on your device only.",
@@ -1539,10 +1199,10 @@ const I18N = {
     f3t:"Better with friends", f3d:"Each card says who the game suits: solo, a small squad or a full lobby on voice.",
     f4t:"No brainrot", f4d:"Clones and cash-grab simulators are left out. The games here still hold up after the first hour.",
     ctaTitle:"Find your next game.", ctaBody:"The list is sorted by category, so finding a good game takes about a minute.", ctaBtn:"Start browsing →" },
-  he:{ eyebrow:"רשימה של משחקי רובלוקס שנבחרו ידנית",
+  he:{ eyebrow:"320 משחקי רובלוקס שנבחרו ידנית, 12 קטגוריות",
     heroHtml:'דלגו על <span class="accent">הזבל.</span><br>שחקו במשהו טוב.',
     sub:"כל משחק נשחק לפני שנכנס לרשימה. סימולטורים גנריים, שכפולים ובריינרוט לא נכנסים.",
-    statGames:"משחקים נבחרים", statCats:"קטגוריות", statBrainrot:"קישורים נבדקו", picksTitle:"מתחילים מכאן", picksLead:"לא בטוחים מה לשחק? משחק אחד מכל אחת מחמש קטגוריות.",
+    statGames:"משחקים נבחרים", statCats:"קטגוריות", statBrainrot:"קישורים נבדקו", picksTitle:"חמישה משחקים להתחלה", picksLead:"לא בטוחים מה לשחק? משחק אחד מכל אחת מחמש קטגוריות.",
     all:"הכול", games:"משחקים", playNow:"שחקו עכשיו ←",
     topRated:"המשחקים המדורגים שלך", topRatedEmpty:"דרגו כמה משחקים (לחצו על הכוכבים) כדי לבנות רשימת מועדפים אישית.",
     logoTag:"משחקי רובלוקס שבאמת טובים", modalHint:"פתחו את {game} ישירות ברובלוקס.", playOnRoblox:"שחקו ברובלוקס ←",
@@ -1567,7 +1227,7 @@ const I18N = {
     topRated:"Tus mejor valorados", topRatedEmpty:"Valora algunos juegos (toca las estrellas) para crear tu propia lista.",
     logoTag:"juegos de roblox que sí valen la pena", modalHint:"Abre {game} directamente en Roblox.", playOnRoblox:"Jugar en Roblox →",
     footerCredit:"BloxWisp es una lista de juegos de Roblox elegida a mano y actualizada con el tiempo.",
-    footerMade:"HECHO POR UN SOLO DESARROLLADOR.",
+    footerMade:"Hecho por un solo desarrollador.",
     searchPlaceholder:"Buscar juegos…", noResults:"Ningún juego coincide con tu búsqueda.",
     introLabel:"qué jugar", introBody:"BloxWisp es una lista de buenos juegos de Roblox elegida a mano. Cada juego se jugó antes de añadirlo: PvP, terror, RPG, obbies y más. Úsala para encontrar un juego para jugar con amigos o por tu cuenta.",
     ratingsNote:"Las valoraciones se guardan solo en tu dispositivo.",
@@ -1587,7 +1247,7 @@ const I18N = {
     topRated:"Vos mieux notés", topRatedEmpty:"Notez quelques jeux (touchez les étoiles) pour créer votre liste.",
     logoTag:"bons jeux roblox à essayer", modalHint:"Ouvrez {game} directement dans Roblox.", playOnRoblox:"Jouer sur Roblox →",
     footerCredit:"BloxWisp est une liste de jeux Roblox choisis à la main, mise à jour au fil du temps.",
-    footerMade:"FAIT PAR UN SEUL DÉVELOPPEUR.",
+    footerMade:"Fait par un seul développeur.",
     searchPlaceholder:"Rechercher des jeux…", noResults:"Aucun jeu ne correspond à votre recherche.",
     introLabel:"à quoi jouer", introBody:"BloxWisp est une liste de bons jeux Roblox choisis à la main. Chaque jeu a été joué avant d'être ajouté : PvP, horreur, RPG, obbys et plus encore. Servez-vous-en pour trouver un jeu à faire entre amis ou en solo.",
     ratingsNote:"Les notes sont enregistrées uniquement sur votre appareil.",
@@ -1607,7 +1267,7 @@ const I18N = {
     topRated:"Seus mais bem avaliados", topRatedEmpty:"Avalie alguns jogos (toque nas estrelas) para montar sua lista.",
     logoTag:"bons jogos de roblox para jogar", modalHint:"Abra {game} diretamente no Roblox.", playOnRoblox:"Jogar no Roblox →",
     footerCredit:"BloxWisp é uma lista de jogos de Roblox escolhidos à mão, atualizada com o tempo.",
-    footerMade:"FEITO POR UM ÚNICO DESENVOLVEDOR.",
+    footerMade:"Feito por um único desenvolvedor.",
     searchPlaceholder:"Buscar jogos…", noResults:"Nenhum jogo corresponde à sua busca.",
     introLabel:"o que jogar", introBody:"BloxWisp é uma lista de bons jogos de Roblox escolhidos à mão. Cada jogo foi jogado antes de entrar: PvP, terror, RPG, obbys e mais. Use para achar um jogo para jogar com amigos ou sozinho.",
     ratingsNote:"As avaliações são salvas apenas no seu dispositivo.",
@@ -1627,7 +1287,7 @@ const I18N = {
     topRated:"Deine Top-Bewertungen", topRatedEmpty:"Bewerte ein paar Spiele (tippe auf die Sterne), um deine eigene Liste zu erstellen.",
     logoTag:"wirklich gute roblox-spiele zum spielen", modalHint:"Öffne {game} direkt in Roblox.", playOnRoblox:"Auf Roblox spielen →",
     footerCredit:"BloxWisp ist eine handverlesene Liste von Roblox-Spielen, die mit der Zeit aktualisiert wird.",
-    footerMade:"GEMACHT VON EINEM EINZELNEN ENTWICKLER.",
+    footerMade:"Gemacht von einem einzelnen Entwickler.",
     searchPlaceholder:"Spiele suchen…", noResults:"Keine Spiele entsprechen deiner Suche.",
     introLabel:"was spielen", introBody:"BloxWisp ist eine handverlesene Liste guter Roblox-Spiele. Jedes Spiel wurde gespielt, bevor es dazukam: PvP, Horror, RPGs, Obbys und mehr. Hier findest du ein Spiel für dich allein oder mit Freunden.",
     ratingsNote:"Bewertungen werden nur auf deinem Gerät gespeichert.",
@@ -2794,6 +2454,8 @@ function shortenDesc(text){
   }
   return kept.join(' ');
 }
+/* the card shows the first sentence; the game's window shows all of it */
+function firstSentence(text){ const m = String(text).match(/^.+?[.!?。！？](?=\s|$)/); return m ? m[0] : text; }
 function translatedDesc(name, desc){
   const slug = slugify(name);
   const tr = TRANSLATIONS[slug];
@@ -2945,9 +2607,9 @@ const totalGames = DATA.reduce((n,s)=>n+s.games.length,0);
 function renderStats(){
   const t = I18N[CURRENT_LANG];
   document.getElementById('stats').innerHTML = `
-    <div class="stat"><b>${totalGames}</b><span>${t.statGames}</span></div>
-    <div class="stat"><b>${DATA.length}</b><span>${t.statCats}</span></div>
-    <div class="stat"><b>100%</b><span>${t.statBrainrot}</span></div>
+    <div><p class="t-stat">${totalGames}</p><p class="t-small">${t.statGames}</p></div>
+    <div><p class="t-stat">${DATA.length}</p><p class="t-small">${t.statCats}</p></div>
+    <div><p class="t-stat">100%</p><p class="t-small">${t.statBrainrot}</p></div>
   `;
 }
 
@@ -2963,9 +2625,9 @@ function renderSections(){
     section.className = 'section';
     section.dataset.cat = sec.cat;
     section.innerHTML = `
-      <div class="section-head" style="--accent:${accent}">
+      <div class="cat-head">
         <span class="section-num">${String(si + 1).padStart(2, '0')}</span>
-        <h2>${label}</h2>
+        <h3 class="cat-title">${label}</h3>
         <span class="section-count mono">${sec.games.length} ${t.games}</span>
       </div>
       <div class="grid">
@@ -2976,7 +2638,7 @@ function renderSections(){
               <div class="card-top">
                 <h3>${translatedName(g.name)}</h3>
               </div>
-              <p>${translatedDesc(g.name, g.desc)}</p>
+              <p>${firstSentence(translatedDesc(g.name, g.desc))}</p>
               <div class="card-foot">
                 <span class="tag mono">${label}</span>
                 <span class="best-with mono">${translatedWith(g.with)}</span>
@@ -3253,7 +2915,7 @@ function applyLang(lang){
   searchInputEl.setAttribute('aria-label', t.searchPlaceholder);
   searchEmptyEl.textContent = t.noResults;
   document.querySelector('[data-i18n="footerCredit"]').textContent = t.footerCredit;
-  document.querySelector('[data-i18n="footerMade"]').textContent = t.footerMade;
+  document.querySelector('[data-i18n="footerMade"]')?.replaceChildren(t.footerMade);
   ['heroCtaBrowse','heroCtaWhy','featuresTitle','featuresLead',
    'f1t','f1d','f2t','f2d','f3t','f3d','f4t','f4d',
    'ctaTitle','ctaBody','ctaBtn','surprise','skipLink','a11yLanguage','picksTitle','picksLead'].forEach(key=>{
@@ -3357,9 +3019,9 @@ if (fullScreenBtn) {
 
 /* ---------- REDESIGN 2026-11: hero wall, surprise me, header tuck ---------- */
 const heroWallEl = document.getElementById('heroWall');
-/* four columns of six icons; each column holds its tiles twice so the drift loops without a seam */
+/* seven columns of five icons behind the hero box; each column holds its tiles twice so the drift loops without a seam */
 function renderHeroWall(){
-  const COLS = 4, PER = 6, picks = [];
+  const COLS = 7, PER = 5, picks = [];
   for(let round = 0; picks.length < COLS * PER && round < 8; round++){
     DATA.forEach(sec => {
       const g = sec.games[round];
@@ -3367,14 +3029,14 @@ function renderHeroWall(){
     });
   }
   const tile = (p, i, copy) => `
-    <button class="wall-tile" type="button" style="--i:${i}" data-cat="${p.cat}" data-idx="${p.idx}" aria-label="${p.g.name}"${copy ? ' aria-hidden="true" tabindex="-1"' : ''}>
+    <button class="wall-tile" type="button" tabindex="-1" style="--i:${i}" data-cat="${p.cat}" data-idx="${p.idx}" aria-label="${p.g.name}"${copy ? ' aria-hidden="true" tabindex="-1"' : ''}>
       <img src="${localIconUrl(slugify(p.g.name))}" alt="" width="180" height="180" ${i > 7 || copy ? 'loading="lazy"' : ''}>
       <span class="wall-name">${translatedName(p.g.name)}</span>
     </button>`;
   let html = '';
   for(let c = 0; c < COLS; c++){
     const col = picks.filter((_, i) => i % COLS === c);
-    html += `<div class="wall-col" style="--t:${44 + c * 7}s">${col.map((p, i) => tile(p, i * COLS + c, false)).join('')}${col.map((p, i) => tile(p, i * COLS + c, true)).join('')}</div>`;
+    html += `<div class="wall-col" style="--t:${56 + c * 6}s">${col.map((p, i) => tile(p, i * COLS + c, false)).join('')}${col.map((p, i) => tile(p, i * COLS + c, true)).join('')}</div>`;
   }
   heroWallEl.innerHTML = html;
 }
@@ -3388,9 +3050,8 @@ function renderPicks(){
     const label = (CATLABELS[sec.cat] && CATLABELS[sec.cat][CURRENT_LANG]) || sec.catLabel;
     const icon = localIconUrl(slugify(g.name));
     return `<button class="pick" type="button" data-cat="${sec.cat}" data-idx="0">
-      ${icon ? `<img src="${icon}" alt="" width="420" height="420" loading="lazy">` : ''}
-      <span class="pick-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span>
-      <span class="pick-body"><span class="pick-cat">${label}</span><b>${translatedName(g.name)}</b><span class="pick-desc">${translatedDesc(g.name, g.desc)}</span></span>
+      <span class="pick__art">${icon ? `<img src="${icon}" alt="" width="420" height="420" loading="lazy">` : ''}<span class="pick-n" aria-hidden="true">${String(i + 1).padStart(2, '0')}</span></span>
+      <span class="pick-body"><span class="pick-cat">${label}</span><b>${translatedName(g.name)}</b><span class="pick-desc">${firstSentence(translatedDesc(g.name, g.desc))}</span></span>
     </button>`;
   }).join('');
 }
@@ -3463,7 +3124,7 @@ const FAQ = {
 function renderFaq(lang){
   const f = FAQ[lang] || FAQ.en;
   document.querySelector('[data-faq="title"]').textContent = f.title;
-  document.getElementById('faqList').innerHTML = f.items.map(([q,a]) => `<details><summary>${q}</summary><p>${a}</p></details>`).join('');
+  document.getElementById('faqList').innerHTML = f.items.map(([q,a]) => `<div class="faq__item"><h3>${q}</h3><p>${a}</p></div>`).join('');
   let ld = document.getElementById('faqSchema');
   if(!ld){ ld = document.createElement('script'); ld.type = 'application/ld+json'; ld.id = 'faqSchema'; document.head.append(ld); }
   ld.textContent = JSON.stringify({"@context":"https://schema.org","@type":"FAQPage","mainEntity":FAQ.en.items.map(([q,a])=>({"@type":"Question","name":q,"acceptedAnswer":{"@type":"Answer","text":a.replace(/<[^>]+>/g,'')}}))});
@@ -3480,6 +3141,46 @@ document.getElementById('barSurprise').addEventListener('click', () => document.
   else if (bar) bar.classList.remove('is-hidden');
 })();
 (() => { const t = I18N[CURRENT_LANG] || I18N.en; document.getElementById('barBrowse').textContent = t.heroCtaBrowse || I18N.en.heroCtaBrowse; document.getElementById('barSurprise').textContent = t.surprise || I18N.en.surprise; })();
+
+/* 2026-11-25 redesign: nav words, repeated labels, the nav's category cards, the wall's pause button */
+const NAV_I18N = {
+  en:{navStart:"Start here", navGames:"Games", navRules:"How we pick", navFaq:"FAQ", navLegal:"Legal"},
+  he:{navStart:"להתחלה", navGames:"משחקים", navRules:"איך בוחרים", navFaq:"שאלות", navLegal:"משפטי"}
+};
+function fillRedesignText(lang){
+  const t = Object.assign({}, I18N.en, NAV_I18N.en, I18N[lang] || {}, NAV_I18N[lang] || {});
+  document.querySelectorAll('[data-i18n="navStart"],[data-i18n="navGames"],[data-i18n="navRules"],[data-i18n="navFaq"],[data-i18n="navLegal"]').forEach(el => { el.textContent = t[el.dataset.i18n]; });
+  document.querySelectorAll('[data-i18n-all]').forEach(el => { const v = t[el.dataset.i18nAll]; if(v) el.textContent = v; });
+  renderMenuCards();
+}
+function renderMenuCards(){
+  const box = document.getElementById('menuCards');
+  if(!box) return;
+  box.innerHTML = DATA.slice(0, 4).map(sec => {
+    const label = (CATLABELS[sec.cat] && CATLABELS[sec.cat][CURRENT_LANG]) || sec.catLabel;
+    const icons = sec.games.map(g => localIconUrl(slugify(g.name))).filter(Boolean).slice(0, 3);
+    return `<a class="menu-card" href="#games" data-menu-cat="${sec.cat}"><span class="panel">${icons.map(u => `<img src="${u}" alt="" loading="lazy">`).join('')}</span><b>${label}</b><span>${sec.games.length} ${(I18N[CURRENT_LANG] || I18N.en).games}</span></a>`;
+  }).join('');
+}
+document.getElementById('menuCards').addEventListener('click', e => {
+  const card = e.target.closest('[data-menu-cat]');
+  if(!card) return;
+  const chip = document.querySelector(`.chip[data-cat="${card.dataset.menuCat}"]`);
+  if(chip) chip.click();
+});
+const _applyLangRedesign = applyLang;
+applyLang = function(lang){ _applyLangRedesign(lang); fillRedesignText(lang); };
+fillRedesignText(CURRENT_LANG);
+document.getElementById('footSurprise').addEventListener('click', () => document.getElementById('surpriseBtn').click());
+(() => {
+  const btn = document.getElementById('wallPause'), hero = document.getElementById('hero');
+  btn.addEventListener('click', () => {
+    const paused = hero.classList.toggle('is-paused');
+    btn.setAttribute('aria-pressed', String(paused));
+    btn.setAttribute('aria-label', paused ? 'Play the moving game wall' : 'Pause the moving game wall');
+    btn.innerHTML = paused ? '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><path d="M4 2.5v11l9-5.5z"/></svg>' : '<svg viewBox="0 0 16 16" fill="currentColor" aria-hidden="true"><rect x="3" y="2" width="3.5" height="12" rx="1"/><rect x="9.5" y="2" width="3.5" height="12" rx="1"/></svg>';
+  });
+})();
 </script>
 </body>
 </html>
